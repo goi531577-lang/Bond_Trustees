@@ -9442,6 +9442,37 @@
       }
     }
 
+    function buildPvoLink(slug) {
+      const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}` || './';
+      try {
+        sessionStorage.setItem('pvoReturnUrl', currentUrl);
+        sessionStorage.setItem('pvoListState', JSON.stringify({
+          search: searchInput.value || '',
+          scrollY: window.scrollY || 0
+        }));
+      } catch (error) {
+        // ignore storage errors
+      }
+      return `./pvo.html?pvo=${encodeURIComponent(slug)}&return=${encodeURIComponent(currentUrl)}`;
+    }
+
+    function restoreListState() {
+      try {
+        const raw = sessionStorage.getItem('pvoListState');
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        if (state && typeof state.search === 'string' && state.search) {
+          searchInput.value = state.search;
+          renderList(state.search);
+        }
+        if (state && Number.isFinite(state.scrollY)) {
+          requestAnimationFrame(() => window.scrollTo({ top: Math.max(0, state.scrollY), behavior: 'auto' }));
+        }
+      } catch (error) {
+        // ignore storage errors
+      }
+    }
+
     function openInfo(slug) {
       const item = items.find(entry => entry.slug === slug);
       if (!item) return;
@@ -9450,7 +9481,7 @@
       document.getElementById('infoLead').textContent = `У этого ПВО ${item.issue_count} ${pluralizeIssues(item.issue_count)} со статусом «Торгуется».`;
       document.getElementById('infoCount').textContent = item.issue_count;
       document.getElementById('infoShare').textContent = formatPercent(share);
-      document.getElementById('infoLink').href = `./pvo.html?pvo=${encodeURIComponent(item.slug)}`;
+      document.getElementById('infoLink').href = buildPvoLink(item.slug);
       openOverlay(infoOverlay);
     }
 
@@ -9515,6 +9546,7 @@
 
     searchInput.addEventListener('input', event => renderList(event.target.value));
     renderList();
+    restoreListState();
   </script>
 </body>
 </html>

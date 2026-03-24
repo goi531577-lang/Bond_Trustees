@@ -239,7 +239,7 @@
 <body>
   <div class="frame"></div>
   <main class="shell">
-    <a class="backLink" href="./index.html">← Назад к списку ПВО</a>
+    <a id="backLink" class="backLink" href="./">← Назад к списку ПВО</a>
 
     <section class="hero">
       <div class="eyebrow">Отдельная страница ПВО</div>
@@ -289,6 +289,7 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedSlug = params.get('pvo');
+    const returnParam = params.get('return');
 
     let allIssues = [];
 
@@ -296,6 +297,30 @@
       const response = await fetch('./pvo_data.json');
       if (!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
       return response.json();
+    }
+
+    function resolveBackUrl() {
+      const fallback = './';
+      try {
+        const storedUrl = sessionStorage.getItem('pvoReturnUrl');
+        const candidate = returnParam || storedUrl || fallback;
+        if (!candidate) return fallback;
+        if (candidate.startsWith('http://') || candidate.startsWith('https://')) {
+          const url = new URL(candidate, window.location.origin);
+          return url.origin === window.location.origin ? `${url.pathname}${url.search}${url.hash}` : fallback;
+        }
+        if (candidate.startsWith('/')) return candidate;
+        if (candidate.startsWith('./') || candidate === '.' || candidate === './') return candidate;
+        return fallback;
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function setupBackLink() {
+      const backLink = document.getElementById('backLink');
+      if (!backLink) return;
+      backLink.setAttribute('href', resolveBackUrl());
     }
 
     function escapeHtml(value) {
@@ -373,6 +398,8 @@
       );
       renderIssues(filtered);
     }
+
+    setupBackLink();
 
     loadData()
       .then(data => {
