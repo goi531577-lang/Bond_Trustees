@@ -466,9 +466,15 @@
       }).join('').replace(/\s+/g, ' ').trim();
     }
 
+    function applyPreferredLegalFormCase(text){
+      return text
+        .replace(/^Общество С Ограниченной Ответственностью\b/u, 'Общество с ограниченной ответственностью')
+        .replace(/^Акционерное Общество\b/u, 'Акционерное общество');
+    }
+
     function formatPvoName(text){
       const normalized = normalizeQuotes(text);
-      return titleCaseName(normalized);
+      return applyPreferredLegalFormCase(titleCaseName(normalized));
     }
 
     function saveIndexState(){

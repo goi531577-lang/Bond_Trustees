@@ -342,6 +342,19 @@
       return item.website_url || item.website || item.site_url || item.url || '';
     }
 
+    function formatPvoName(text){
+      const normalized = String(text || '').replace(/"/g, '«').replace(/\u00AB\s*/g, '«').replace(/\s*\u00BB/g, '»').toLowerCase();
+      let formatted = normalized.split(/(\s+|[«»()\-–—])/).map(part => {
+        if(!part || /^(\s+|[«»()\-–—])$/.test(part)) return part;
+        if(/\d/.test(part)) return part.toUpperCase();
+        return part.charAt(0).toUpperCase() + part.slice(1);
+      }).join('').replace(/\s+/g, ' ').trim();
+
+      return formatted
+        .replace(/^Общество С Ограниченной Ответственностью\b/u, 'Общество с ограниченной ответственностью')
+        .replace(/^Акционерное Общество\b/u, 'Акционерное общество');
+    }
+
     function commentsKey(){
       return `pvo_comments_${requestedSlug}`;
     }
@@ -546,7 +559,7 @@
     function updateStats(item){
       const issues = Array.isArray(item.issues) ? item.issues : [];
       const issuers = new Set(issues.map(issue => issue.issuer).filter(Boolean));
-      document.getElementById('title').textContent = item.name || item.full_name || 'ПВО';
+      document.getElementById('title').textContent = formatPvoName(item.name || item.full_name || 'ПВО');
       document.getElementById('heroLead').textContent = 'На этой странице собраны активные выпуски облигаций и эмитенты, закрепленные за выбранным ПВО.';
       document.getElementById('issuesCount').textContent = issues.length;
       document.getElementById('issuersCount').textContent = issuers.size;
