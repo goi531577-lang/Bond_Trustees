@@ -4,18 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ПВО — выпуски и эмитенты</title>
-  <meta name="description" content="Отдельная страница ПВО со всеми активными выпусками облигаций, эмитентами и ссылкой на сайт ПВО." />
+  <meta name="description" content="Отдельная страница ПВО со всеми активными выпусками облигаций и эмитентами." />
   <style>
     :root {
+      --bg: #071120;
+      --bg2: #0e1b32;
+      --panel: rgba(11, 22, 40, 0.78);
+      --panel-strong: rgba(15, 30, 54, 0.92);
       --text: #eff5ff;
       --muted: #aab7cf;
       --line: rgba(171, 197, 255, 0.16);
+      --accent: #7eb7ff;
       --accent-2: #8ef1da;
-      --danger: #ff7b7b;
-      --danger-bg: rgba(255, 123, 123, 0.12);
       --shadow: 0 18px 60px rgba(0,0,0,.34);
+      --radius: 24px;
       --maxw: 1220px;
     }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -27,66 +32,244 @@
         linear-gradient(180deg, #09111f 0%, #0a1425 52%, #08101b 100%);
       min-height: 100vh;
     }
+
     .frame {
-      position: fixed; inset: 0; pointer-events: none;
-      background: linear-gradient(transparent, transparent) padding-box,
-      linear-gradient(135deg, rgba(126,183,255,.08), rgba(142,241,218,.05), rgba(126,183,255,.05)) border-box;
-      border: 1px solid transparent; opacity: .95;
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(transparent, transparent) padding-box,
+        linear-gradient(135deg, rgba(126,183,255,.08), rgba(142,241,218,.05), rgba(126,183,255,.05)) border-box;
+      border: 1px solid transparent;
+      opacity: .95;
     }
-    .shell { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 28px 18px 70px; }
-    .backLink { display: inline-flex; align-items: center; gap: 10px; color: var(--accent-2); text-decoration: none; margin-bottom: 16px; font-weight: 600; }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    .backLink {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent-2);
+      text-decoration: none;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
     .hero {
-      border: 1px solid var(--line); border-radius: 30px; padding: 30px;
-      background: linear-gradient(180deg, rgba(18, 33, 58, 0.88), rgba(10, 19, 35, 0.9)),
-      linear-gradient(135deg, rgba(126,183,255,.12), rgba(142,241,218,.08));
-      box-shadow: var(--shadow); backdrop-filter: blur(18px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 30px;
+      background:
+        linear-gradient(180deg, rgba(18, 33, 58, 0.88), rgba(10, 19, 35, 0.9)),
+        linear-gradient(135deg, rgba(126,183,255,.12), rgba(142,241,218,.08));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
     }
+
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px;
-      border-radius: 999px; border: 1px solid rgba(171, 197, 255, 0.18);
-      background: rgba(9, 20, 37, 0.55); color: var(--accent-2); font-size: 13px;
-      letter-spacing: 0.04em; text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(171, 197, 255, 0.18);
+      background: rgba(9, 20, 37, 0.55);
+      color: var(--accent-2);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    h1 { margin: 18px 0 12px; font-size: clamp(30px, 5vw, 52px); line-height: 1.08; letter-spacing: -0.03em; }
-    .heroLead { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.65; max-width: 950px; }
-    .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
-    .stat { border: 1px solid rgba(171, 197, 255, .12); border-radius: 20px; padding: 16px 18px; background: rgba(7, 14, 25, .42); }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .heroLead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      max-width: 950px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      border: 1px solid rgba(171, 197, 255, .12);
+      border-radius: 20px;
+      padding: 16px 18px;
+      background: rgba(7, 14, 25, .42);
+    }
+
     .statLabel { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
     .statValue { font-size: 30px; line-height: 1; letter-spacing: -0.03em; }
-    .siteBox { margin-top: 18px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 16px 18px; border: 1px solid rgba(171, 197, 255, .12); border-radius: 20px; background: rgba(7, 14, 25, .42); }
-    .siteLabel { color: var(--muted); font-size: 14px; min-width: 90px; }
-    .siteButton {
-      display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px;
-      text-decoration: none; background: linear-gradient(135deg, rgba(126,183,255,.22), rgba(142,241,218,.18));
-      border: 1px solid rgba(142,241,218,.3); color: var(--text); font-weight: 600;
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+
+    .actions {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
-    .siteButton:hover { transform: translateY(-1px); border-color: rgba(142,241,218,.5); background: linear-gradient(135deg, rgba(126,183,255,.28), rgba(142,241,218,.24)); }
-    .siteMissing { display: inline-flex; align-items: center; padding: 12px 16px; border-radius: 14px; background: var(--danger-bg); border: 1px solid rgba(255,123,123,.32); color: var(--danger); font-weight: 700; }
-    .toolbar { margin-top: 22px; display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .search { width: 100%; border: 1px solid rgba(171, 197, 255, .18); background: rgba(6, 13, 24, .68); color: var(--text); border-radius: 18px; padding: 16px 18px; font-size: 16px; outline: none; }
-    .tableWrap { margin-top: 24px; border: 1px solid var(--line); border-radius: 28px; overflow: hidden; background: linear-gradient(180deg, rgba(11, 22, 40, 0.72), rgba(8, 17, 30, 0.88)); box-shadow: var(--shadow); }
-    table { width: 100%; border-collapse: collapse; }
-    thead th { position: sticky; top: 0; z-index: 1; text-align: left; padding: 16px 18px; background: rgba(13, 24, 42, 0.96); color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; border-bottom: 1px solid rgba(171, 197, 255, .10); }
-    tbody td { padding: 16px 18px; border-bottom: 1px solid rgba(171, 197, 255, .08); vertical-align: top; font-size: 15px; line-height: 1.5; }
-    tbody tr:hover { background: rgba(126,183,255,.045); }
-    .issueCode { font-weight: 700; letter-spacing: 0.01em; }
-    .muted { color: var(--muted); font-size: 13px; margin-top: 4px; }
-    .empty, .errorBox { margin-top: 24px; border: 1px dashed rgba(171, 197, 255, .22); border-radius: 20px; padding: 28px 20px; text-align: center; color: var(--muted); background: rgba(7, 15, 27, .44); }
-    .cardList { display: none; gap: 14px; margin-top: 24px; }
-    .issueCard { border: 1px solid rgba(171, 197, 255, .12); border-radius: 20px; padding: 18px; background: rgba(9, 18, 33, .82); }
-    .issueCardTitle { font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
-    .issueCardMeta { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    .toggleBtn {
+      border: 1px solid rgba(171, 197, 255, .18);
+      background: linear-gradient(180deg, rgba(18, 35, 63, .95), rgba(11, 22, 40, .95));
+      color: var(--text);
+      border-radius: 18px;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+    }
+
+    .toggleBtn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(126,183,255,.32);
+    }
+
+    .toggleBtn:focus-visible {
+      outline: 2px solid rgba(142,241,218,.65);
+      outline-offset: 2px;
+    }
+
+    .issuesSection {
+      display: none;
+    }
+
+    .issuesSection.open {
+      display: block;
+      margin-top: 22px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .search {
+      width: 100%;
+      border: 1px solid rgba(171, 197, 255, .18);
+      background: rgba(6, 13, 24, .68);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 16px 18px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .tableWrap {
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(11, 22, 40, 0.72), rgba(8, 17, 30, 0.88));
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      text-align: left;
+      padding: 16px 18px;
+      background: rgba(13, 24, 42, 0.96);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(171, 197, 255, .10);
+    }
+
+    tbody td {
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(171, 197, 255, .08);
+      vertical-align: top;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    tbody tr:hover {
+      background: rgba(126,183,255,.045);
+    }
+
+    .issueCode {
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .empty, .errorBox {
+      margin-top: 24px;
+      border: 1px dashed rgba(171, 197, 255, .22);
+      border-radius: 20px;
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(7, 15, 27, .44);
+    }
+
+    .cardList {
+      display: none;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .issueCard {
+      border: 1px solid rgba(171, 197, 255, .12);
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(9, 18, 33, .82);
+    }
+
+    .issueCardTitle {
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .issueCardMeta {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     @media (max-width: 980px) {
       .stats { grid-template-columns: 1fr; }
-      .tableWrap { display: none !important; }
+      .tableWrap { display: none; }
       .cardList { display: grid; }
     }
+
     @media (max-width: 760px) {
       .hero { padding: 22px 18px; }
       .shell { padding: 18px 14px 44px; }
-      .siteBox { align-items: stretch; }
-      .siteLabel { min-width: 100%; }
     }
   </style>
 </head>
@@ -94,82 +277,114 @@
   <div class="frame"></div>
   <main class="shell">
     <a class="backLink" href="./index.html">← Назад к списку ПВО</a>
+
     <section class="hero">
       <div class="eyebrow">Отдельная страница ПВО</div>
       <h1 id="title">Загрузка…</h1>
       <p id="heroLead" class="heroLead">Подождите, данные загружаются.</p>
+
       <div class="stats">
-        <div class="stat"><div class="statLabel">Активные выпуски</div><div id="issuesCount" class="statValue">—</div></div>
-        <div class="stat"><div class="statLabel">Уникальные эмитенты</div><div id="issuersCount" class="statValue">—</div></div>
-        <div class="stat"><div class="statLabel">Отбор данных</div><div class="statValue" style="font-size:18px; line-height:1.4;">Только «Торгуется» и только последняя запись</div></div>
+        <div class="stat">
+          <div class="statLabel">Активные выпуски</div>
+          <div id="issuesCount" class="statValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="statLabel">Уникальные эмитенты</div>
+          <div id="issuersCount" class="statValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="statLabel">Отбор данных</div>
+          <div class="statValue" style="font-size:18px; line-height:1.4;">Только «Торгуется» и только последняя запись</div>
+        </div>
       </div>
-      <div class="siteBox">
-        <div class="siteLabel">Сайт ПВО</div>
-        <div id="siteContainer"></div>
+
+      <div class="actions">
+        <button id="toggleIssuesBtn" class="toggleBtn" type="button" aria-expanded="false" aria-controls="issuesSection">Показать выпуски облигаций</button>
       </div>
+    </section>
+
+    <div id="errorBox" class="errorBox" style="display:none;"></div>
+
+    <section id="issuesSection" class="issuesSection" style="display:none;">
       <div class="toolbar">
         <input id="searchInput" class="search" type="search" placeholder="Поиск по выпуску или эмитенту…" autocomplete="off" />
       </div>
+
+      <div id="emptyBox" class="empty" style="display:none;">По этому ПВО не найдено активных выпусков.</div>
+
+      <section id="tableWrap" class="tableWrap" style="display:none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Выпуск</th>
+              <th>Эмитент</th>
+              <th>Тип</th>
+              <th>Срок обращения</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </section>
+
+      <section id="cardList" class="cardList"></section>
     </section>
-    <div id="errorBox" class="errorBox" style="display:none;"></div>
-    <div id="emptyBox" class="empty" style="display:none;">По этому ПВО не найдено активных выпусков.</div>
-    <section id="tableWrap" class="tableWrap" style="display:none;">
-      <table>
-        <thead>
-          <tr><th>Выпуск</th><th>Эмитент</th><th>Тип</th><th>Срок обращения</th></tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
-    </section>
-    <section id="cardList" class="cardList"></section>
   </main>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedSlug = params.get('pvo');
+
     let allIssues = [];
+    let issuesVisible = false;
+
     async function loadData() {
-      const cacheBuster = Date.now();
-      const response = await fetch(`./pvo_data.json?v=${cacheBuster}`, { cache: 'no-store' });
+      const response = await fetch('./pvo_data.json');
       if (!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
       return response.json();
     }
+
     function escapeHtml(value) {
-      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;');
     }
-    function renderWebsite(item) {
-      const container = document.getElementById('siteContainer');
-      const url = (item.website_url || '').trim();
-      if (url) {
-        container.innerHTML = `<a class="siteButton" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Перейти на сайт ПВО</a>`;
-      } else {
-        container.innerHTML = '<div class="siteMissing">Сайт отсутствует</div>';
-      }
-    }
+
     function renderIssues(items) {
       const tbody = document.getElementById('tbody');
       const cards = document.getElementById('cardList');
       const emptyBox = document.getElementById('emptyBox');
       const tableWrap = document.getElementById('tableWrap');
+
       tbody.innerHTML = '';
       cards.innerHTML = '';
+
       if (!items.length) {
         tableWrap.style.display = 'none';
         emptyBox.style.display = 'block';
         return;
       }
+
       emptyBox.style.display = 'none';
       tableWrap.style.display = 'block';
+
       const rows = document.createDocumentFragment();
       const cardFragment = document.createDocumentFragment();
+
       items.forEach(issue => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><div class="issueCode">${escapeHtml(issue.issue_id || '—')}</div><div class="muted">${escapeHtml(issue.reg_number || issue.issuer_code || '')}</div></td>
+          <td>
+            <div class="issueCode">${escapeHtml(issue.issue_id || '—')}</div>
+            <div class="muted">${escapeHtml(issue.reg_number || issue.issuer_code || '')}</div>
+          </td>
           <td>${escapeHtml(issue.issuer || '—')}</td>
           <td>${escapeHtml(issue.instrument_type || '—')}</td>
           <td>${escapeHtml(issue.maturity_date || '—')}</td>
         `;
         rows.appendChild(tr);
+
         const card = document.createElement('article');
         card.className = 'issueCard';
         card.innerHTML = `
@@ -182,17 +397,29 @@
         `;
         cardFragment.appendChild(card);
       });
+
       tbody.appendChild(rows);
       cards.appendChild(cardFragment);
     }
-    function updateStats(item) {
-      const uniqueIssuers = new Set((item.issues || []).map(issue => issue.issuer || ''));
-      document.getElementById('title').textContent = item.name;
-      document.getElementById('heroLead').textContent = 'Ниже приведены все выпуски и соответствующие эмитенты для выбранного ПВО.';
-      document.getElementById('issuesCount').textContent = item.issue_count ?? 0;
-      document.getElementById('issuersCount').textContent = [...uniqueIssuers].filter(Boolean).length;
-      renderWebsite(item);
+
+    function setIssuesVisibility(visible) {
+      issuesVisible = visible;
+      const section = document.getElementById('issuesSection');
+      const btn = document.getElementById('toggleIssuesBtn');
+      section.style.display = visible ? 'block' : 'none';
+      section.classList.toggle('open', visible);
+      btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+      btn.textContent = visible ? 'Скрыть выпуски облигаций' : 'Показать выпуски облигаций';
     }
+
+    function updateStats(item) {
+      const uniqueIssuers = new Set(item.issues.map(issue => issue.issuer || ''));
+      document.getElementById('title').textContent = item.name;
+      document.getElementById('heroLead').textContent = `Ниже приведены все выпуски и соответствующие эмитенты для выбранного ПВО.`;
+      document.getElementById('issuesCount').textContent = item.issue_count;
+      document.getElementById('issuersCount').textContent = [...uniqueIssuers].filter(Boolean).length;
+    }
+
     function applySearch(value) {
       const q = value.trim().toLowerCase();
       const filtered = allIssues.filter(issue =>
@@ -201,15 +428,33 @@
       );
       renderIssues(filtered);
     }
+
     loadData()
       .then(data => {
-        if (!requestedSlug) throw new Error('Не указан параметр pvo в адресе страницы.');
+        if (!requestedSlug) {
+          throw new Error('Не указан параметр pvo в адресе страницы.');
+        }
+
         const item = data.find(entry => entry.slug === requestedSlug);
-        if (!item) throw new Error('Такой ПВО не найден в pvo_data.json.');
+        if (!item) {
+          throw new Error('Такой ПВО не найден в pvo_data.json.');
+        }
+
         allIssues = item.issues || [];
         updateStats(item);
         renderIssues(allIssues);
-        document.getElementById('searchInput').addEventListener('input', (event) => applySearch(event.target.value));
+        setIssuesVisibility(false);
+
+        document.getElementById('toggleIssuesBtn').addEventListener('click', () => {
+          setIssuesVisibility(!issuesVisible);
+        });
+
+        document.getElementById('searchInput').addEventListener('input', (event) => {
+          applySearch(event.target.value);
+          if (!issuesVisible) {
+            setIssuesVisibility(true);
+          }
+        });
       })
       .catch(error => {
         document.getElementById('errorBox').style.display = 'block';
