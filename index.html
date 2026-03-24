@@ -18,8 +18,7 @@
       --accent-2: #8ef1da;
       --shadow: 0 18px 60px rgba(0,0,0,.34);
       --radius: 24px;
-      --radius-sm: 18px;
-      --maxw: 1220px;
+      --maxw: 980px;
     }
 
     * { box-sizing: border-box; }
@@ -108,7 +107,7 @@
 
     h1 {
       margin: 18px 0 12px;
-      font-size: clamp(34px, 6vw, 64px);
+      font-size: clamp(34px, 6vw, 60px);
       line-height: 1.02;
       letter-spacing: -0.04em;
       max-width: 880px;
@@ -216,7 +215,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 14px;
       padding: 22px;
     }
@@ -243,7 +242,7 @@
 
     .name {
       font-size: 16px;
-      line-height: 1.52;
+      line-height: 1.6;
       color: #f6f9ff;
     }
 
@@ -263,10 +262,7 @@
       text-align: center;
     }
 
-    @media (max-width: 920px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 760px) {
       .controls {
         grid-template-columns: 1fr;
       }
@@ -308,7 +304,7 @@
     <section class="hero">
       <div class="eyebrow">Российский рынок облигаций · ПВО</div>
       <h1>Список представителей владельцев облигаций</h1>
-      <p>На первой странице сайта собран реестр действующих ПВО. В карточках ниже отображаются только наименования организаций — без адресов, лицензий и иных реквизитов.</p>
+      <p>На первой странице сайта собран реестр действующих ПВО. Карточки выстроены в один столбец, а наименования приведены к более единообразному виду: без сплошного капса и с одинаковыми кавычками.</p>
       <div class="hero-meta">
         <div class="pill">Актуальность списка: 23.03.2026</div>
         <div class="pill">Всего организаций: <span id="heroCount">55</span></div>
@@ -329,7 +325,7 @@
       <div class="list-head">
         <div>
           <strong id="pvo-list-title">Все ПВО</strong>
-          <span>Красивый каталог для первой страницы сайта. Внутри списка — только наименования.</span>
+          <span>Внутри списка отображаются только наименования организаций.</span>
         </div>
       </div>
       <div id="pvoGrid" class="grid"></div>
@@ -342,267 +338,250 @@
   <script>
     const items = [
   {
-    "name": "Акционерное общество \"Центральная трастовая компания\"",
-    "slug": "aktsionernoe-obschestvo-tsentralnaya-trastovaya-kompaniya"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"ЛП Трасти Сервисез\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-lp-trasti-servisez"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Лигал Кэпитал Инвестор Сервисез\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-ligal-kepital-investor-servisez"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью Юридическая фирма \"Некторов, Савельев и Партнеры\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yuridicheskaya-firma-nektorov-savelev-i-partnery"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Академ-Финанс\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-akadem-finans"
-  },
-  {
     "name": "Акционерное общество Арована Капитал",
     "slug": "aktsionernoe-obschestvo-arovana-kapital"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"СОВЕТ-Представитель\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-sovet-predstavitel"
-  },
-  {
-    "name": "Акционерный коммерческий банк \"Абсолют Банк\" (публичное акционерное общество)",
-    "slug": "aktsionernyy-kommercheskiy-bank-absolyut-bank-publichnoe-aktsionernoe-obschestvo"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Синум Групп\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-sinum-grupp"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"ФБК Консалтинг\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-fbk-konsalting"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnyy-monetnyy-auktsion-gelios-finans"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Инвестор\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investor"
-  },
-  {
-    "name": "Акционерное общество \"Консалтинговая группа \"МФЦ\"",
-    "slug": "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Волста\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-volsta"
-  },
-  {
-    "name": "Акционерное общество \"Управляющая компания \"ТРАНСФИНГРУП\"",
-    "slug": "aktsionernoe-obschestvo-upravlyayuschaya-kompaniya-transfingrup"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Национальное агентство по содействию в допуске на финансовый рынок\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-natsionalnoe-agentstvo-po-sodeystviyu-v-dopuske-na-finansovyy-rynok"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Юристат\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yuristat"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Финансовая корпорация \"Атмосфера\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-finansovaya-korporatsiya-atmosfera"
-  },
-  {
-    "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЮНИТЕК СЕРВИС\"",
-    "slug": "aktsionernoe-obschestvo-yunitek-servis"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Юридическая фирма \"КВЕСТ\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yuridicheskaya-firma-kvest"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Инвестиционные традиции\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnye-traditsii"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Гражданские консультации\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-grazhdanskie-konsultatsii"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"АЛОР +\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-alor"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Юнилайн Капитал Менеджмент\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yunilayn-kapital-menedzhment"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"АВР Консалт\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avr-konsalt"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"РКТ\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-rkt"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"ЦФР Капитал\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-tsfr-kapital"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Межрегионэнергоконтроль\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-mezhregionenergokontrol"
-  },
-  {
-    "name": "Акционерное общество \"Москва Сити Секьюритиз\"",
-    "slug": "aktsionernoe-obschestvo-moskva-siti-sekyuritiz"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Инвестиционная компания \"Фонтвьель\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnaya-kompaniya-fontvel"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Финансовый юрист\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-finansovyy-yurist"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Альянс-Фининвест\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-alyans-fininvest"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Технология\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-tehnologiya"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Вега-Инвест\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-vega-invest"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью Научно-производственное предприятие \"ИМПЛЕКС\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-nauchno-proizvodstvennoe-predpriyatie-impleks"
-  },
-  {
-    "name": "Акционерное общество \"Инвестиционная компания \"Орион Капитал\"",
-    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"КВС\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kvs"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Единый центр взыскания\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-edinyy-tsentr-vzyskaniya"
-  },
-  {
-    "name": "Московская городская коллегия адвокатов \"Бюро адвокатов \"Де-юре\"",
-    "slug": "moskovskaya-gorodskaya-kollegiya-advokatov-byuro-advokatov-de-yure"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Представитель\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-predstavitel"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Рондо Капитал\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-rondo-kapital"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"СКИФ\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-skif"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью «Верба Лигал»",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-verba-ligal"
-  },
-  {
-    "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ПЕРВОУРАЛЬСКБАНК\"",
-    "slug": "aktsionernoe-obschestvo-pervouralskbank"
-  },
-  {
-    "name": "Акционерное общество \"Инвестиционная компания \"Лидер\"",
-    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-lider"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Контроль Качества\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kontrol-kachestva"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"ЮрКонсалтинг Про\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurkonsalting-pro"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avi-kepital"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Национальный Центр Сертификации\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-natsionalnyy-tsentr-sertifikatsii"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-merkuri-kepital-trast"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"УПРАВЛЯЮЩАЯ КОМПАНИЯ ИНФРАСТРУКТУРА И ПРОИЗВОДСТВО\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-infrastruktura-i-proizvodstvo"
-  },
-  {
-    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «ПРЕДСТАВИТЕЛЬ ВЛАДЕЛЬЦЕВ ОБЛИГАЦИЙ ВС РЫНКИ КАПИТАЛА»",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-predstavitel-vladeltsev-obligatsiy-vs-rynki-kapitala"
-  },
-  {
-    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЮРИСТ-Н\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurist-n"
-  },
-  {
-    "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО ВТБ РЕГИСТРАТОР",
+    "name": "Акционерное общество ВТБ Регистратор",
     "slug": "aktsionernoe-obschestvo-vtb-registrator"
   },
   {
-    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЛИВ\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-liv"
+    "name": "Акционерное общество «Инвестиционная компания „Лидер“»",
+    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-lider"
+  },
+  {
+    "name": "Акционерное общество «Инвестиционная компания „Орион Капитал“»",
+    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital"
+  },
+  {
+    "name": "Акционерное общество «Консалтинговая группа „МФЦ“»",
+    "slug": "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts"
+  },
+  {
+    "name": "Акционерное общество «Москва Сити Секьюритиз»",
+    "slug": "aktsionernoe-obschestvo-moskva-siti-sekyuritiz"
+  },
+  {
+    "name": "Акционерное общество «Первоуральскбанк»",
+    "slug": "aktsionernoe-obschestvo-pervouralskbank"
+  },
+  {
+    "name": "Акционерное общество «Управляющая компания „Трансфингруп“»",
+    "slug": "aktsionernoe-obschestvo-upravlyayuschaya-kompaniya-transfingrup"
+  },
+  {
+    "name": "Акционерное общество «Центральная трастовая компания»",
+    "slug": "aktsionernoe-obschestvo-tsentralnaya-trastovaya-kompaniya"
+  },
+  {
+    "name": "Акционерное общество «Юнитек Сервис»",
+    "slug": "aktsionernoe-obschestvo-yunitek-servis"
+  },
+  {
+    "name": "Акционерный коммерческий банк «Абсолют Банк» (публичное акционерное общество)",
+    "slug": "aktsionernyi-kommercheskii-bank-absolyut-bank-publichnoe-aktsionernoe-obschestvo"
+  },
+  {
+    "name": "Московская городская коллегия адвокатов «Бюро адвокатов „Де-юре“»",
+    "slug": "moskovskaya-gorodskaya-kollegiya-advokatov-byuro-advokatov-de-yure"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-avi-kepital"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «АВР Консалт»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-avr-konsalt"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Академ-Финанс»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-akadem-finans"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «АЛОР +»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-alor"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Альянс-Фининвест»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-alyans-fininvest"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Вега-Инвест»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-vega-invest"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Верба Лигал»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-verba-ligal"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Волста»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-volsta"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Гражданские консультации»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-grazhdanskie-konsultatsii"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Единый центр взыскания»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-edinyi-tsentr-vzyskaniya"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Инвестиционная компания „Фонтвьель“»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-investitsionnaya-kompaniya-fontvel"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Инвестиционные традиции»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-investitsionnye-traditsii"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Инвестиционный Монетный Аукцион „Гелиос Финанс“»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-investitsionnyi-monetnyi-auktsion-gelios-finans"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Инвестор»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-investor"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «КВС»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-kvs"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Контроль Качества»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-kontrol-kachestva"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Лив»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-liv"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Лигал Кэпитал Инвестор Сервисез»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-ligal-kepital-investor-servisez"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «ЛП Трасти Сервисез»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-lp-trasti-servisez"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Межрегионэнергоконтроль»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-mezhregionenergokontrol"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью Научно-производственное предприятие «Имплекс»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-nauchno-proizvodstvennoe-predpriyatie-impleks"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Национальное агентство по содействию в допуске на финансовый рынок»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-natsionalnoe-agentstvo-po-sodeistviyu-v-dopuske-na-finansovyi-rynok"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Национальный Центр Сертификации»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-natsionalnyi-tsentr-sertifikatsii"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Представитель»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-predstavitel"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Представитель владельцев облигаций ВС Рынки Капитала»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-predstavitel-vladeltsev-obligatsii-vs-rynki-kapitala"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «РКТ»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-rkt"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Рондо Капитал»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-rondo-kapital"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Синум Групп»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-sinum-grupp"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «СКИФ»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-skif"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Совет-Представитель»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-sovet-predstavitel"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Технология»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-tehnologiya"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Управляющая компания Инфраструктура и Производство»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-upravlyayuschaya-kompaniya-infrastruktura-i-proizvodstvo"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Управляющая компания „Меркури Кэпитал Траст“»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-upravlyayuschaya-kompaniya-merkuri-kepital-trast"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «ФБК Консалтинг»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-fbk-konsalting"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Финансовая корпорация „Атмосфера“»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-finansovaya-korporatsiya-atmosfera"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Финансовый юрист»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-finansovyi-yurist"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «ЦФР Капитал»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-tsfr-kapital"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Юнилайн Капитал Менеджмент»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-yunilain-kapital-menedzhment"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Юридическая фирма „Квест“»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-yuridicheskaya-firma-kvest"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью Юридическая фирма «Некторов, Савельев и Партнеры»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-yuridicheskaya-firma-nektorov-savelev-i-partnery"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Юрист-Н»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-yurist-n"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Юристат»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-yuristat"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «ЮрКонсалтинг Про»",
+    "slug": "obschestvo-s-ogranichennoi-otvetstvennostyu-yurkonsalting-pro"
   }
 ];
+
     const grid = document.getElementById('pvoGrid');
     const searchInput = document.getElementById('searchInput');
     const visibleCount = document.getElementById('visibleCount');
     const heroCount = document.getElementById('heroCount');
     const emptyState = document.getElementById('emptyState');
 
-    function normalize(value) {
-      return value
-        .toLowerCase()
-        .replace(/ё/g, 'е')
-        .replace(/["«»]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
+    function renderList(query = '') {
+      const q = query.trim().toLowerCase();
+      const filtered = items.filter(item => item.name.toLowerCase().includes(q));
+
+      grid.innerHTML = filtered.map(item => `
+        <article class="card" data-slug="${item.slug}">
+          <div class="name">${item.name}</div>
+        </article>
+      `).join('');
+
+      visibleCount.textContent = filtered.length;
+      heroCount.textContent = items.length;
+      emptyState.style.display = filtered.length ? 'none' : 'block';
     }
 
-    function render(list) {
-      grid.innerHTML = '';
-      list.forEach(item => {
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.setAttribute('data-slug', item.slug);
-        card.innerHTML = `<div class="name">${item.name}</div>`;
-        grid.appendChild(card);
-      });
-
-      visibleCount.textContent = String(list.length);
-      heroCount.textContent = String(items.length);
-      emptyState.style.display = list.length ? 'none' : 'block';
-    }
-
-    searchInput.addEventListener('input', () => {
-      const query = normalize(searchInput.value);
-      if (!query) {
-        render(items);
-        return;
-      }
-      const filtered = items.filter(item => normalize(item.name).includes(query));
-      render(filtered);
-    });
-
-    render(items);
+    searchInput.addEventListener('input', (e) => renderList(e.target.value));
+    renderList();
   </script>
 </body>
 </html>
