@@ -343,24 +343,38 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedSlug = params.get('pvo');
-    const DATA_VERSION = '20260324-websitefix-3';
+    const DATA_VERSION = '20260324-websites-23-v1';
     const websiteFallbackMap = {
       "aktsionernoe-obschestvo-investitsionnaya-kompaniya-lider": "https://www.ic-leader.ru/",
       "акционерное общество инвестиционная компания лидер": "https://www.ic-leader.ru/",
-      "акционерное общество первоуральскбанк": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
+      "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
+      "акционерное общество инвестиционная компания орион капитал": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
+      "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts": "http://moscons.ru/pvo/",
+      "акционерное общество консалтинговая группа мфц": "http://moscons.ru/pvo/",
+      "aktsionernoe-obschestvo-moskva-siti-sekyuritiz": "https://mcitys.ru/representative-bond-owners",
+      "акционерное общество москва сити секьюритиз": "https://mcitys.ru/representative-bond-owners",
       "aktsionernoe-obschestvo-pervouralskbank": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
+      "акционерное общество первоуральскбанк": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
       "aktsionernoe-obschestvo-upravlyayuschaya-kompaniya-transfingrup": "https://tfg.ru/pvo/",
       "акционерное общество управляющая компания трансфингруп": "https://tfg.ru/pvo/",
       "aktsionernoe-obschestvo-tsentralnaya-trastovaya-kompaniya": "https://www.centrotrust.ru/",
       "акционерное общество центральная трастовая компания": "https://www.centrotrust.ru/",
-      "акционерное общество юнитек сервис": "https://unitec-s.ru/raskritie_infotm_pvo/",
       "aktsionernoe-obschestvo-yunitek-servis": "https://unitec-s.ru/raskritie_infotm_pvo/",
+      "акционерное общество юнитек сервис": "https://unitec-s.ru/raskritie_infotm_pvo/",
+      "aktsionernoe-obschestvo-arovana-kapital": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/",
+      "акционерное общество арована капитал": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/",
+      "aktsionernoe-obschestvo-vtb-registrator": "https://www.vtbreg.ru/pvo/",
+      "акционерное общество втб регистратор": "https://www.vtbreg.ru/pvo/",
       "obschestvo-s-ogranichennoy-otvetstvennostyu-alor": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
       "общество с ограниченной ответственностью алор +": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
-      "общество с ограниченной ответственностью волста": "https://volsta.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-alyans-fininvest": "https://www.afi.expert/informationdisclosure",
+      "общество с ограниченной ответственностью альянс-фининвест": "https://www.afi.expert/informationdisclosure",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-verba-ligal": "https://verba-legal-cm.ru/",
+      "общество с ограниченной ответственностью верба лигал": "https://verba-legal-cm.ru/",
       "obschestvo-s-ogranichennoy-otvetstvennostyu-volsta": "https://volsta.ru/",
-      "общество с ограниченной ответственностью лив": "https://zpvo.ru/",
+      "общество с ограниченной ответственностью волста": "https://volsta.ru/",
       "obschestvo-s-ogranichennoy-otvetstvennostyu-liv": "https://zpvo.ru/",
+      "общество с ограниченной ответственностью лив": "https://zpvo.ru/",
       "obschestvo-s-ogranichennoy-otvetstvennostyu-ligal-kepital-investor-servisez": "https://lcpis.ru/",
       "общество с ограниченной ответственностью лигал кэпитал инвестор сервисез": "https://lcpis.ru/",
       "obschestvo-s-ogranichennoy-otvetstvennostyu-rkt": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
@@ -371,10 +385,12 @@
       "общество с ограниченной ответственностью совет-представитель": "http://trw-rep.ru/",
       "obschestvo-s-ogranichennoy-otvetstvennostyu-yunilayn-kapital-menedzhment": "https://unilinecm.ru/",
       "общество с ограниченной ответственностью юнилайн капитал менеджмент": "https://unilinecm.ru/",
-      "общество с ограниченной ответственностью юрист-н": "https://yurisyn.ru/",
       "obschestvo-s-ogranichennoy-otvetstvennostyu-yurist-n": "https://yurisyn.ru/",
+      "общество с ограниченной ответственностью юрист-н": "https://yurisyn.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-nauchno-proizvodstvennoe-predpriyatie-impleks": "https://implex.unimix.ru/?page=main",
       "общество с ограниченной ответственностью научно-производственное предприятие имплекс": "https://implex.unimix.ru/?page=main",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-nauchno-proizvodstvennoe-predpriyatie-impleks": "https://implex.unimix.ru/?page=main"
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-yuridicheskaya-firma-nektorov-savelev-i-partnery": "https://nsplaw.com/information-bonds",
+      "общество с ограниченной ответственностью юридическая фирма некторов, савельев и партнеры": "https://nsplaw.com/information-bonds"
 };
 
     let allIssues = [];
