@@ -103,7 +103,9 @@
     .statLabel{color:var(--muted); font-size:13px; margin-bottom:8px}
     .statValue{font-size:clamp(24px,4vw,34px); font-weight:800; letter-spacing:-.02em}
     .flagsCard{padding:18px; grid-column:span 2}
-    .flagsTitle{font-size:15px; font-weight:800; margin-bottom:12px}
+    .flagsHead{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
+    .flagsTitle{font-size:15px; font-weight:800; margin:0}
+    .flagsControls{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     .flagsGrid{display:grid; gap:10px}
     .flagItem{
       display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:16px;
@@ -112,6 +114,7 @@
     .flagCheck{
       width:20px; height:20px; accent-color:#8ef1da; cursor:pointer;
     }
+    .flagCheck:disabled{cursor:not-allowed; opacity:.55}
     .flagText{font-size:15px; line-height:1.4}
     .toolbar{display:flex; gap:12px; align-items:center; margin-top:24px; flex-wrap:wrap}
     .search{
@@ -170,6 +173,7 @@
       background:linear-gradient(180deg, rgba(126,183,255,.22), rgba(126,183,255,.12));
       border-color:rgba(126,183,255,.30);
     }
+    .actionBtn.iconOnly{min-width:44px; padding:0 14px; font-size:18px; line-height:1}
     .actionBtn.danger{
       background:rgba(65,14,22,.86); border-color:rgba(255,125,125,.28); color:#ffd6dc;
     }
@@ -231,14 +235,21 @@
           <div id="issuersCount" class="statValue">—</div>
         </div>
         <div class="flagsCard">
-          <div class="flagsTitle">Статус по ПВО</div>
+          <div class="flagsHead">
+            <div class="flagsTitle">Статус по ПВО</div>
+            <div class="flagsControls">
+              <button id="editFlagsBtn" class="actionBtn iconOnly" type="button" aria-label="Редактировать статусы" title="Редактировать статусы">✎</button>
+              <button id="saveFlagsBtn" class="actionBtn primary hidden" type="button">Сохранить</button>
+              <button id="cancelFlagsBtn" class="actionBtn hidden" type="button">Отмена</button>
+            </div>
+          </div>
           <div class="flagsGrid">
             <label class="flagItem">
-              <input id="report2025Flag" class="flagCheck" type="checkbox" />
+              <input id="report2025Flag" class="flagCheck" type="checkbox" disabled />
               <span class="flagText">Представлен годовой отчет 2025</span>
             </label>
             <label class="flagItem">
-              <input id="lkFlag" class="flagCheck" type="checkbox" />
+              <input id="lkFlag" class="flagCheck" type="checkbox" disabled />
               <span class="flagText">Есть ЛК</span>
             </label>
           </div>
@@ -299,6 +310,7 @@
     let allIssues = [];
     let comments = [];
     let editingCommentId = null;
+    let flagsEditing = false;
 
     function escapeHtml(value){
       return String(value ?? '')
@@ -351,15 +363,47 @@
       localStorage.setItem(flagsKey(), JSON.stringify(flags));
     }
 
-    function renderFlags(){
-      const flags = loadFlags();
+    function applyFlagsToInputs(flags){
       const report = document.getElementById('report2025Flag');
       const lk = document.getElementById('lkFlag');
       report.checked = Boolean(flags.report2025);
       lk.checked = Boolean(flags.hasLK);
+    }
 
-      report.onchange = () => saveFlags({ ...loadFlags(), report2025: report.checked });
-      lk.onchange = () => saveFlags({ ...loadFlags(), hasLK: lk.checked });
+    function setFlagsEditingState(isEditing){
+      flagsEditing = isEditing;
+      const report = document.getElementById('report2025Flag');
+      const lk = document.getElementById('lkFlag');
+      const editBtn = document.getElementById('editFlagsBtn');
+      const saveBtn = document.getElementById('saveFlagsBtn');
+      const cancelBtn = document.getElementById('cancelFlagsBtn');
+      report.disabled = !isEditing;
+      lk.disabled = !isEditing;
+      editBtn.classList.toggle('hidden', isEditing);
+      saveBtn.classList.toggle('hidden', !isEditing);
+      cancelBtn.classList.toggle('hidden', !isEditing);
+    }
+
+    function renderFlags(){
+      applyFlagsToInputs(loadFlags());
+      setFlagsEditingState(false);
+    }
+
+    function startEditFlags(){
+      applyFlagsToInputs(loadFlags());
+      setFlagsEditingState(true);
+    }
+
+    function cancelEditFlags(){
+      applyFlagsToInputs(loadFlags());
+      setFlagsEditingState(false);
+    }
+
+    function persistFlagsFromInputs(){
+      const report = document.getElementById('report2025Flag');
+      const lk = document.getElementById('lkFlag');
+      saveFlags({ report2025: report.checked, hasLK: lk.checked });
+      setFlagsEditingState(false);
     }
 
     function loadComments(){
@@ -574,6 +618,9 @@
         document.getElementById('searchInput').addEventListener('input', (event) => applySearch(event.target.value));
         document.getElementById('saveCommentBtn').addEventListener('click', handleSaveComment);
         document.getElementById('cancelEditBtn').addEventListener('click', resetCommentEditor);
+        document.getElementById('editFlagsBtn').addEventListener('click', startEditFlags);
+        document.getElementById('saveFlagsBtn').addEventListener('click', persistFlagsFromInputs);
+        document.getElementById('cancelFlagsBtn').addEventListener('click', cancelEditFlags);
       } catch(error){
         const errorBox = document.getElementById('errorBox');
         errorBox.classList.remove('hidden');
