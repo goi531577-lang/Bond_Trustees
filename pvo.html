@@ -343,11 +343,44 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedSlug = params.get('pvo');
+    const DATA_VERSION = '20260324-websitefix-3';
+    const websiteFallbackMap = {
+      "aktsionernoe-obschestvo-investitsionnaya-kompaniya-lider": "https://www.ic-leader.ru/",
+      "акционерное общество инвестиционная компания лидер": "https://www.ic-leader.ru/",
+      "акционерное общество первоуральскбанк": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
+      "aktsionernoe-obschestvo-pervouralskbank": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
+      "aktsionernoe-obschestvo-upravlyayuschaya-kompaniya-transfingrup": "https://tfg.ru/pvo/",
+      "акционерное общество управляющая компания трансфингруп": "https://tfg.ru/pvo/",
+      "aktsionernoe-obschestvo-tsentralnaya-trastovaya-kompaniya": "https://www.centrotrust.ru/",
+      "акционерное общество центральная трастовая компания": "https://www.centrotrust.ru/",
+      "акционерное общество юнитек сервис": "https://unitec-s.ru/raskritie_infotm_pvo/",
+      "aktsionernoe-obschestvo-yunitek-servis": "https://unitec-s.ru/raskritie_infotm_pvo/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-alor": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
+      "общество с ограниченной ответственностью алор +": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
+      "общество с ограниченной ответственностью волста": "https://volsta.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-volsta": "https://volsta.ru/",
+      "общество с ограниченной ответственностью лив": "https://zpvo.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-liv": "https://zpvo.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-ligal-kepital-investor-servisez": "https://lcpis.ru/",
+      "общество с ограниченной ответственностью лигал кэпитал инвестор сервисез": "https://lcpis.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-rkt": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
+      "общество с ограниченной ответственностью ркт": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-rondo-kapital": "https://rondo-capital.ru/",
+      "общество с ограниченной ответственностью рондо капитал": "https://rondo-capital.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-sovet-predstavitel": "http://trw-rep.ru/",
+      "общество с ограниченной ответственностью совет-представитель": "http://trw-rep.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-yunilayn-kapital-menedzhment": "https://unilinecm.ru/",
+      "общество с ограниченной ответственностью юнилайн капитал менеджмент": "https://unilinecm.ru/",
+      "общество с ограниченной ответственностью юрист-н": "https://yurisyn.ru/",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-yurist-n": "https://yurisyn.ru/",
+      "общество с ограниченной ответственностью научно-производственное предприятие имплекс": "https://implex.unimix.ru/?page=main",
+      "obschestvo-s-ogranichennoy-otvetstvennostyu-nauchno-proizvodstvennoe-predpriyatie-impleks": "https://implex.unimix.ru/?page=main"
+};
 
     let allIssues = [];
 
     async function loadData() {
-      const response = await fetch('./pvo_data.json');
+      const response = await fetch(`./pvo_data.json?v=${DATA_VERSION}`, { cache: 'no-store' });
       if (!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
       return response.json();
     }
@@ -360,6 +393,17 @@
         .replaceAll('"', '&quot;');
     }
 
+    function normalizeName(value) {
+      return String(value || '')
+        .trim()
+        .toLowerCase()
+        .replaceAll('«', '')
+        .replaceAll('»', '')
+        .replaceAll('"', '')
+        .replaceAll('ё', 'е')
+        .replace(/\s+/g, ' ');
+    }
+
     function formatHost(url) {
       try {
         const host = new URL(url).hostname.replace(/^www\./, '');
@@ -369,11 +413,22 @@
       }
     }
 
+    function resolveWebsite(item) {
+      return item.website_url
+        || item.website
+        || item.site_url
+        || item.url
+        || websiteFallbackMap[item.slug]
+        || websiteFallbackMap[normalizeName(item.name)]
+        || websiteFallbackMap[normalizeName(item.full_name)]
+        || '';
+    }
+
     function renderWebsite(item) {
       const activeLink = document.getElementById('siteButtonLink');
       const disabledButton = document.getElementById('siteButtonDisabled');
       const hint = document.getElementById('siteHint');
-      const url = item.website_url;
+      const url = resolveWebsite(item);
 
       if (url) {
         activeLink.href = url;
@@ -479,10 +534,7 @@
         document.getElementById('errorBox').style.display = 'block';
         document.getElementById('errorBox').textContent = error.message;
         document.getElementById('title').textContent = 'Страница не открыта';
-        document.getElementById('heroLead').textContent = 'Проверьте ссылку или наличие файла pvo_data.json в корне репозитория.';
-        document.getElementById('siteButtonLink').style.display = 'none';
-        document.getElementById('siteButtonDisabled').style.display = 'inline-flex';
-        document.getElementById('siteHint').textContent = 'Кнопка сайта станет активной после успешной загрузки данных.';
+        document.getElementById('heroLead').textContent = 'Проверьте ссылку или наличие файлов сайта в репозитории.';
       });
   </script>
 </body>
