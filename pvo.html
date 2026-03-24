@@ -6,79 +6,222 @@
   <title>ПВО — выпуски и эмитенты</title>
   <meta name="description" content="Отдельная страница ПВО со всеми активными выпусками облигаций и эмитентами." />
   <style>
-    :root {
-      --bg: #071120;
-      --bg2: #0e1b32;
-      --panel: rgba(11, 22, 40, 0.78);
-      --panel-strong: rgba(15, 30, 54, 0.92);
-      --text: #eff5ff;
-      --muted: #aab7cf;
-      --line: rgba(171, 197, 255, 0.16);
-      --accent: #7eb7ff;
-      --accent-2: #8ef1da;
-      --danger: #ff7f97;
-      --shadow: 0 18px 60px rgba(0,0,0,.34);
-      --radius: 24px;
-      --maxw: 1220px;
+    :root{
+      --bg:#071120;
+      --bg2:#0e1b32;
+      --panel:rgba(11,22,40,.78);
+      --panel-strong:rgba(15,30,54,.92);
+      --text:#eff5ff;
+      --muted:#aab7cf;
+      --line:rgba(171,197,255,.16);
+      --accent:#7eb7ff;
+      --accent-2:#8ef1da;
+      --danger:#ff7d7d;
+      --danger-bg:rgba(255,102,102,.14);
+      --success:#8ef1da;
+      --success-bg:rgba(142,241,218,.12);
+      --warning:#ffd978;
+      --shadow:0 18px 60px rgba(0,0,0,.34);
+      --radius:24px;
+      --maxw:1220px;
     }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--text); background: radial-gradient(circle at top left, rgba(88,146,255,.22), transparent 34%), radial-gradient(circle at 92% 10%, rgba(53,214,183,.14), transparent 24%), linear-gradient(180deg, #09111f 0%, #0a1425 52%, #08101b 100%); min-height:100vh; }
-    .frame { position:fixed; inset:0; pointer-events:none; background: linear-gradient(transparent, transparent) padding-box, linear-gradient(135deg, rgba(126,183,255,.08), rgba(142,241,218,.05), rgba(126,183,255,.05)) border-box; border:1px solid transparent; opacity:.95; }
-    .shell { position:relative; z-index:1; max-width: var(--maxw); margin: 0 auto; padding: 28px 18px 70px; }
-    .backLink { display:inline-flex; align-items:center; gap:10px; color:var(--accent-2); text-decoration:none; margin-bottom:16px; font-weight:600; }
-    .hero { border:1px solid var(--line); border-radius:30px; padding:30px; background: linear-gradient(180deg, rgba(18, 33, 58, 0.88), rgba(10, 19, 35, 0.9)), linear-gradient(135deg, rgba(126,183,255,.12), rgba(142,241,218,.08)); box-shadow:var(--shadow); backdrop-filter: blur(18px); }
-    .eyebrow { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:999px; border:1px solid rgba(171, 197, 255, 0.18); background: rgba(9, 20, 37, 0.55); color:var(--accent-2); font-size:13px; letter-spacing:.04em; text-transform:uppercase; }
-    h1 { margin:18px 0 12px; font-size: clamp(30px, 5vw, 52px); line-height:1.08; letter-spacing:-.03em; }
-    .heroLead { margin:0; color:var(--muted); font-size:16px; line-height:1.65; max-width:950px; }
-    .stats { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:14px; margin-top:22px; }
-    .stat { border:1px solid rgba(171, 197, 255, .12); border-radius:20px; padding:16px 18px; background: rgba(7, 14, 25, .42); }
-    .statLabel { color:var(--muted); font-size:13px; margin-bottom:8px; }
-    .statValue { font-size:30px; line-height:1; letter-spacing:-.03em; }
-    .actions { margin-top:22px; display:flex; gap:12px; flex-wrap:wrap; }
-    .toggleBtn, .siteBtn { border:1px solid rgba(171, 197, 255, .18); background: linear-gradient(180deg, rgba(18, 35, 63, .95), rgba(11, 22, 40, .95)); color:var(--text); border-radius:18px; padding:14px 18px; font-size:15px; font-weight:700; cursor:pointer; box-shadow: 0 12px 30px rgba(0,0,0,.22); text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
-    .toggleBtn:hover, .siteBtn:hover { transform: translateY(-1px); border-color: rgba(126,183,255,.32); }
-    .siteBtn.disabled { cursor:default; opacity:.7; pointer-events:none; }
-    .siteMissing { display:none; margin-top:16px; padding:14px 16px; border-radius:16px; border:1px solid rgba(255,127,151,.28); background: rgba(255,127,151,.10); color: var(--danger); font-weight:700; }
-    .issuesSection { display:none; }
-    .issuesSection.open { display:block; margin-top:22px; }
-    .toolbar { display:grid; grid-template-columns:1fr; gap:12px; }
-    .search { width:100%; border:1px solid rgba(171, 197, 255, .18); background: rgba(6, 13, 24, .68); color:var(--text); border-radius:18px; padding:16px 18px; font-size:16px; outline:none; }
-    .tableWrap { margin-top:24px; border:1px solid var(--line); border-radius:28px; overflow:hidden; background: linear-gradient(180deg, rgba(11, 22, 40, 0.72), rgba(8, 17, 30, 0.88)); box-shadow:var(--shadow); }
-    table { width:100%; border-collapse: collapse; }
-    thead th { position:sticky; top:0; z-index:1; text-align:left; padding:16px 18px; background: rgba(13, 24, 42, 0.96); color:var(--muted); font-size:13px; font-weight:600; letter-spacing:.03em; text-transform:uppercase; border-bottom:1px solid rgba(171, 197, 255, .10); }
-    tbody td { padding:16px 18px; border-bottom:1px solid rgba(171, 197, 255, .08); vertical-align:top; font-size:15px; line-height:1.5; }
-    tbody tr:hover { background: rgba(126,183,255,.045); }
-    .issueCode { font-weight:700; letter-spacing:.01em; }
-    .muted { color:var(--muted); font-size:13px; margin-top:4px; }
-    .empty, .errorBox { margin-top:24px; border:1px dashed rgba(171, 197, 255, .22); border-radius:20px; padding:28px 20px; text-align:center; color:var(--muted); background: rgba(7, 15, 27, .44); }
-    .cardList { display:none; gap:14px; margin-top:24px; }
-    .issueCard { border:1px solid rgba(171, 197, 255, .12); border-radius:20px; padding:18px; background: rgba(9, 18, 33, .82); }
-    .issueCardTitle { font-weight:700; margin-bottom:8px; line-height:1.4; }
-    .issueCardMeta { color:var(--muted); font-size:14px; line-height:1.6; }
-
-    .commentsCard { margin-top:24px; border:1px solid rgba(171, 197, 255, .14); border-radius:24px; padding:24px; background: linear-gradient(180deg, rgba(12, 23, 40, .86), rgba(8, 16, 29, .92)); box-shadow: 0 16px 44px rgba(0,0,0,.18); }
-    .commentsTitle { margin:0 0 8px; font-size:22px; line-height:1.2; }
-    .commentsLead { margin:0 0 16px; color:var(--muted); line-height:1.6; }
-    .commentsArea { width:100%; min-height:180px; resize:vertical; border-radius:18px; border:1px solid rgba(171, 197, 255, .16); background: rgba(6, 13, 24, .74); color:var(--text); padding:16px 18px; font: inherit; line-height:1.6; outline:none; }
-    .commentsArea:focus { border-color: rgba(126,183,255,.40); box-shadow: 0 0 0 4px rgba(126,183,255,.10); }
-    .commentsBar { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top:14px; }
-    .commentSaveBtn { border:none; cursor:pointer; border-radius:16px; padding:13px 18px; font-weight:700; color:var(--text); background: linear-gradient(180deg, rgba(126,183,255,.24), rgba(70,120,215,.24)); border:1px solid rgba(126,183,255,.28); }
-    .commentStatus { color:var(--muted); font-size:14px; }
-    @media (max-width: 980px) { .stats { grid-template-columns:1fr; } .tableWrap { display:none; } .cardList { display:grid; } }
-    @media (max-width: 760px) { .hero { padding:22px 18px; } .shell { padding:18px 14px 44px; } }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(88,146,255,.22), transparent 34%),
+        radial-gradient(circle at 92% 10%, rgba(53,214,183,.14), transparent 24%),
+        linear-gradient(180deg, #09111f 0%, #0a1425 52%, #08101b 100%);
+      min-height:100vh;
+    }
+    .frame{
+      position:fixed; inset:0; pointer-events:none;
+      background:linear-gradient(transparent,transparent) padding-box,
+                 linear-gradient(135deg,rgba(126,183,255,.08),rgba(142,241,218,.05),rgba(126,183,255,.05)) border-box;
+      border:1px solid transparent; opacity:.95;
+    }
+    .shell{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:28px 18px 70px}
+    .backLink{display:inline-flex; align-items:center; gap:10px; color:var(--accent-2); text-decoration:none; margin-bottom:16px; font-weight:600}
+    .hero{
+      border:1px solid var(--line); border-radius:30px; padding:30px;
+      background:
+        linear-gradient(180deg, rgba(18,33,58,.88), rgba(10,19,35,.9)),
+        linear-gradient(135deg, rgba(126,183,255,.12), rgba(142,241,218,.08));
+      box-shadow:var(--shadow); overflow:hidden; position:relative;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:auto -90px -120px auto;
+      width:300px; height:300px; border-radius:50%;
+      background:radial-gradient(circle, rgba(126,183,255,.24), transparent 60%);
+      pointer-events:none;
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px; padding:10px 16px;
+      border:1px solid rgba(171,197,255,.16); border-radius:999px;
+      background:rgba(9,20,37,.55); color:var(--accent-2);
+      font-size:13px; letter-spacing:.04em; text-transform:uppercase;
+    }
+    h1{
+      margin:18px 0 12px; font-size:clamp(30px,5vw,52px); line-height:1.08; letter-spacing:-.03em;
+    }
+    .heroLead{margin:0; color:var(--muted); font-size:16px; line-height:1.65; max-width:950px}
+    .heroActions{
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:18px;
+    }
+    .siteButton{
+      display:inline-flex; align-items:center; justify-content:center; min-height:46px;
+      padding:0 18px; border-radius:14px; border:1px solid rgba(126,183,255,.22);
+      background:linear-gradient(180deg, rgba(126,183,255,.18), rgba(126,183,255,.08));
+      color:var(--text); text-decoration:none; font-weight:700; letter-spacing:.01em;
+      transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .siteButton:hover{transform:translateY(-1px); border-color:rgba(142,241,218,.35); background:linear-gradient(180deg, rgba(126,183,255,.24), rgba(126,183,255,.12))}
+    .siteButton.is-disabled,.siteButton[aria-disabled="true"]{
+      cursor:default; pointer-events:none; opacity:.62; background:rgba(171,197,255,.08); border-color:rgba(171,197,255,.12)
+    }
+    .siteStatus{
+      display:inline-flex; align-items:center; gap:10px; min-height:46px; padding:0 16px;
+      border-radius:14px; border:1px solid transparent; font-weight:700;
+    }
+    .siteStatus.ok{color:var(--success); background:var(--success-bg); border-color:rgba(142,241,218,.22)}
+    .siteStatus.missing{color:var(--danger); background:var(--danger-bg); border-color:rgba(255,125,125,.28)}
+    .siteUrlText{margin-top:10px; color:var(--muted); font-size:14px; line-height:1.5; word-break:break-word}
+    .siteUrlText a{color:var(--accent-2); text-decoration:none}
+    .topGrid{
+      margin-top:22px;
+      display:grid; gap:16px;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      align-items:stretch;
+    }
+    .stat,.flagsCard,.commentComposer,.commentsWrap{
+      border:1px solid rgba(171,197,255,.12); border-radius:22px;
+      background:rgba(7,14,25,.42); box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    .stat{padding:18px}
+    .statLabel{color:var(--muted); font-size:13px; margin-bottom:8px}
+    .statValue{font-size:clamp(24px,4vw,34px); font-weight:800; letter-spacing:-.02em}
+    .flagsCard{padding:18px; grid-column:span 2}
+    .flagsTitle{font-size:15px; font-weight:800; margin-bottom:12px}
+    .flagsGrid{display:grid; gap:10px}
+    .flagItem{
+      display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:16px;
+      border:1px solid rgba(171,197,255,.10); background:rgba(9,18,33,.72);
+    }
+    .flagCheck{
+      width:20px; height:20px; accent-color:#8ef1da; cursor:pointer;
+    }
+    .flagText{font-size:15px; line-height:1.4}
+    .toolbar{display:flex; gap:12px; align-items:center; margin-top:24px; flex-wrap:wrap}
+    .search{
+      flex:1; min-width:240px; padding:15px 16px; border-radius:16px;
+      border:1px solid rgba(171,197,255,.15); background:rgba(4,10,20,.55);
+      color:var(--text); outline:none; font-size:15px;
+    }
+    .search::placeholder{color:#7e8ca8}
+    .toggleBtn{
+      min-height:48px; padding:0 18px; border-radius:16px; border:1px solid rgba(126,183,255,.22);
+      background:linear-gradient(180deg, rgba(126,183,255,.18), rgba(126,183,255,.08));
+      color:var(--text); cursor:pointer; font-weight:700;
+    }
+    .issuesSection{display:none; margin-top:24px}
+    .tableWrap{
+      border:1px solid var(--line); border-radius:24px; overflow:hidden; background:rgba(8,15,28,.86); box-shadow:var(--shadow);
+    }
+    table{width:100%; border-collapse:collapse}
+    thead th{
+      text-align:left; font-size:13px; letter-spacing:.04em; text-transform:uppercase;
+      color:#c8d8f2; background:rgba(14,29,52,.94); padding:16px 18px; border-bottom:1px solid rgba(171,197,255,.12);
+    }
+    tbody td{
+      padding:16px 18px; border-top:1px solid rgba(171,197,255,.08); font-size:15px; line-height:1.5;
+    }
+    tbody tr:hover{background:rgba(126,183,255,.045)}
+    .issueCode{font-weight:700; letter-spacing:.01em}
+    .muted{color:var(--muted); font-size:13px; margin-top:4px}
+    .empty,.errorBox{
+      margin-top:24px; border:1px dashed rgba(171,197,255,.22); border-radius:20px;
+      padding:28px 20px; text-align:center; color:var(--muted); background:rgba(7,15,27,.44);
+    }
+    .cardList{display:none; gap:14px; margin-top:24px}
+    .issueCard{
+      border:1px solid rgba(171,197,255,.12); border-radius:20px; padding:18px; background:rgba(9,18,33,.82);
+    }
+    .issueCardTitle{font-size:18px; font-weight:800; margin-bottom:10px; letter-spacing:-.02em}
+    .issueCardMeta{color:var(--muted); display:grid; gap:8px; line-height:1.5}
+    .commentSection{
+      margin-top:24px; display:grid; gap:16px;
+    }
+    .commentComposer,.commentsWrap{padding:20px}
+    .sectionTitle{font-size:18px; font-weight:800; letter-spacing:-.02em; margin:0 0 12px}
+    .commentLabel{color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:12px}
+    .commentInput{
+      width:100%; min-height:120px; resize:vertical; border-radius:18px;
+      border:1px solid rgba(171,197,255,.14); background:rgba(4,10,20,.6);
+      color:var(--text); padding:16px; font-size:15px; line-height:1.6; outline:none;
+    }
+    .commentActions{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .actionBtn{
+      min-height:44px; padding:0 16px; border-radius:14px; border:1px solid rgba(171,197,255,.16);
+      background:rgba(8,17,30,.76); color:var(--text); cursor:pointer; font-weight:700;
+    }
+    .actionBtn.primary{
+      background:linear-gradient(180deg, rgba(126,183,255,.22), rgba(126,183,255,.12));
+      border-color:rgba(126,183,255,.30);
+    }
+    .actionBtn.danger{
+      background:rgba(65,14,22,.86); border-color:rgba(255,125,125,.28); color:#ffd6dc;
+    }
+    .commentsGrid{display:grid; gap:14px}
+    .commentEmpty{color:var(--muted); font-size:14px}
+    .commentCard{
+      border:1px solid rgba(171,197,255,.12); border-radius:18px; padding:16px 16px 14px;
+      background:rgba(9,18,33,.72);
+    }
+    .commentMeta{
+      display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px;
+      color:var(--muted); font-size:13px;
+    }
+    .commentText{
+      white-space:pre-wrap; line-height:1.6; font-size:15px;
+    }
+    .commentCardActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .hidden{display:none !important}
+    @media (max-width:980px){
+      .topGrid{grid-template-columns:1fr 1fr}
+      .flagsCard{grid-column:span 2}
+    }
+    @media (max-width:860px){
+      .tableWrap{display:none !important}
+      .cardList{display:grid}
+    }
+    @media (max-width:760px){
+      .shell{padding:18px 14px 54px}
+      .hero{padding:22px 18px; border-radius:24px}
+      .topGrid{grid-template-columns:1fr}
+      .flagsCard{grid-column:span 1}
+      .toolbar{flex-direction:column; align-items:stretch}
+    }
   </style>
 </head>
 <body>
   <div class="frame"></div>
   <main class="shell">
-    <a id="backLink" class="backLink" href="./index.html">← Назад к списку ПВО</a>
+    <a class="backLink" href="./index.html">← Назад к списку ПВО</a>
 
     <section class="hero">
       <div class="eyebrow">Отдельная страница ПВО</div>
       <h1 id="title">Загрузка…</h1>
       <p id="heroLead" class="heroLead">Подождите, данные загружаются.</p>
 
-      <div class="stats">
+      <div class="heroActions">
+        <a id="siteButton" class="siteButton is-disabled" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Перейти на сайт ПВО</a>
+        <div id="siteStatus" class="siteStatus missing">Сайт отсутствует</div>
+      </div>
+      <div id="siteUrlText" class="siteUrlText"></div>
+
+      <div class="topGrid">
         <div class="stat">
           <div class="statLabel">Активные выпуски</div>
           <div id="issuesCount" class="statValue">—</div>
@@ -87,42 +230,32 @@
           <div class="statLabel">Уникальные эмитенты</div>
           <div id="issuersCount" class="statValue">—</div>
         </div>
-        <div class="stat">
-          <div class="statLabel">Отбор данных</div>
-          <div class="statValue" style="font-size:18px; line-height:1.4;">Только «Торгуется» и только последняя запись</div>
+        <div class="flagsCard">
+          <div class="flagsTitle">Статус по ПВО</div>
+          <div class="flagsGrid">
+            <label class="flagItem">
+              <input id="report2025Flag" class="flagCheck" type="checkbox" />
+              <span class="flagText">Представлен годовой отчет 2025</span>
+            </label>
+            <label class="flagItem">
+              <input id="lkFlag" class="flagCheck" type="checkbox" />
+              <span class="flagText">Есть ЛК</span>
+            </label>
+          </div>
         </div>
       </div>
 
-      <div class="actions">
-        <button id="toggleIssuesBtn" class="toggleBtn" type="button" aria-expanded="false" aria-controls="issuesSection">Показать выпуски облигаций</button>
-        <a id="siteBtn" class="siteBtn disabled" href="#" target="_blank" rel="noopener noreferrer">Перейти на сайт ПВО</a>
-      </div>
-      <div id="siteMissing" class="siteMissing">Сайт отсутствует</div>
-    </section>
-
-    <div id="errorBox" class="errorBox" style="display:none;"></div>
-
-
-
-    <section class="commentsCard" aria-labelledby="commentsTitle">
-      <h2 id="commentsTitle" class="commentsTitle">Комментарии Николая Павлова</h2>
-      <p class="commentsLead">Здесь можно сохранить заметки по конкретному ПВО. Текст сохраняется в этом браузере.</p>
-      <textarea id="commentsArea" class="commentsArea" placeholder="Введите комментарий..."></textarea>
-      <div class="commentsBar">
-        <button id="saveCommentBtn" class="commentSaveBtn" type="button">Сохранить комментарий</button>
-        <div id="commentStatus" class="commentStatus">Комментарий ещё не сохранён.</div>
-      </div>
-    </section>
-
-
-    <section id="issuesSection" class="issuesSection" style="display:none;">
       <div class="toolbar">
         <input id="searchInput" class="search" type="search" placeholder="Поиск по выпуску или эмитенту…" autocomplete="off" />
+        <button id="toggleIssuesBtn" class="toggleBtn" type="button" aria-expanded="false" aria-controls="issuesSection">Показать выпуски облигаций</button>
       </div>
+    </section>
 
-      <div id="emptyBox" class="empty" style="display:none;">По этому ПВО не найдено активных выпусков.</div>
+    <div id="errorBox" class="errorBox hidden"></div>
+    <div id="emptyBox" class="empty hidden">По этому ПВО не найдено активных выпусков.</div>
 
-      <section id="tableWrap" class="tableWrap" style="display:none;">
+    <section id="issuesSection" class="issuesSection">
+      <div id="tableWrap" class="tableWrap hidden">
         <table>
           <thead>
             <tr>
@@ -134,165 +267,323 @@
           </thead>
           <tbody id="tbody"></tbody>
         </table>
-      </section>
+      </div>
 
       <section id="cardList" class="cardList"></section>
+    </section>
+
+    <section class="commentSection">
+      <div class="commentComposer">
+        <h2 class="sectionTitle">Комментарии Николая Павлова</h2>
+        <div class="commentLabel">Комментарий сохранится отдельной карточкой ниже. Его можно отредактировать или удалить.</div>
+        <textarea id="commentInput" class="commentInput" placeholder="Введите комментарий…"></textarea>
+        <div class="commentActions">
+          <button id="saveCommentBtn" class="actionBtn primary" type="button">Сохранить комментарий</button>
+          <button id="cancelEditBtn" class="actionBtn hidden" type="button">Отменить редактирование</button>
+        </div>
+      </div>
+
+      <div class="commentsWrap">
+        <h2 class="sectionTitle">Сохраненные комментарии</h2>
+        <div id="commentEmpty" class="commentEmpty">Комментариев пока нет.</div>
+        <div id="commentsGrid" class="commentsGrid"></div>
+      </div>
     </section>
   </main>
 
   <script>
+    const DATA_URL = `./pvo_data.json?ts=${Date.now()}`;
     const params = new URLSearchParams(window.location.search);
     const requestedSlug = params.get('pvo');
-    const returnTo = params.get('returnTo');
-    if (returnTo) { document.getElementById('backLink').href = returnTo; }
-
+    let currentItem = null;
     let allIssues = [];
-    let issuesVisible = false;
+    let comments = [];
+    let editingCommentId = null;
 
-    async function loadData() {
-      const response = await fetch('./pvo_data.json?v=20260324v2', { cache: 'no-store' });
-      if (!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
-      return response.json();
-    }
-
-    function escapeHtml(value) {
+    function escapeHtml(value){
       return String(value ?? '')
         .replaceAll('&', '&amp;')
         .replaceAll('<', '&lt;')
         .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;');
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
     }
 
-    function renderIssues(items) {
-      const tbody = document.getElementById('tbody');
-      const cards = document.getElementById('cardList');
-      const emptyBox = document.getElementById('emptyBox');
-      const tableWrap = document.getElementById('tableWrap');
-      tbody.innerHTML = '';
-      cards.innerHTML = '';
-      if (!items.length) {
-        tableWrap.style.display = 'none';
-        emptyBox.style.display = 'block';
+    async function loadData(){
+      const response = await fetch(DATA_URL, { cache: 'no-store' });
+      if(!response.ok) throw new Error('Не удалось загрузить pvo_data.json.');
+      return response.json();
+    }
+
+    function getWebsite(item){
+      return item.website_url || item.website || item.site_url || item.url || '';
+    }
+
+    function commentsKey(){
+      return `pvo_comments_${requestedSlug}`;
+    }
+
+    function flagsKey(){
+      return `pvo_flags_${requestedSlug}`;
+    }
+
+    function formatDate(value){
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return '';
+      return new Intl.DateTimeFormat('ru-RU', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }).format(date);
+    }
+
+    function loadFlags(){
+      try{
+        return JSON.parse(localStorage.getItem(flagsKey()) || '{}');
+      }catch{
+        return {};
+      }
+    }
+
+    function saveFlags(flags){
+      localStorage.setItem(flagsKey(), JSON.stringify(flags));
+    }
+
+    function renderFlags(){
+      const flags = loadFlags();
+      const report = document.getElementById('report2025Flag');
+      const lk = document.getElementById('lkFlag');
+      report.checked = Boolean(flags.report2025);
+      lk.checked = Boolean(flags.hasLK);
+
+      report.onchange = () => saveFlags({ ...loadFlags(), report2025: report.checked });
+      lk.onchange = () => saveFlags({ ...loadFlags(), hasLK: lk.checked });
+    }
+
+    function loadComments(){
+      try{
+        comments = JSON.parse(localStorage.getItem(commentsKey()) || '[]');
+      }catch{
+        comments = [];
+      }
+      if(!Array.isArray(comments)) comments = [];
+    }
+
+    function saveComments(){
+      localStorage.setItem(commentsKey(), JSON.stringify(comments));
+    }
+
+    function resetCommentEditor(){
+      editingCommentId = null;
+      document.getElementById('commentInput').value = '';
+      document.getElementById('saveCommentBtn').textContent = 'Сохранить комментарий';
+      document.getElementById('cancelEditBtn').classList.add('hidden');
+    }
+
+    function startEditComment(id){
+      const item = comments.find(comment => comment.id === id);
+      if(!item) return;
+      editingCommentId = id;
+      document.getElementById('commentInput').value = item.text || '';
+      document.getElementById('saveCommentBtn').textContent = 'Сохранить изменения';
+      document.getElementById('cancelEditBtn').classList.remove('hidden');
+      document.getElementById('commentInput').focus();
+      document.getElementById('commentInput').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function deleteComment(id){
+      comments = comments.filter(comment => comment.id !== id);
+      saveComments();
+      if(editingCommentId === id) resetCommentEditor();
+      renderComments();
+    }
+
+    function renderComments(){
+      const grid = document.getElementById('commentsGrid');
+      const empty = document.getElementById('commentEmpty');
+      if(!comments.length){
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
         return;
       }
-      emptyBox.style.display = 'none';
-      tableWrap.style.display = 'block';
-      const rows = document.createDocumentFragment();
-      const cardFragment = document.createDocumentFragment();
-      items.forEach(issue => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
+      empty.classList.add('hidden');
+      const sorted = [...comments].sort((a,b) => new Date(b.updatedAt || b.createdAt || 0) - new Date(a.updatedAt || a.createdAt || 0));
+      grid.innerHTML = sorted.map(comment => `
+        <article class="commentCard">
+          <div class="commentMeta">
+            <span>${comment.updatedAt && comment.updatedAt !== comment.createdAt ? `Обновлено: ${escapeHtml(formatDate(comment.updatedAt))}` : `Создано: ${escapeHtml(formatDate(comment.createdAt))}`}</span>
+          </div>
+          <div class="commentText">${escapeHtml(comment.text)}</div>
+          <div class="commentCardActions">
+            <button class="actionBtn" type="button" data-edit-comment="${comment.id}">Редактировать</button>
+            <button class="actionBtn danger" type="button" data-delete-comment="${comment.id}">Удалить</button>
+          </div>
+        </article>
+      `).join('');
+
+      grid.querySelectorAll('[data-edit-comment]').forEach(button => {
+        button.addEventListener('click', () => startEditComment(button.dataset.editComment));
+      });
+      grid.querySelectorAll('[data-delete-comment]').forEach(button => {
+        button.addEventListener('click', () => deleteComment(button.dataset.deleteComment));
+      });
+    }
+
+    function handleSaveComment(){
+      const textarea = document.getElementById('commentInput');
+      const text = textarea.value.trim();
+      if(!text) return;
+      const now = new Date().toISOString();
+
+      if(editingCommentId){
+        comments = comments.map(comment =>
+          comment.id === editingCommentId ? { ...comment, text, updatedAt: now } : comment
+        );
+      } else {
+        comments.push({
+          id: `${Date.now()}_${Math.random().toString(36).slice(2,8)}`,
+          text,
+          createdAt: now,
+          updatedAt: now
+        });
+      }
+
+      saveComments();
+      renderComments();
+      resetCommentEditor();
+    }
+
+    function renderWebsite(item){
+      const website = getWebsite(item).trim();
+      const button = document.getElementById('siteButton');
+      const status = document.getElementById('siteStatus');
+      const text = document.getElementById('siteUrlText');
+
+      if(website){
+        button.href = website;
+        button.classList.remove('is-disabled');
+        button.setAttribute('aria-disabled', 'false');
+        status.className = 'siteStatus ok';
+        status.textContent = 'Сайт добавлен';
+        text.innerHTML = `Ссылка: <a href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(website)}</a>`;
+      } else {
+        button.href = '#';
+        button.classList.add('is-disabled');
+        button.setAttribute('aria-disabled', 'true');
+        status.className = 'siteStatus missing';
+        status.textContent = 'Сайт отсутствует';
+        text.textContent = '';
+      }
+    }
+
+    function updateStats(item){
+      const issues = Array.isArray(item.issues) ? item.issues : [];
+      const issuers = new Set(issues.map(issue => issue.issuer).filter(Boolean));
+      document.getElementById('title').textContent = item.name || item.full_name || 'ПВО';
+      document.getElementById('heroLead').textContent = 'На этой странице собраны активные выпуски облигаций и эмитенты, закрепленные за выбранным ПВО.';
+      document.getElementById('issuesCount').textContent = issues.length;
+      document.getElementById('issuersCount').textContent = issuers.size;
+    }
+
+    function renderIssues(issues){
+      const tbody = document.getElementById('tbody');
+      const cardList = document.getElementById('cardList');
+      const tableWrap = document.getElementById('tableWrap');
+      const emptyBox = document.getElementById('emptyBox');
+
+      if(!issues.length){
+        tbody.innerHTML = '';
+        cardList.innerHTML = '';
+        tableWrap.classList.add('hidden');
+        cardList.classList.add('hidden');
+        emptyBox.classList.remove('hidden');
+        return;
+      }
+
+      emptyBox.classList.add('hidden');
+      tbody.innerHTML = issues.map(issue => `
+        <tr>
           <td>
-            <div class="issueCode">${escapeHtml(issue.issue_id || '—')}</div>
-            <div class="muted">${escapeHtml(issue.reg_number || issue.issuer_code || '')}</div>
+            <div class="issueCode">${escapeHtml(issue.issue_id || issue.reg_number || issue.issuer_code || '—')}</div>
+            <div class="muted">${escapeHtml(issue.reg_number || '—')}</div>
           </td>
           <td>${escapeHtml(issue.issuer || '—')}</td>
           <td>${escapeHtml(issue.instrument_type || '—')}</td>
           <td>${escapeHtml(issue.maturity_date || '—')}</td>
-        `;
-        rows.appendChild(tr);
-        const card = document.createElement('article');
-        card.className = 'issueCard';
-        card.innerHTML = `
-          <div class="issueCardTitle">${escapeHtml(issue.issue_id || '—')}</div>
+        </tr>
+      `).join('');
+
+      cardList.innerHTML = issues.map(issue => `
+        <article class="issueCard">
+          <div class="issueCardTitle">${escapeHtml(issue.issue_id || issue.reg_number || issue.issuer_code || '—')}</div>
           <div class="issueCardMeta">
             <div><strong>Эмитент:</strong> ${escapeHtml(issue.issuer || '—')}</div>
             <div><strong>Тип:</strong> ${escapeHtml(issue.instrument_type || '—')}</div>
             <div><strong>Срок обращения:</strong> ${escapeHtml(issue.maturity_date || '—')}</div>
           </div>
-        `;
-        cardFragment.appendChild(card);
-      });
-      tbody.appendChild(rows);
-      cards.appendChild(cardFragment);
+        </article>
+      `).join('');
+
+      tableWrap.classList.remove('hidden');
+      cardList.classList.remove('hidden');
     }
 
-    function setIssuesVisibility(visible) {
-      issuesVisible = visible;
-      const section = document.getElementById('issuesSection');
-      const btn = document.getElementById('toggleIssuesBtn');
-      section.style.display = visible ? 'block' : 'none';
-      section.classList.toggle('open', visible);
-      btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
-      btn.textContent = visible ? 'Скрыть выпуски облигаций' : 'Показать выпуски облигаций';
-    }
-
-    function updateStats(item) {
-      const uniqueIssuers = new Set((item.issues || []).map(issue => issue.issuer || ''));
-      document.getElementById('title').textContent = item.name;
-      document.getElementById('heroLead').textContent = 'Ниже приведены все активные выпуски и соответствующие эмитенты для выбранного ПВО.';
-      document.getElementById('issuesCount').textContent = item.issue_count || 0;
-      document.getElementById('issuersCount').textContent = [...uniqueIssuers].filter(Boolean).length;
-
-      const siteBtn = document.getElementById('siteBtn');
-      const siteMissing = document.getElementById('siteMissing');
-      if (item.website_url) {
-        siteBtn.href = item.website_url;
-        siteBtn.classList.remove('disabled');
-        siteMissing.style.display = 'none';
-      } else {
-        siteBtn.href = '#';
-        siteBtn.classList.add('disabled');
-        siteMissing.style.display = 'block';
-      }
-    }
-
-
-    function getCommentKey(slug) {
-      return `pvo-comment-${slug}`;
-    }
-
-    function loadComment(slug) {
-      const area = document.getElementById('commentsArea');
-      const status = document.getElementById('commentStatus');
-      const raw = localStorage.getItem(getCommentKey(slug));
-      area.value = raw || '';
-      status.textContent = raw ? 'Комментарий сохранён в браузере.' : 'Комментарий ещё не сохранён.';
-    }
-
-    function saveComment(slug) {
-      const area = document.getElementById('commentsArea');
-      const status = document.getElementById('commentStatus');
-      localStorage.setItem(getCommentKey(slug), area.value);
-      status.textContent = 'Комментарий сохранён.';
-    }
-
-
-    function applySearch(value) {
+    function applySearch(value){
       const q = value.trim().toLowerCase();
       const filtered = allIssues.filter(issue =>
         (issue.issue_id || '').toLowerCase().includes(q) ||
+        (issue.reg_number || '').toLowerCase().includes(q) ||
         (issue.issuer || '').toLowerCase().includes(q)
       );
       renderIssues(filtered);
     }
 
-    loadData()
-      .then(data => {
-        if (!requestedSlug) throw new Error('Не указан параметр pvo в адресе страницы.');
-        const item = data.find(entry => entry.slug === requestedSlug);
-        if (!item) throw new Error('Такой ПВО не найден в pvo_data.json.');
-        allIssues = item.issues || [];
-        updateStats(item);
-        renderIssues(allIssues);
-        setIssuesVisibility(false);
-        loadComment(item.slug);
-        document.getElementById('saveCommentBtn').addEventListener('click', () => saveComment(item.slug));
-        document.getElementById('commentsArea').addEventListener('input', () => {
-          document.getElementById('commentStatus').textContent = 'Есть несохранённые изменения.';
-        });
-        document.getElementById('toggleIssuesBtn').addEventListener('click', () => setIssuesVisibility(!issuesVisible));
-        document.getElementById('searchInput').addEventListener('input', (event) => {
-          applySearch(event.target.value);
-          if (!issuesVisible) setIssuesVisibility(true);
-        });
-      })
-      .catch(error => {
-        document.getElementById('errorBox').style.display = 'block';
-        document.getElementById('errorBox').textContent = error.message;
-        document.getElementById('title').textContent = 'Страница не открыта';
-        document.getElementById('heroLead').textContent = 'Проверьте ссылку или наличие файла pvo_data.json в корне репозитория.';
+    function setupToggle(){
+      const button = document.getElementById('toggleIssuesBtn');
+      const section = document.getElementById('issuesSection');
+      button.addEventListener('click', () => {
+        const isOpen = section.style.display === 'block';
+        section.style.display = isOpen ? 'none' : 'block';
+        button.textContent = isOpen ? 'Показать выпуски облигаций' : 'Скрыть выпуски облигаций';
+        button.setAttribute('aria-expanded', String(!isOpen));
       });
+    }
+
+    async function init(){
+      try{
+        if(!requestedSlug){
+          throw new Error('Не указан параметр pvo в адресе страницы.');
+        }
+        const data = await loadData();
+        currentItem = data.find(entry => entry.slug === requestedSlug);
+        if(!currentItem){
+          throw new Error('Такой ПВО не найден в pvo_data.json.');
+        }
+
+        allIssues = Array.isArray(currentItem.issues) ? currentItem.issues : [];
+        updateStats(currentItem);
+        renderWebsite(currentItem);
+        renderFlags();
+        loadComments();
+        renderComments();
+        renderIssues(allIssues);
+        setupToggle();
+
+        document.getElementById('searchInput').addEventListener('input', (event) => applySearch(event.target.value));
+        document.getElementById('saveCommentBtn').addEventListener('click', handleSaveComment);
+        document.getElementById('cancelEditBtn').addEventListener('click', resetCommentEditor);
+      } catch(error){
+        const errorBox = document.getElementById('errorBox');
+        errorBox.classList.remove('hidden');
+        errorBox.textContent = error.message || 'Не удалось открыть страницу ПВО.';
+        document.getElementById('title').textContent = 'Страница не открыта';
+        document.getElementById('heroLead').textContent = 'Проверьте ссылку или наличие файлов сайта в репозитории.';
+      }
+    }
+
+    init();
   </script>
 </body>
 </html>
