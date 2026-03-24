@@ -343,16 +343,7 @@
     }
 
     function formatPvoName(text){
-      const normalized = String(text || '').replace(/"/g, '«').replace(/\u00AB\s*/g, '«').replace(/\s*\u00BB/g, '»').toLowerCase();
-      let formatted = normalized.split(/(\s+|[«»()\-–—])/).map(part => {
-        if(!part || /^(\s+|[«»()\-–—])$/.test(part)) return part;
-        if(/\d/.test(part)) return part.toUpperCase();
-        return part.charAt(0).toUpperCase() + part.slice(1);
-      }).join('').replace(/\s+/g, ' ').trim();
-
-      return formatted
-        .replace(/^Общество С Ограниченной Ответственностью\b/u, 'Общество с ограниченной ответственностью')
-        .replace(/^Акционерное Общество\b/u, 'Акционерное общество');
+      return String(text || '').trim();
     }
 
     function commentsKey(){

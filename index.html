@@ -473,8 +473,7 @@
     }
 
     function formatPvoName(text){
-      const normalized = normalizeQuotes(text);
-      return applyPreferredLegalFormCase(titleCaseName(normalized));
+      return String(text || '').trim();
     }
 
     function saveIndexState(){
@@ -490,7 +489,7 @@
         const rawName = item.name || item.full_name || 'Без названия';
         return {
           name: rawName,
-          pretty_name: formatPvoName(rawName),
+          pretty_name: rawName,
           slug: item.slug || '',
           issue_count: Number(item.issue_count || 0),
           issues: Array.isArray(item.issues) ? item.issues : []
