@@ -55,6 +55,15 @@
     .issueCard { border:1px solid rgba(171, 197, 255, .12); border-radius:20px; padding:18px; background: rgba(9, 18, 33, .82); }
     .issueCardTitle { font-weight:700; margin-bottom:8px; line-height:1.4; }
     .issueCardMeta { color:var(--muted); font-size:14px; line-height:1.6; }
+
+    .commentsCard { margin-top:24px; border:1px solid rgba(171, 197, 255, .14); border-radius:24px; padding:24px; background: linear-gradient(180deg, rgba(12, 23, 40, .86), rgba(8, 16, 29, .92)); box-shadow: 0 16px 44px rgba(0,0,0,.18); }
+    .commentsTitle { margin:0 0 8px; font-size:22px; line-height:1.2; }
+    .commentsLead { margin:0 0 16px; color:var(--muted); line-height:1.6; }
+    .commentsArea { width:100%; min-height:180px; resize:vertical; border-radius:18px; border:1px solid rgba(171, 197, 255, .16); background: rgba(6, 13, 24, .74); color:var(--text); padding:16px 18px; font: inherit; line-height:1.6; outline:none; }
+    .commentsArea:focus { border-color: rgba(126,183,255,.40); box-shadow: 0 0 0 4px rgba(126,183,255,.10); }
+    .commentsBar { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top:14px; }
+    .commentSaveBtn { border:none; cursor:pointer; border-radius:16px; padding:13px 18px; font-weight:700; color:var(--text); background: linear-gradient(180deg, rgba(126,183,255,.24), rgba(70,120,215,.24)); border:1px solid rgba(126,183,255,.28); }
+    .commentStatus { color:var(--muted); font-size:14px; }
     @media (max-width: 980px) { .stats { grid-template-columns:1fr; } .tableWrap { display:none; } .cardList { display:grid; } }
     @media (max-width: 760px) { .hero { padding:22px 18px; } .shell { padding:18px 14px 44px; } }
   </style>
@@ -92,6 +101,19 @@
     </section>
 
     <div id="errorBox" class="errorBox" style="display:none;"></div>
+
+
+
+    <section class="commentsCard" aria-labelledby="commentsTitle">
+      <h2 id="commentsTitle" class="commentsTitle">Комментарии Николая Павлова</h2>
+      <p class="commentsLead">Здесь можно сохранить заметки по конкретному ПВО. Текст сохраняется в этом браузере.</p>
+      <textarea id="commentsArea" class="commentsArea" placeholder="Введите комментарий..."></textarea>
+      <div class="commentsBar">
+        <button id="saveCommentBtn" class="commentSaveBtn" type="button">Сохранить комментарий</button>
+        <div id="commentStatus" class="commentStatus">Комментарий ещё не сохранён.</div>
+      </div>
+    </section>
+
 
     <section id="issuesSection" class="issuesSection" style="display:none;">
       <div class="toolbar">
@@ -215,6 +237,27 @@
       }
     }
 
+
+    function getCommentKey(slug) {
+      return `pvo-comment-${slug}`;
+    }
+
+    function loadComment(slug) {
+      const area = document.getElementById('commentsArea');
+      const status = document.getElementById('commentStatus');
+      const raw = localStorage.getItem(getCommentKey(slug));
+      area.value = raw || '';
+      status.textContent = raw ? 'Комментарий сохранён в браузере.' : 'Комментарий ещё не сохранён.';
+    }
+
+    function saveComment(slug) {
+      const area = document.getElementById('commentsArea');
+      const status = document.getElementById('commentStatus');
+      localStorage.setItem(getCommentKey(slug), area.value);
+      status.textContent = 'Комментарий сохранён.';
+    }
+
+
     function applySearch(value) {
       const q = value.trim().toLowerCase();
       const filtered = allIssues.filter(issue =>
@@ -233,6 +276,11 @@
         updateStats(item);
         renderIssues(allIssues);
         setIssuesVisibility(false);
+        loadComment(item.slug);
+        document.getElementById('saveCommentBtn').addEventListener('click', () => saveComment(item.slug));
+        document.getElementById('commentsArea').addEventListener('input', () => {
+          document.getElementById('commentStatus').textContent = 'Есть несохранённые изменения.';
+        });
         document.getElementById('toggleIssuesBtn').addEventListener('click', () => setIssuesVisibility(!issuesVisible));
         document.getElementById('searchInput').addEventListener('input', (event) => {
           applySearch(event.target.value);
