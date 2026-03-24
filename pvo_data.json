@@ -50,21 +50,24 @@
         "maturity_date": "23.06.2050",
         "issue_alias_pvo": "АО \"ИК \"Лидер\""
       }
-    ]
+    ],
+    "website_url": "https://www.ic-leader.ru/"
   },
   {
     "name": "Акционерное общество «Инвестиционная компания \"Орион Капитал\"»",
     "full_name": "Акционерное общество \"Инвестиционная компания \"Орион Капитал\"",
     "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Акционерное общество «Консалтинговая группа \"МФЦ\"»",
     "full_name": "Акционерное общество \"Консалтинговая группа \"МФЦ\"",
     "slug": "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Акционерное общество «Москва Сити Секьюритиз»",
@@ -90,7 +93,8 @@
         "maturity_date": "30.11.2029",
         "issue_alias_pvo": "АО \"Москва Сити Секьюритиз\""
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Акционерное общество «ПЕРВОУРАЛЬСКБАНК»",
@@ -251,7 +255,8 @@
         "maturity_date": "16.03.2030",
         "issue_alias_pvo": "АО \"ПЕРВОУРАЛЬСКБАНК\""
       }
-    ]
+    ],
+    "website_url": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/"
   },
   {
     "name": "Акционерное общество «Управляющая компания \"ТРАНСФИНГРУП\"»",
@@ -295,7 +300,8 @@
         "maturity_date": "15.02.2031",
         "issue_alias_pvo": "АО \"УК ТФГ\""
       }
-    ]
+    ],
+    "website_url": "https://tfg.ru/pvo/"
   },
   {
     "name": "Акционерное общество «Центральная трастовая компания»",
@@ -357,7 +363,8 @@
         "maturity_date": "08.07.2028",
         "issue_alias_pvo": "АО \"Центротраст\""
       }
-    ]
+    ],
+    "website_url": "https://www.centrotrust.ru/"
   },
   {
     "name": "Акционерное общество «ЮНИТЕК СЕРВИС»",
@@ -473,21 +480,24 @@
         "maturity_date": "15.10.2026",
         "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
       }
-    ]
+    ],
+    "website_url": "https://unitec-s.ru/raskritie_infotm_pvo/"
   },
   {
     "name": "Акционерное общество Арована Капитал",
     "full_name": "Акционерное общество Арована Капитал",
     "slug": "aktsionernoe-obschestvo-arovana-kapital",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Акционерное общество ВТБ РЕГИСТРАТОР",
     "full_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО ВТБ РЕГИСТРАТОР",
     "slug": "aktsionernoe-obschestvo-vtb-registrator",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Акционерный коммерческий банк «Абсолют Банк» (публичное акционерное общество)",
@@ -504,35 +514,40 @@
         "maturity_date": "09.10.2026",
         "issue_alias_pvo": "АКБ \"Абсолют Банк\" (ПАО)"
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Московская городская коллегия адвокатов «Бюро адвокатов \"Де-юре\"»",
     "full_name": "Московская городская коллегия адвокатов \"Бюро адвокатов \"Де-юре\"",
     "slug": "moskovskaya-gorodskaya-kollegiya-advokatov-byuro-advokatov-de-yure",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
     "full_name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avi-kepital",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «АВР Консалт»",
     "full_name": "Общество с ограниченной ответственностью \"АВР Консалт\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avr-konsalt",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Академ-Финанс»",
     "full_name": "Общество с ограниченной ответственностью \"Академ-Финанс\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-akadem-finans",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «АЛОР +»",
@@ -567,7 +582,8 @@
         "maturity_date": "08.12.2033",
         "issue_alias_pvo": "ООО \"АЛОР +\""
       }
-    ]
+    ],
+    "website_url": "https://www.alorbroker.ru/openinfo/openinfo?c=11"
   },
   {
     "name": "Общество с ограниченной ответственностью «Альянс-Фининвест»",
@@ -593,14 +609,16 @@
         "maturity_date": "10.09.2028",
         "issue_alias_pvo": "ООО \"Альянс-Фининвест\""
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Вега-Инвест»",
     "full_name": "Общество с ограниченной ответственностью \"Вега-Инвест\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-vega-invest",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Верба Лигал»",
@@ -635,7 +653,8 @@
         "maturity_date": "01.09.2028",
         "issue_alias_pvo": "ООО \"Верба Лигал\""
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Волста»",
@@ -2164,35 +2183,40 @@
         "maturity_date": "06.11.2028",
         "issue_alias_pvo": "Общество с ограниченной ответственностью \"Волста\""
       }
-    ]
+    ],
+    "website_url": "https://volsta.ru/"
   },
   {
     "name": "Общество с ограниченной ответственностью «Гражданские консультации»",
     "full_name": "Общество с ограниченной ответственностью \"Гражданские консультации\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-grazhdanskie-konsultatsii",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Единый центр взыскания»",
     "full_name": "Общество с ограниченной ответственностью \"Единый центр взыскания\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-edinyy-tsentr-vzyskaniya",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестиционная компания \"Фонтвьель\"»",
     "full_name": "Общество с ограниченной ответственностью \"Инвестиционная компания \"Фонтвьель\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnaya-kompaniya-fontvel",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестиционные традиции»",
     "full_name": "Общество с ограниченной ответственностью \"Инвестиционные традиции\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnye-traditsii",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестиционный Монетный Аукцион \"Гелиос Финанс\"»",
@@ -2209,28 +2233,32 @@
         "maturity_date": "22.11.2027",
         "issue_alias_pvo": "ООО \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\""
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестор»",
     "full_name": "Общество с ограниченной ответственностью \"Инвестор\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investor",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «КВС»",
     "full_name": "Общество с ограниченной ответственностью \"КВС\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kvs",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Контроль Качества»",
     "full_name": "Общество с ограниченной ответственностью \"Контроль Качества\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kontrol-kachestva",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «ЛИВ»",
@@ -2391,7 +2419,8 @@
         "maturity_date": "11.05.2028",
         "issue_alias_pvo": "ООО \"ЛИВ\""
       }
-    ]
+    ],
+    "website_url": "https://zpvo.ru/"
   },
   {
     "name": "Общество с ограниченной ответственностью «Лигал Кэпитал Инвестор Сервисез»",
@@ -6890,7 +6919,8 @@
         "maturity_date": "20.03.2032",
         "issue_alias_pvo": "Общество с ограниченной ответственностью \"Лигал Кэпитал Инвестор Сервисез\""
       }
-    ]
+    ],
+    "website_url": "https://lcpis.ru/"
   },
   {
     "name": "Общество с ограниченной ответственностью «ЛП Трасти Сервисез»",
@@ -6916,42 +6946,48 @@
         "maturity_date": "13.10.2026",
         "issue_alias_pvo": "ООО \"ЛП ТРАСТИ СЕРВИСЕЗ\""
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Межрегионэнергоконтроль»",
     "full_name": "Общество с ограниченной ответственностью \"Межрегионэнергоконтроль\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-mezhregionenergokontrol",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Национальное агентство по содействию в допуске на финансовый рынок»",
     "full_name": "Общество с ограниченной ответственностью \"Национальное агентство по содействию в допуске на финансовый рынок\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-natsionalnoe-agentstvo-po-sodeystviyu-v-dopuske-na-finansovyy-rynok",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Национальный Центр Сертификации»",
     "full_name": "Общество с ограниченной ответственностью \"Национальный Центр Сертификации\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-natsionalnyy-tsentr-sertifikatsii",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «ПРЕДСТАВИТЕЛЬ ВЛАДЕЛЬЦЕВ ОБЛИГАЦИЙ ВС РЫНКИ КАПИТАЛА»",
     "full_name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «ПРЕДСТАВИТЕЛЬ ВЛАДЕЛЬЦЕВ ОБЛИГАЦИЙ ВС РЫНКИ КАПИТАЛА»",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-predstavitel-vladeltsev-obligatsiy-vs-rynki-kapitala",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Представитель»",
     "full_name": "Общество с ограниченной ответственностью \"Представитель\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-predstavitel",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «РКТ»",
@@ -7004,7 +7040,8 @@
         "maturity_date": "30.07.2030",
         "issue_alias_pvo": "ООО \"РКТ\""
       }
-    ]
+    ],
+    "website_url": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy"
   },
   {
     "name": "Общество с ограниченной ответственностью «Рондо Капитал»",
@@ -7165,21 +7202,24 @@
         "maturity_date": "03.01.2031",
         "issue_alias_pvo": "ООО \"Рондо Капитал\""
       }
-    ]
+    ],
+    "website_url": "https://rondo-capital.ru/"
   },
   {
     "name": "Общество с ограниченной ответственностью «Синум Групп»",
     "full_name": "Общество с ограниченной ответственностью \"Синум Групп\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-sinum-grupp",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «СКИФ»",
     "full_name": "Общество с ограниченной ответственностью \"СКИФ\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-skif",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «СОВЕТ-Представитель»",
@@ -7538,28 +7578,32 @@
         "maturity_date": "21.01.2029",
         "issue_alias_pvo": "ООО \"СОВЕТ - Представитель\""
       }
-    ]
+    ],
+    "website_url": "http://trw-rep.ru/"
   },
   {
     "name": "Общество с ограниченной ответственностью «Технология»",
     "full_name": "Общество с ограниченной ответственностью \"Технология\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-tehnologiya",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Управляющая компания \"Меркури Кэпитал Траст\"»",
     "full_name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-merkuri-kepital-trast",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «УПРАВЛЯЮЩАЯ КОМПАНИЯ ИНФРАСТРУКТУРА И ПРОИЗВОДСТВО»",
     "full_name": "Общество с ограниченной ответственностью \"УПРАВЛЯЮЩАЯ КОМПАНИЯ ИНФРАСТРУКТУРА И ПРОИЗВОДСТВО\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-infrastruktura-i-proizvodstvo",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «ФБК Консалтинг»",
@@ -7657,28 +7701,32 @@
         "maturity_date": "24.04.2026",
         "issue_alias_pvo": "ООО \"ФБК Консалтинг\""
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Финансовая корпорация \"Атмосфера\"»",
     "full_name": "Общество с ограниченной ответственностью \"Финансовая корпорация \"Атмосфера\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-finansovaya-korporatsiya-atmosfera",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Финансовый юрист»",
     "full_name": "Общество с ограниченной ответственностью \"Финансовый юрист\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-finansovyy-yurist",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «ЦФР Капитал»",
     "full_name": "Общество с ограниченной ответственностью \"ЦФР Капитал\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-tsfr-kapital",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «Юнилайн Капитал Менеджмент»",
@@ -8001,7 +8049,8 @@
         "maturity_date": "14.09.2027",
         "issue_alias_pvo": "ООО \"ЮЛКМ\""
       }
-    ]
+    ],
+    "website_url": "https://unilinecm.ru/"
   },
   {
     "name": "Общество с ограниченной ответственностью «Юридическая фирма \"КВЕСТ\"»",
@@ -8072,7 +8121,8 @@
         "maturity_date": "08.09.2028",
         "issue_alias_pvo": "ООО \"Юридическая фирма \"КВЕСТ\""
       }
-    ]
+    ],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «ЮРИСТ-Н»",
@@ -8188,21 +8238,24 @@
         "maturity_date": "06.07.2028",
         "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
       }
-    ]
+    ],
+    "website_url": "https://yurisyn.ru/"
   },
   {
     "name": "Общество с ограниченной ответственностью «Юристат»",
     "full_name": "Общество с ограниченной ответственностью \"Юристат\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yuristat",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью «ЮрКонсалтинг Про»",
     "full_name": "Общество с ограниченной ответственностью \"ЮрКонсалтинг Про\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurkonsalting-pro",
     "issue_count": 0,
-    "issues": []
+    "issues": [],
+    "website_url": null
   },
   {
     "name": "Общество с ограниченной ответственностью Научно-производственное предприятие «ИМПЛЕКС»",
@@ -8759,7 +8812,8 @@
         "maturity_date": "06.12.2027",
         "issue_alias_pvo": "ООО НПП \"Имплекс\""
       }
-    ]
+    ],
+    "website_url": "https://implex.unimix.ru/?page=main"
   },
   {
     "name": "Общество с ограниченной ответственностью Юридическая фирма «Некторов, Савельев и Партнеры»",
@@ -8776,6 +8830,7 @@
         "maturity_date": "28.07.2026",
         "issue_alias_pvo": "ООО  \"Некторов, Савельев и Партнеры\""
       }
-    ]
+    ],
+    "website_url": null
   }
 ]

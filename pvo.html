@@ -119,6 +119,52 @@
     .statLabel { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
     .statValue { font-size: 30px; line-height: 1; letter-spacing: -0.03em; }
 
+    .siteActions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .siteButton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(171, 197, 255, .18);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .01em;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease, opacity .15s ease;
+    }
+
+    .siteButton--active {
+      color: #06101b;
+      background: linear-gradient(135deg, var(--accent-2), #a9ffef);
+      box-shadow: 0 14px 30px rgba(78, 224, 190, .18);
+    }
+
+    .siteButton--active:hover {
+      transform: translateY(-1px);
+      border-color: rgba(171, 197, 255, .34);
+    }
+
+    .siteButton--disabled {
+      color: var(--muted);
+      background: rgba(7, 14, 25, .46);
+      cursor: default;
+      opacity: .9;
+    }
+
+    .siteHint {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
     .toolbar {
       margin-top: 22px;
       display: grid;
@@ -226,20 +272,22 @@
 
     @media (max-width: 980px) {
       .stats { grid-template-columns: 1fr; }
-      .tableWrap { display: none; }
+      .tableWrap { display: none !important; }
       .cardList { display: grid; }
     }
 
     @media (max-width: 760px) {
       .hero { padding: 22px 18px; }
       .shell { padding: 18px 14px 44px; }
+      .siteActions { align-items: stretch; }
+      .siteButton { width: 100%; }
     }
   </style>
 </head>
 <body>
   <div class="frame"></div>
   <main class="shell">
-    <a id="backLink" class="backLink" href="./">← Назад к списку ПВО</a>
+    <a class="backLink" href="./index.html">← Назад к списку ПВО</a>
 
     <section class="hero">
       <div class="eyebrow">Отдельная страница ПВО</div>
@@ -259,6 +307,12 @@
           <div class="statLabel">Отбор данных</div>
           <div class="statValue" style="font-size:18px; line-height:1.4;">Только «Торгуется» и только последняя запись</div>
         </div>
+      </div>
+
+      <div class="siteActions">
+        <a id="siteButtonLink" class="siteButton siteButton--active" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Перейти на сайт ПВО</a>
+        <button id="siteButtonDisabled" class="siteButton siteButton--disabled" type="button" disabled style="display:none;">Сайт ПВО пока не добавлен</button>
+        <div id="siteHint" class="siteHint"></div>
       </div>
 
       <div class="toolbar">
@@ -289,7 +343,6 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedSlug = params.get('pvo');
-    const returnParam = params.get('return');
 
     let allIssues = [];
 
@@ -299,36 +352,39 @@
       return response.json();
     }
 
-    function resolveBackUrl() {
-      const fallback = './';
-      try {
-        const storedUrl = sessionStorage.getItem('pvoReturnUrl');
-        const candidate = returnParam || storedUrl || fallback;
-        if (!candidate) return fallback;
-        if (candidate.startsWith('http://') || candidate.startsWith('https://')) {
-          const url = new URL(candidate, window.location.origin);
-          return url.origin === window.location.origin ? `${url.pathname}${url.search}${url.hash}` : fallback;
-        }
-        if (candidate.startsWith('/')) return candidate;
-        if (candidate.startsWith('./') || candidate === '.' || candidate === './') return candidate;
-        return fallback;
-      } catch (error) {
-        return fallback;
-      }
-    }
-
-    function setupBackLink() {
-      const backLink = document.getElementById('backLink');
-      if (!backLink) return;
-      backLink.setAttribute('href', resolveBackUrl());
-    }
-
     function escapeHtml(value) {
       return String(value)
         .replaceAll('&', '&amp;')
         .replaceAll('<', '&lt;')
         .replaceAll('>', '&gt;')
         .replaceAll('"', '&quot;');
+    }
+
+    function formatHost(url) {
+      try {
+        const host = new URL(url).hostname.replace(/^www\./, '');
+        return host;
+      } catch {
+        return url;
+      }
+    }
+
+    function renderWebsite(item) {
+      const activeLink = document.getElementById('siteButtonLink');
+      const disabledButton = document.getElementById('siteButtonDisabled');
+      const hint = document.getElementById('siteHint');
+      const url = item.website_url;
+
+      if (url) {
+        activeLink.href = url;
+        activeLink.style.display = 'inline-flex';
+        disabledButton.style.display = 'none';
+        hint.textContent = `Сайт ПВО: ${formatHost(url)}`;
+      } else {
+        activeLink.style.display = 'none';
+        disabledButton.style.display = 'inline-flex';
+        hint.textContent = 'Для этого ПВО ссылка пока не добавлена в таблицу сайтов.';
+      }
     }
 
     function renderIssues(items) {
@@ -385,7 +441,7 @@
     function updateStats(item) {
       const uniqueIssuers = new Set(item.issues.map(issue => issue.issuer || ''));
       document.getElementById('title').textContent = item.name;
-      document.getElementById('heroLead').textContent = `Ниже приведены все выпуски и соответствующие эмитенты для выбранного ПВО.`;
+      document.getElementById('heroLead').textContent = 'Ниже приведены все выпуски и соответствующие эмитенты для выбранного ПВО.';
       document.getElementById('issuesCount').textContent = item.issue_count;
       document.getElementById('issuersCount').textContent = [...uniqueIssuers].filter(Boolean).length;
     }
@@ -398,8 +454,6 @@
       );
       renderIssues(filtered);
     }
-
-    setupBackLink();
 
     loadData()
       .then(data => {
@@ -414,6 +468,7 @@
 
         allIssues = item.issues || [];
         updateStats(item);
+        renderWebsite(item);
         renderIssues(allIssues);
 
         document.getElementById('searchInput').addEventListener('input', (event) => {
@@ -425,6 +480,9 @@
         document.getElementById('errorBox').textContent = error.message;
         document.getElementById('title').textContent = 'Страница не открыта';
         document.getElementById('heroLead').textContent = 'Проверьте ссылку или наличие файла pvo_data.json в корне репозитория.';
+        document.getElementById('siteButtonLink').style.display = 'none';
+        document.getElementById('siteButtonDisabled').style.display = 'inline-flex';
+        document.getElementById('siteHint').textContent = 'Кнопка сайта станет активной после успешной загрузки данных.';
       });
   </script>
 </body>
