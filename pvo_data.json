@@ -54,7 +54,8 @@
     "website_url": "https://www.ic-leader.ru/",
     "website": "https://www.ic-leader.ru/",
     "site_url": "https://www.ic-leader.ru/",
-    "url": "https://www.ic-leader.ru/"
+    "url": "https://www.ic-leader.ru/",
+    "has_website": true
   },
   {
     "name": "Акционерное общество «Инвестиционная компания \"Орион Капитал\"»",
@@ -62,10 +63,11 @@
     "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital",
     "issue_count": 0,
     "issues": [],
-    "website_url": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
-    "website": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
-    "site_url": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
-    "url": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Акционерное общество «Консалтинговая группа \"МФЦ\"»",
@@ -73,10 +75,11 @@
     "slug": "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts",
     "issue_count": 0,
     "issues": [],
-    "website_url": "http://moscons.ru/pvo/",
-    "website": "http://moscons.ru/pvo/",
-    "site_url": "http://moscons.ru/pvo/",
-    "url": "http://moscons.ru/pvo/"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Акционерное общество «Москва Сити Секьюритиз»",
@@ -103,10 +106,11 @@
         "issue_alias_pvo": "АО \"Москва Сити Секьюритиз\""
       }
     ],
-    "website_url": "https://mcitys.ru/representative-bond-owners",
-    "website": "https://mcitys.ru/representative-bond-owners",
-    "site_url": "https://mcitys.ru/representative-bond-owners",
-    "url": "https://mcitys.ru/representative-bond-owners"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Акционерное общество «ПЕРВОУРАЛЬСКБАНК»",
@@ -271,7 +275,8 @@
     "website_url": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
     "website": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
     "site_url": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
-    "url": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/"
+    "url": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
+    "has_website": true
   },
   {
     "name": "Акционерное общество «Управляющая компания \"ТРАНСФИНГРУП\"»",
@@ -319,7 +324,8 @@
     "website_url": "https://tfg.ru/pvo/",
     "website": "https://tfg.ru/pvo/",
     "site_url": "https://tfg.ru/pvo/",
-    "url": "https://tfg.ru/pvo/"
+    "url": "https://tfg.ru/pvo/",
+    "has_website": true
   },
   {
     "name": "Акционерное общество «Центральная трастовая компания»",
@@ -385,7 +391,8 @@
     "website_url": "https://www.centrotrust.ru/",
     "website": "https://www.centrotrust.ru/",
     "site_url": "https://www.centrotrust.ru/",
-    "url": "https://www.centrotrust.ru/"
+    "url": "https://www.centrotrust.ru/",
+    "has_website": true
   },
   {
     "name": "Акционерное общество «ЮНИТЕК СЕРВИС»",
@@ -505,7 +512,8 @@
     "website_url": "https://unitec-s.ru/raskritie_infotm_pvo/",
     "website": "https://unitec-s.ru/raskritie_infotm_pvo/",
     "site_url": "https://unitec-s.ru/raskritie_infotm_pvo/",
-    "url": "https://unitec-s.ru/raskritie_infotm_pvo/"
+    "url": "https://unitec-s.ru/raskritie_infotm_pvo/",
+    "has_website": true
   },
   {
     "name": "Акционерное общество Арована Капитал",
@@ -513,10 +521,11 @@
     "slug": "aktsionernoe-obschestvo-arovana-kapital",
     "issue_count": 0,
     "issues": [],
-    "website_url": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/",
-    "website": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/",
-    "site_url": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/",
-    "url": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Акционерное общество ВТБ РЕГИСТРАТОР",
@@ -524,10 +533,11 @@
     "slug": "aktsionernoe-obschestvo-vtb-registrator",
     "issue_count": 0,
     "issues": [],
-    "website_url": "https://www.vtbreg.ru/pvo/",
-    "website": "https://www.vtbreg.ru/pvo/",
-    "site_url": "https://www.vtbreg.ru/pvo/",
-    "url": "https://www.vtbreg.ru/pvo/"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Акционерный коммерческий банк «Абсолют Банк» (публичное акционерное общество)",
@@ -545,10 +555,11 @@
         "issue_alias_pvo": "АКБ \"Абсолют Банк\" (ПАО)"
       }
     ],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Московская городская коллегия адвокатов «Бюро адвокатов \"Де-юре\"»",
@@ -556,10 +567,11 @@
     "slug": "moskovskaya-gorodskaya-kollegiya-advokatov-byuro-advokatov-de-yure",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
@@ -567,10 +579,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avi-kepital",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «АВР Консалт»",
@@ -578,10 +591,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avr-konsalt",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Академ-Финанс»",
@@ -589,10 +603,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-akadem-finans",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «АЛОР +»",
@@ -631,7 +646,8 @@
     "website_url": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
     "website": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
     "site_url": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
-    "url": "https://www.alorbroker.ru/openinfo/openinfo?c=11"
+    "url": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Альянс-Фининвест»",
@@ -658,10 +674,11 @@
         "issue_alias_pvo": "ООО \"Альянс-Фининвест\""
       }
     ],
-    "website_url": "https://www.afi.expert/informationdisclosure",
-    "website": "https://www.afi.expert/informationdisclosure",
-    "site_url": "https://www.afi.expert/informationdisclosure",
-    "url": "https://www.afi.expert/informationdisclosure"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Вега-Инвест»",
@@ -669,10 +686,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-vega-invest",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Верба Лигал»",
@@ -708,10 +726,11 @@
         "issue_alias_pvo": "ООО \"Верба Лигал\""
       }
     ],
-    "website_url": "https://verba-legal-cm.ru/",
-    "website": "https://verba-legal-cm.ru/",
-    "site_url": "https://verba-legal-cm.ru/",
-    "url": "https://verba-legal-cm.ru/"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Волста»",
@@ -2244,7 +2263,8 @@
     "website_url": "https://volsta.ru/",
     "website": "https://volsta.ru/",
     "site_url": "https://volsta.ru/",
-    "url": "https://volsta.ru/"
+    "url": "https://volsta.ru/",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Гражданские консультации»",
@@ -2252,10 +2272,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-grazhdanskie-konsultatsii",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Единый центр взыскания»",
@@ -2263,10 +2284,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-edinyy-tsentr-vzyskaniya",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестиционная компания \"Фонтвьель\"»",
@@ -2274,10 +2296,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnaya-kompaniya-fontvel",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестиционные традиции»",
@@ -2285,10 +2308,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnye-traditsii",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестиционный Монетный Аукцион \"Гелиос Финанс\"»",
@@ -2306,10 +2330,11 @@
         "issue_alias_pvo": "ООО \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\""
       }
     ],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Инвестор»",
@@ -2317,10 +2342,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investor",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «КВС»",
@@ -2328,10 +2354,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kvs",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Контроль Качества»",
@@ -2339,10 +2366,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kontrol-kachestva",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «ЛИВ»",
@@ -2507,7 +2535,8 @@
     "website_url": "https://zpvo.ru/",
     "website": "https://zpvo.ru/",
     "site_url": "https://zpvo.ru/",
-    "url": "https://zpvo.ru/"
+    "url": "https://zpvo.ru/",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Лигал Кэпитал Инвестор Сервисез»",
@@ -7010,7 +7039,8 @@
     "website_url": "https://lcpis.ru/",
     "website": "https://lcpis.ru/",
     "site_url": "https://lcpis.ru/",
-    "url": "https://lcpis.ru/"
+    "url": "https://lcpis.ru/",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «ЛП Трасти Сервисез»",
@@ -7037,10 +7067,11 @@
         "issue_alias_pvo": "ООО \"ЛП ТРАСТИ СЕРВИСЕЗ\""
       }
     ],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Межрегионэнергоконтроль»",
@@ -7048,10 +7079,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-mezhregionenergokontrol",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Национальное агентство по содействию в допуске на финансовый рынок»",
@@ -7059,10 +7091,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-natsionalnoe-agentstvo-po-sodeystviyu-v-dopuske-na-finansovyy-rynok",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Национальный Центр Сертификации»",
@@ -7070,10 +7103,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-natsionalnyy-tsentr-sertifikatsii",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «ПРЕДСТАВИТЕЛЬ ВЛАДЕЛЬЦЕВ ОБЛИГАЦИЙ ВС РЫНКИ КАПИТАЛА»",
@@ -7081,10 +7115,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-predstavitel-vladeltsev-obligatsiy-vs-rynki-kapitala",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Представитель»",
@@ -7092,10 +7127,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-predstavitel",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «РКТ»",
@@ -7152,7 +7188,8 @@
     "website_url": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
     "website": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
     "site_url": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
-    "url": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy"
+    "url": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Рондо Капитал»",
@@ -7317,7 +7354,8 @@
     "website_url": "https://rondo-capital.ru/",
     "website": "https://rondo-capital.ru/",
     "site_url": "https://rondo-capital.ru/",
-    "url": "https://rondo-capital.ru/"
+    "url": "https://rondo-capital.ru/",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Синум Групп»",
@@ -7325,10 +7363,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-sinum-grupp",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «СКИФ»",
@@ -7336,10 +7375,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-skif",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «СОВЕТ-Представитель»",
@@ -7702,7 +7742,8 @@
     "website_url": "http://trw-rep.ru/",
     "website": "http://trw-rep.ru/",
     "site_url": "http://trw-rep.ru/",
-    "url": "http://trw-rep.ru/"
+    "url": "http://trw-rep.ru/",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Технология»",
@@ -7710,10 +7751,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-tehnologiya",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Управляющая компания \"Меркури Кэпитал Траст\"»",
@@ -7721,10 +7763,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-merkuri-kepital-trast",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «УПРАВЛЯЮЩАЯ КОМПАНИЯ ИНФРАСТРУКТУРА И ПРОИЗВОДСТВО»",
@@ -7732,10 +7775,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-infrastruktura-i-proizvodstvo",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «ФБК Консалтинг»",
@@ -7834,10 +7878,11 @@
         "issue_alias_pvo": "ООО \"ФБК Консалтинг\""
       }
     ],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Финансовая корпорация \"Атмосфера\"»",
@@ -7845,10 +7890,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-finansovaya-korporatsiya-atmosfera",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Финансовый юрист»",
@@ -7856,10 +7902,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-finansovyy-yurist",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «ЦФР Капитал»",
@@ -7867,10 +7914,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-tsfr-kapital",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «Юнилайн Капитал Менеджмент»",
@@ -8197,7 +8245,8 @@
     "website_url": "https://unilinecm.ru/",
     "website": "https://unilinecm.ru/",
     "site_url": "https://unilinecm.ru/",
-    "url": "https://unilinecm.ru/"
+    "url": "https://unilinecm.ru/",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Юридическая фирма \"КВЕСТ\"»",
@@ -8269,10 +8318,11 @@
         "issue_alias_pvo": "ООО \"Юридическая фирма \"КВЕСТ\""
       }
     ],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «ЮРИСТ-Н»",
@@ -8392,7 +8442,8 @@
     "website_url": "https://yurisyn.ru/",
     "website": "https://yurisyn.ru/",
     "site_url": "https://yurisyn.ru/",
-    "url": "https://yurisyn.ru/"
+    "url": "https://yurisyn.ru/",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью «Юристат»",
@@ -8400,10 +8451,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yuristat",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью «ЮрКонсалтинг Про»",
@@ -8411,10 +8463,11 @@
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurkonsalting-pro",
     "issue_count": 0,
     "issues": [],
-    "website_url": "",
-    "website": "",
-    "site_url": "",
-    "url": ""
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   },
   {
     "name": "Общество с ограниченной ответственностью Научно-производственное предприятие «ИМПЛЕКС»",
@@ -8975,7 +9028,8 @@
     "website_url": "https://implex.unimix.ru/?page=main",
     "website": "https://implex.unimix.ru/?page=main",
     "site_url": "https://implex.unimix.ru/?page=main",
-    "url": "https://implex.unimix.ru/?page=main"
+    "url": "https://implex.unimix.ru/?page=main",
+    "has_website": true
   },
   {
     "name": "Общество с ограниченной ответственностью Юридическая фирма «Некторов, Савельев и Партнеры»",
@@ -8993,9 +9047,10 @@
         "issue_alias_pvo": "ООО  \"Некторов, Савельев и Партнеры\""
       }
     ],
-    "website_url": "https://nsplaw.com/information-bonds",
-    "website": "https://nsplaw.com/information-bonds",
-    "site_url": "https://nsplaw.com/information-bonds",
-    "url": "https://nsplaw.com/information-bonds"
+    "website_url": null,
+    "website": null,
+    "site_url": null,
+    "url": null,
+    "has_website": false
   }
 ]

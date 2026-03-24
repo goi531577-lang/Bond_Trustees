@@ -16,6 +16,10 @@
       --line: rgba(171, 197, 255, 0.16);
       --accent: #7eb7ff;
       --accent-2: #8ef1da;
+      --danger: #ff7d7d;
+      --danger-bg: rgba(255, 102, 102, 0.14);
+      --success: #8ef1da;
+      --success-bg: rgba(142, 241, 218, 0.12);
       --shadow: 0 18px 60px rgba(0,0,0,.34);
       --radius: 24px;
       --maxw: 1220px;
@@ -70,16 +74,28 @@
         linear-gradient(180deg, rgba(18, 33, 58, 0.88), rgba(10, 19, 35, 0.9)),
         linear-gradient(135deg, rgba(126,183,255,.12), rgba(142,241,218,.08));
       box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -120px auto;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(126,183,255,.24), transparent 60%);
+      pointer-events: none;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
+      padding: 10px 16px;
+      border: 1px solid rgba(171, 197, 255, 0.16);
       border-radius: 999px;
-      border: 1px solid rgba(171, 197, 255, 0.18);
       background: rgba(9, 20, 37, 0.55);
       color: var(--accent-2);
       font-size: 13px;
@@ -102,6 +118,81 @@
       max-width: 950px;
     }
 
+    .heroActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .siteButton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(126,183,255,.22);
+      background: linear-gradient(180deg, rgba(126,183,255,.18), rgba(126,183,255,.08));
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .01em;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .siteButton:hover {
+      transform: translateY(-1px);
+      border-color: rgba(142,241,218,.35);
+      background: linear-gradient(180deg, rgba(126,183,255,.24), rgba(126,183,255,.12));
+    }
+
+    .siteButton.is-disabled,
+    .siteButton[aria-disabled="true"] {
+      cursor: default;
+      pointer-events: none;
+      opacity: .62;
+      background: rgba(171, 197, 255, 0.08);
+      border-color: rgba(171, 197, 255, 0.12);
+    }
+
+    .siteStatus {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+    }
+
+    .siteStatus.ok {
+      color: var(--success);
+      background: var(--success-bg);
+      border-color: rgba(142, 241, 218, .22);
+    }
+
+    .siteStatus.missing {
+      color: var(--danger);
+      background: var(--danger-bg);
+      border-color: rgba(255, 125, 125, .28);
+    }
+
+    .siteUrlText {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .siteUrlText a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
     .stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -116,79 +207,45 @@
       background: rgba(7, 14, 25, .42);
     }
 
-    .statLabel { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
-    .statValue { font-size: 30px; line-height: 1; letter-spacing: -0.03em; }
-
-    .siteActions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .siteButton {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
-      border-radius: 16px;
-      border: 1px solid rgba(171, 197, 255, .18);
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: .01em;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease, opacity .15s ease;
-    }
-
-    .siteButton--active {
-      color: #06101b;
-      background: linear-gradient(135deg, var(--accent-2), #a9ffef);
-      box-shadow: 0 14px 30px rgba(78, 224, 190, .18);
-    }
-
-    .siteButton--active:hover {
-      transform: translateY(-1px);
-      border-color: rgba(171, 197, 255, .34);
-    }
-
-    .siteButton--disabled {
+    .statLabel {
       color: var(--muted);
-      background: rgba(7, 14, 25, .46);
-      cursor: default;
-      opacity: .9;
+      font-size: 13px;
+      margin-bottom: 8px;
     }
 
-    .siteHint {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
+    .statValue {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     .toolbar {
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
       gap: 12px;
+      align-items: center;
+      margin-top: 24px;
     }
 
     .search {
-      width: 100%;
-      border: 1px solid rgba(171, 197, 255, .18);
-      background: rgba(6, 13, 24, .68);
+      flex: 1;
+      min-width: 0;
+      padding: 15px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(171,197,255,.15);
+      background: rgba(4, 10, 20, .55);
       color: var(--text);
-      border-radius: 18px;
-      padding: 16px 18px;
-      font-size: 16px;
       outline: none;
+      font-size: 15px;
     }
+
+    .search::placeholder { color: #7e8ca8; }
 
     .tableWrap {
       margin-top: 24px;
       border: 1px solid var(--line);
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(11, 22, 40, 0.72), rgba(8, 17, 30, 0.88));
+      background: rgba(8, 15, 28, .86);
       box-shadow: var(--shadow);
     }
 
@@ -198,24 +255,19 @@
     }
 
     thead th {
-      position: sticky;
-      top: 0;
-      z-index: 1;
       text-align: left;
-      padding: 16px 18px;
-      background: rgba(13, 24, 42, 0.96);
-      color: var(--muted);
       font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
+      letter-spacing: .04em;
       text-transform: uppercase;
-      border-bottom: 1px solid rgba(171, 197, 255, .10);
+      color: #c8d8f2;
+      background: rgba(14, 29, 52, .94);
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(171,197,255,.12);
     }
 
     tbody td {
       padding: 16px 18px;
-      border-bottom: 1px solid rgba(171, 197, 255, .08);
-      vertical-align: top;
+      border-top: 1px solid rgba(171,197,255,.08);
       font-size: 15px;
       line-height: 1.5;
     }
@@ -259,28 +311,23 @@
     }
 
     .issueCardTitle {
-      font-weight: 700;
-      margin-bottom: 8px;
-      line-height: 1.4;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
     }
 
     .issueCardMeta {
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
+      display: grid;
+      gap: 8px;
+      line-height: 1.5;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 860px) {
       .stats { grid-template-columns: 1fr; }
       .tableWrap { display: none !important; }
       .cardList { display: grid; }
-    }
-
-    @media (max-width: 760px) {
-      .hero { padding: 22px 18px; }
-      .shell { padding: 18px 14px 44px; }
-      .siteActions { align-items: stretch; }
-      .siteButton { width: 100%; }
     }
   </style>
 </head>
@@ -293,6 +340,12 @@
       <div class="eyebrow">Отдельная страница ПВО</div>
       <h1 id="title">Загрузка…</h1>
       <p id="heroLead" class="heroLead">Подождите, данные загружаются.</p>
+
+      <div class="heroActions">
+        <a id="siteButton" class="siteButton is-disabled" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Перейти на сайт ПВО</a>
+        <div id="siteStatus" class="siteStatus missing">Сайт отсутствует</div>
+      </div>
+      <div id="siteUrlText" class="siteUrlText"></div>
 
       <div class="stats">
         <div class="stat">
@@ -307,12 +360,6 @@
           <div class="statLabel">Отбор данных</div>
           <div class="statValue" style="font-size:18px; line-height:1.4;">Только «Торгуется» и только последняя запись</div>
         </div>
-      </div>
-
-      <div class="siteActions">
-        <a id="siteButtonLink" class="siteButton siteButton--active" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Перейти на сайт ПВО</a>
-        <button id="siteButtonDisabled" class="siteButton siteButton--disabled" type="button" disabled style="display:none;">Сайт ПВО пока не добавлен</button>
-        <div id="siteHint" class="siteHint"></div>
       </div>
 
       <div class="toolbar">
@@ -343,60 +390,10 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const requestedSlug = params.get('pvo');
-    const DATA_VERSION = '20260324-websites-23-v1';
-    const websiteFallbackMap = {
-      "aktsionernoe-obschestvo-investitsionnaya-kompaniya-lider": "https://www.ic-leader.ru/",
-      "акционерное общество инвестиционная компания лидер": "https://www.ic-leader.ru/",
-      "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
-      "акционерное общество инвестиционная компания орион капитал": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
-      "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts": "http://moscons.ru/pvo/",
-      "акционерное общество консалтинговая группа мфц": "http://moscons.ru/pvo/",
-      "aktsionernoe-obschestvo-moskva-siti-sekyuritiz": "https://mcitys.ru/representative-bond-owners",
-      "акционерное общество москва сити секьюритиз": "https://mcitys.ru/representative-bond-owners",
-      "aktsionernoe-obschestvo-pervouralskbank": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
-      "акционерное общество первоуральскбанк": "https://pervbank.ru/corporate/predstavitel-vladeltsev-obligatsiy/",
-      "aktsionernoe-obschestvo-upravlyayuschaya-kompaniya-transfingrup": "https://tfg.ru/pvo/",
-      "акционерное общество управляющая компания трансфингруп": "https://tfg.ru/pvo/",
-      "aktsionernoe-obschestvo-tsentralnaya-trastovaya-kompaniya": "https://www.centrotrust.ru/",
-      "акционерное общество центральная трастовая компания": "https://www.centrotrust.ru/",
-      "aktsionernoe-obschestvo-yunitek-servis": "https://unitec-s.ru/raskritie_infotm_pvo/",
-      "акционерное общество юнитек сервис": "https://unitec-s.ru/raskritie_infotm_pvo/",
-      "aktsionernoe-obschestvo-arovana-kapital": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/",
-      "акционерное общество арована капитал": "https://www.acptl.ru/about/obyazatelnaya-informatsiya/general-info/",
-      "aktsionernoe-obschestvo-vtb-registrator": "https://www.vtbreg.ru/pvo/",
-      "акционерное общество втб регистратор": "https://www.vtbreg.ru/pvo/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-alor": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
-      "общество с ограниченной ответственностью алор +": "https://www.alorbroker.ru/openinfo/openinfo?c=11",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-alyans-fininvest": "https://www.afi.expert/informationdisclosure",
-      "общество с ограниченной ответственностью альянс-фининвест": "https://www.afi.expert/informationdisclosure",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-verba-ligal": "https://verba-legal-cm.ru/",
-      "общество с ограниченной ответственностью верба лигал": "https://verba-legal-cm.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-volsta": "https://volsta.ru/",
-      "общество с ограниченной ответственностью волста": "https://volsta.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-liv": "https://zpvo.ru/",
-      "общество с ограниченной ответственностью лив": "https://zpvo.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-ligal-kepital-investor-servisez": "https://lcpis.ru/",
-      "общество с ограниченной ответственностью лигал кэпитал инвестор сервисез": "https://lcpis.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-rkt": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
-      "общество с ограниченной ответственностью ркт": "https://rctlaw.ru/services/uslugi-predstavitelya-vladeltsev-obligatsiy",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-rondo-kapital": "https://rondo-capital.ru/",
-      "общество с ограниченной ответственностью рондо капитал": "https://rondo-capital.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-sovet-predstavitel": "http://trw-rep.ru/",
-      "общество с ограниченной ответственностью совет-представитель": "http://trw-rep.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-yunilayn-kapital-menedzhment": "https://unilinecm.ru/",
-      "общество с ограниченной ответственностью юнилайн капитал менеджмент": "https://unilinecm.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-yurist-n": "https://yurisyn.ru/",
-      "общество с ограниченной ответственностью юрист-н": "https://yurisyn.ru/",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-nauchno-proizvodstvennoe-predpriyatie-impleks": "https://implex.unimix.ru/?page=main",
-      "общество с ограниченной ответственностью научно-производственное предприятие имплекс": "https://implex.unimix.ru/?page=main",
-      "obschestvo-s-ogranichennoy-otvetstvennostyu-yuridicheskaya-firma-nektorov-savelev-i-partnery": "https://nsplaw.com/information-bonds",
-      "общество с ограниченной ответственностью юридическая фирма некторов, савельев и партнеры": "https://nsplaw.com/information-bonds"
-};
-
     let allIssues = [];
 
     async function loadData() {
-      const response = await fetch(`./pvo_data.json?v=${DATA_VERSION}`, { cache: 'no-store' });
+      const response = await fetch('./pvo_data.json?v=' + Date.now(), { cache: 'no-store' });
       if (!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
       return response.json();
     }
@@ -407,55 +404,6 @@
         .replaceAll('<', '&lt;')
         .replaceAll('>', '&gt;')
         .replaceAll('"', '&quot;');
-    }
-
-    function normalizeName(value) {
-      return String(value || '')
-        .trim()
-        .toLowerCase()
-        .replaceAll('«', '')
-        .replaceAll('»', '')
-        .replaceAll('"', '')
-        .replaceAll('ё', 'е')
-        .replace(/\s+/g, ' ');
-    }
-
-    function formatHost(url) {
-      try {
-        const host = new URL(url).hostname.replace(/^www\./, '');
-        return host;
-      } catch {
-        return url;
-      }
-    }
-
-    function resolveWebsite(item) {
-      return item.website_url
-        || item.website
-        || item.site_url
-        || item.url
-        || websiteFallbackMap[item.slug]
-        || websiteFallbackMap[normalizeName(item.name)]
-        || websiteFallbackMap[normalizeName(item.full_name)]
-        || '';
-    }
-
-    function renderWebsite(item) {
-      const activeLink = document.getElementById('siteButtonLink');
-      const disabledButton = document.getElementById('siteButtonDisabled');
-      const hint = document.getElementById('siteHint');
-      const url = resolveWebsite(item);
-
-      if (url) {
-        activeLink.href = url;
-        activeLink.style.display = 'inline-flex';
-        disabledButton.style.display = 'none';
-        hint.textContent = `Сайт ПВО: ${formatHost(url)}`;
-      } else {
-        activeLink.style.display = 'none';
-        disabledButton.style.display = 'inline-flex';
-        hint.textContent = 'Для этого ПВО ссылка пока не добавлена в таблицу сайтов.';
-      }
     }
 
     function renderIssues(items) {
@@ -510,11 +458,32 @@
     }
 
     function updateStats(item) {
-      const uniqueIssuers = new Set(item.issues.map(issue => issue.issuer || ''));
+      const uniqueIssuers = new Set((item.issues || []).map(issue => issue.issuer || ''));
       document.getElementById('title').textContent = item.name;
       document.getElementById('heroLead').textContent = 'Ниже приведены все выпуски и соответствующие эмитенты для выбранного ПВО.';
-      document.getElementById('issuesCount').textContent = item.issue_count;
+      document.getElementById('issuesCount').textContent = item.issue_count ?? 0;
       document.getElementById('issuersCount').textContent = [...uniqueIssuers].filter(Boolean).length;
+
+      const website = item.website_url || item.website || item.site_url || item.url || '';
+      const siteButton = document.getElementById('siteButton');
+      const siteStatus = document.getElementById('siteStatus');
+      const siteUrlText = document.getElementById('siteUrlText');
+
+      if (website) {
+        siteButton.href = website;
+        siteButton.classList.remove('is-disabled');
+        siteButton.removeAttribute('aria-disabled');
+        siteStatus.className = 'siteStatus ok';
+        siteStatus.textContent = 'Сайт ПВО указан';
+        siteUrlText.innerHTML = `Сайт: <a href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(website)}</a>`;
+      } else {
+        siteButton.href = '#';
+        siteButton.classList.add('is-disabled');
+        siteButton.setAttribute('aria-disabled', 'true');
+        siteStatus.className = 'siteStatus missing';
+        siteStatus.textContent = 'Сайт отсутствует';
+        siteUrlText.textContent = '';
+      }
     }
 
     function applySearch(value) {
@@ -539,7 +508,6 @@
 
         allIssues = item.issues || [];
         updateStats(item);
-        renderWebsite(item);
         renderIssues(allIssues);
 
         document.getElementById('searchInput').addEventListener('input', (event) => {
@@ -550,7 +518,7 @@
         document.getElementById('errorBox').style.display = 'block';
         document.getElementById('errorBox').textContent = error.message;
         document.getElementById('title').textContent = 'Страница не открыта';
-        document.getElementById('heroLead').textContent = 'Проверьте ссылку или наличие файлов сайта в репозитории.';
+        document.getElementById('heroLead').textContent = 'Проверьте ссылку или наличие файла pvo_data.json в корне репозитория.';
       });
   </script>
 </body>
