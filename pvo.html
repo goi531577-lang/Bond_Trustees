@@ -110,11 +110,22 @@
     .flagItem{
       display:flex; align-items:center; gap:12px; padding:12px 14px; border-radius:16px;
       border:1px solid rgba(171,197,255,.10); background:rgba(9,18,33,.72);
+      transition:border-color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+    .flagItem.is-on{
+      border-color:rgba(142,241,218,.34);
+      background:linear-gradient(180deg, rgba(18,55,47,.72), rgba(10,33,29,.82));
+      box-shadow:inset 0 0 0 1px rgba(142,241,218,.12);
+    }
+    .flagItem.is-on .flagText{
+      color:var(--success);
+      font-weight:700;
     }
     .flagCheck{
-      width:20px; height:20px; accent-color:#8ef1da; cursor:pointer;
+      width:20px; height:20px; accent-color:#24d16f; cursor:pointer;
     }
-    .flagCheck:disabled{cursor:not-allowed; opacity:.55}
+    .flagCheck:disabled{cursor:not-allowed; opacity:.45}
+    .flagCheck:disabled:checked{opacity:1}
     .flagText{font-size:15px; line-height:1.4}
     .toolbar{display:flex; gap:12px; align-items:center; margin-top:24px; flex-wrap:wrap}
     .search{
@@ -363,11 +374,21 @@
       localStorage.setItem(flagsKey(), JSON.stringify(flags));
     }
 
+    function syncFlagVisuals(){
+      const report = document.getElementById('report2025Flag');
+      const lk = document.getElementById('lkFlag');
+      [report, lk].forEach((input) => {
+        const label = input.closest('.flagItem');
+        if(label) label.classList.toggle('is-on', input.checked);
+      });
+    }
+
     function applyFlagsToInputs(flags){
       const report = document.getElementById('report2025Flag');
       const lk = document.getElementById('lkFlag');
       report.checked = Boolean(flags.report2025);
       lk.checked = Boolean(flags.hasLK);
+      syncFlagVisuals();
     }
 
     function setFlagsEditingState(isEditing){
