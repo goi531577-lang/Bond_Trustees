@@ -103,10 +103,12 @@
     .statLabel{color:var(--muted); font-size:13px; margin-bottom:8px}
     .statValue{font-size:clamp(24px,4vw,34px); font-weight:800; letter-spacing:-.02em}
     .statValue.ogrnValue{
-      font-size:clamp(18px,2.1vw,26px);
-      letter-spacing:.04em;
+      font-size:clamp(16px,1.55vw,22px);
+      letter-spacing:.01em;
       font-variant-numeric:tabular-nums;
-      word-break:break-word;
+      white-space:nowrap;
+      word-break:normal;
+      overflow-wrap:normal;
     }
     .flagsCard{padding:18px; grid-column:span 2}
     .flagsHead{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
@@ -392,12 +394,25 @@
       localStorage.setItem(flagsKey(), JSON.stringify(flags));
     }
 
-    function syncFlagVisuals(){
+    function syncFlagVisuals(flags = loadFlags()){
+      const report = document.getElementById('report2025Flag');
+      const lk = document.getElementById('lkFlag');
+      const pairs = [
+        [report, Boolean(flags.report2025)],
+        [lk, Boolean(flags.hasLK)]
+      ];
+      pairs.forEach(([input, isOn]) => {
+        const label = input.closest('.flagItem');
+        if(label) label.classList.toggle('is-on', isOn);
+      });
+    }
+
+    function clearFlagVisuals(){
       const report = document.getElementById('report2025Flag');
       const lk = document.getElementById('lkFlag');
       [report, lk].forEach((input) => {
         const label = input.closest('.flagItem');
-        if(label) label.classList.toggle('is-on', input.checked);
+        if(label) label.classList.remove('is-on');
       });
     }
 
@@ -406,7 +421,11 @@
       const lk = document.getElementById('lkFlag');
       report.checked = Boolean(flags.report2025);
       lk.checked = Boolean(flags.hasLK);
-      syncFlagVisuals();
+      if(flagsEditing){
+        clearFlagVisuals();
+      } else {
+        syncFlagVisuals(flags);
+      }
     }
 
     function setFlagsEditingState(isEditing){
@@ -421,6 +440,11 @@
       editBtn.classList.toggle('hidden', isEditing);
       saveBtn.classList.toggle('hidden', !isEditing);
       cancelBtn.classList.toggle('hidden', !isEditing);
+      if(isEditing){
+        clearFlagVisuals();
+      } else {
+        syncFlagVisuals(loadFlags());
+      }
     }
 
     function renderFlags(){
@@ -441,8 +465,10 @@
     function persistFlagsFromInputs(){
       const report = document.getElementById('report2025Flag');
       const lk = document.getElementById('lkFlag');
-      saveFlags({ report2025: report.checked, hasLK: lk.checked });
+      const saved = { report2025: report.checked, hasLK: lk.checked };
+      saveFlags(saved);
       setFlagsEditingState(false);
+      syncFlagVisuals(saved);
     }
 
     function loadComments(){
