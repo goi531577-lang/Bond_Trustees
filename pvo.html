@@ -92,8 +92,30 @@
     .topGrid{
       margin-top:22px;
       display:grid; gap:16px;
-      grid-template-columns:repeat(5,minmax(0,1fr));
+      grid-template-columns:repeat(4,minmax(0,1fr));
       align-items:stretch;
+    }
+    .ogrnCard{
+      margin-top:16px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px 20px;
+      background:linear-gradient(180deg, rgba(17,31,54,.86), rgba(10,20,36,.92));
+      box-shadow:0 14px 36px rgba(0,0,0,.18);
+    }
+    .ogrnRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .ogrnLabel{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:700;
+      white-space:nowrap;
     }
     .stat,.flagsCard,.commentComposer,.commentsWrap{
       border:1px solid rgba(171,197,255,.12); border-radius:22px;
@@ -103,7 +125,7 @@
     .statLabel{color:var(--muted); font-size:13px; margin-bottom:8px}
     .statValue{font-size:clamp(24px,4vw,34px); font-weight:800; letter-spacing:-.02em}
     .statValue.ogrnValue{
-      font-size:clamp(20px,2.6vw,30px);
+      font-size:clamp(20px,2.3vw,30px);
       letter-spacing:.04em;
       font-variant-numeric:tabular-nums;
       white-space:nowrap;
@@ -220,13 +242,7 @@
       .topGrid{grid-template-columns:1fr 1fr}
       .flagsCard{grid-column:span 2}
       .ogrnRow{align-items:flex-start}
-      .statValue.ogrnValue{font-size:clamp(18px,5vw,26px); text-align:left}
-    }
-    @media (max-width:640px){
-      .topGrid{grid-template-columns:1fr}
-      .flagsCard{grid-column:span 1}
-      .ogrnRow{flex-direction:column; align-items:flex-start}
-      .statValue.ogrnValue{white-space:normal; line-height:1.2}
+      .statValue.ogrnValue{font-size:clamp(18px,4vw,24px); text-align:left}
     }
     @media (max-width:860px){
       .tableWrap{display:none !important}
@@ -238,6 +254,8 @@
       .topGrid{grid-template-columns:1fr}
       .flagsCard{grid-column:span 1}
       .toolbar{flex-direction:column; align-items:stretch}
+      .ogrnRow{flex-direction:column; align-items:flex-start}
+      .statValue.ogrnValue{white-space:normal; line-height:1.2}
     }
   </style>
 </head>
@@ -285,6 +303,13 @@
               <span class="flagText">Есть ЛК</span>
             </label>
           </div>
+        </div>
+      </div>
+
+      <div class="ogrnCard">
+        <div class="ogrnRow">
+          <div class="ogrnLabel">ОГРН</div>
+          <div id="ogrnValue" class="statValue ogrnValue">—</div>
         </div>
       </div>
 
