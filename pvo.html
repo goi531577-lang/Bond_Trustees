@@ -92,7 +92,7 @@
     .topGrid{
       margin-top:22px;
       display:grid; gap:16px;
-      grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-template-columns:repeat(5,minmax(0,1fr));
       align-items:stretch;
     }
     .stat,.flagsCard,.commentComposer,.commentsWrap{
@@ -102,6 +102,12 @@
     .stat{padding:18px}
     .statLabel{color:var(--muted); font-size:13px; margin-bottom:8px}
     .statValue{font-size:clamp(24px,4vw,34px); font-weight:800; letter-spacing:-.02em}
+    .statValue.ogrnValue{
+      font-size:clamp(18px,2.1vw,26px);
+      letter-spacing:.04em;
+      font-variant-numeric:tabular-nums;
+      word-break:break-word;
+    }
     .flagsCard{padding:18px; grid-column:span 2}
     .flagsHead{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
     .flagsTitle{font-size:15px; font-weight:800; margin:0}
@@ -113,13 +119,13 @@
       transition:border-color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease;
     }
     .flagItem.is-on{
-      border-color:rgba(142,241,218,.34);
-      background:linear-gradient(180deg, rgba(18,55,47,.72), rgba(10,33,29,.82));
-      box-shadow:inset 0 0 0 1px rgba(142,241,218,.12);
+      border-color:rgba(93, 237, 160, .56);
+      background:linear-gradient(180deg, rgba(20,76,49,.86), rgba(10,42,28,.92));
+      box-shadow:inset 0 0 0 1px rgba(142,241,218,.20), 0 10px 26px rgba(15, 74, 45, .22);
     }
     .flagItem.is-on .flagText{
-      color:var(--success);
-      font-weight:700;
+      color:#baffd5;
+      font-weight:800;
     }
     .flagCheck{
       width:20px; height:20px; accent-color:#24d16f; cursor:pointer;
@@ -203,6 +209,10 @@
     }
     .commentCardActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .hidden{display:none !important}
+    @media (max-width:1180px){
+      .topGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .flagsCard{grid-column:span 3}
+    }
     @media (max-width:980px){
       .topGrid{grid-template-columns:1fr 1fr}
       .flagsCard{grid-column:span 2}
@@ -244,6 +254,10 @@
         <div class="stat">
           <div class="statLabel">Уникальные эмитенты</div>
           <div id="issuersCount" class="statValue">—</div>
+        </div>
+        <div class="stat">
+          <div class="statLabel">ОГРН</div>
+          <div id="ogrnValue" class="statValue ogrnValue">—</div>
         </div>
         <div class="flagsCard">
           <div class="flagsHead">
@@ -554,6 +568,7 @@
       document.getElementById('heroLead').textContent = 'На этой странице собраны активные выпуски облигаций и эмитенты, закрепленные за выбранным ПВО.';
       document.getElementById('issuesCount').textContent = issues.length;
       document.getElementById('issuersCount').textContent = issuers.size;
+      document.getElementById('ogrnValue').textContent = item.ogrn || '—';
     }
 
     function renderIssues(issues){
