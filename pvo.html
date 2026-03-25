@@ -103,12 +103,13 @@
     .statLabel{color:var(--muted); font-size:13px; margin-bottom:8px}
     .statValue{font-size:clamp(24px,4vw,34px); font-weight:800; letter-spacing:-.02em}
     .statValue.ogrnValue{
-      font-size:clamp(16px,1.55vw,22px);
-      letter-spacing:.01em;
+      font-size:clamp(20px,2.6vw,30px);
+      letter-spacing:.04em;
       font-variant-numeric:tabular-nums;
       white-space:nowrap;
       word-break:normal;
       overflow-wrap:normal;
+      text-align:right;
     }
     .flagsCard{padding:18px; grid-column:span 2}
     .flagsHead{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px}
@@ -218,6 +219,14 @@
     @media (max-width:980px){
       .topGrid{grid-template-columns:1fr 1fr}
       .flagsCard{grid-column:span 2}
+      .ogrnRow{align-items:flex-start}
+      .statValue.ogrnValue{font-size:clamp(18px,5vw,26px); text-align:left}
+    }
+    @media (max-width:640px){
+      .topGrid{grid-template-columns:1fr}
+      .flagsCard{grid-column:span 1}
+      .ogrnRow{flex-direction:column; align-items:flex-start}
+      .statValue.ogrnValue{white-space:normal; line-height:1.2}
     }
     @media (max-width:860px){
       .tableWrap{display:none !important}
@@ -256,10 +265,6 @@
         <div class="stat">
           <div class="statLabel">Уникальные эмитенты</div>
           <div id="issuersCount" class="statValue">—</div>
-        </div>
-        <div class="stat">
-          <div class="statLabel">ОГРН</div>
-          <div id="ogrnValue" class="statValue ogrnValue">—</div>
         </div>
         <div class="flagsCard">
           <div class="flagsHead">
