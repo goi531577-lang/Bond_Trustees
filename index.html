@@ -92,24 +92,42 @@
       border-color:rgba(126,183,255,.48);
       box-shadow:0 0 0 4px rgba(126,183,255,.10);
     }
-    .counter,.chartButton{
+    .counter,.chartButton,.dataButton{
       height:54px; border-radius:18px; border:1px solid rgba(171,197,255,.16);
       background:rgba(10,19,35,.8); color:var(--text);
       display:inline-flex; align-items:center; justify-content:center;
       padding:0 18px; font-size:15px; white-space:nowrap;
     }
     .counter strong{margin-left:6px; color:var(--accent-2)}
-    .chartButton{
+    .chartButton,.dataButton{
       cursor:pointer; gap:10px; font-weight:700;
-      background:linear-gradient(180deg, rgba(126,183,255,.18), rgba(126,183,255,.08));
       transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
-    .chartButton:hover,.chartButton:focus-visible{
+    .chartButton{
+      background:linear-gradient(180deg, rgba(126,183,255,.18), rgba(126,183,255,.08));
+    }
+    .dataButton{
+      background:linear-gradient(180deg, rgba(142,241,218,.15), rgba(142,241,218,.06));
+    }
+    .chartButton:hover,.chartButton:focus-visible,.dataButton:hover,.dataButton:focus-visible{
       transform:translateY(-1px);
       border-color:rgba(126,183,255,.38);
       box-shadow:0 12px 28px rgba(0,0,0,.18);
       outline:none;
     }
+    .dataTools{
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .dataStatus{
+      margin-top:12px; display:none; padding:14px 16px; border-radius:16px;
+      border:1px solid rgba(171,197,255,.16); background:rgba(7,15,27,.46);
+      color:var(--text); font-size:14px; line-height:1.55;
+    }
+    .dataStatus.show{display:block}
+    .dataStatus.success{border-color:rgba(142,241,218,.34); background:rgba(12,36,31,.72)}
+    .dataStatus.error{border-color:rgba(255,110,144,.34); background:rgba(45,16,27,.74)}
+    .dataStatus.info{border-color:rgba(126,183,255,.28); background:rgba(10,24,45,.72)}
+    .hiddenFileInput{display:none}
     .listWrap{
       margin-top:24px; border:1px solid var(--line); border-radius:28px;
       padding:20px; background:linear-gradient(180deg, rgba(11,22,40,.72), rgba(8,17,30,.88));
@@ -332,9 +350,15 @@
     <section class="controls" aria-label="Инструменты поиска и визуализации">
       <input id="searchInput" class="search" type="search" placeholder="Поиск по названию ПВО" autocomplete="off" />
       <div class="counter">Показано: <strong id="visibleCount">—</strong></div>
-      <button id="openChartButton" class="chartButton" type="button">◔ Показать пай-чарт</button>
+      <div class="dataTools">
+        <button id="openChartButton" class="chartButton" type="button">◔ Показать пай-чарт</button>
+        <button id="exportJsonButton" class="dataButton" type="button">⇩ Экспорт JSON</button>
+        <button id="importJsonButton" class="dataButton" type="button">⇧ Импорт JSON</button>
+        <input id="importJsonInput" class="hiddenFileInput" type="file" accept="application/json,.json" />
+      </div>
     </section>
 
+    <div id="dataStatus" class="dataStatus" role="status" aria-live="polite"></div>
     <div id="loadingBox" class="loadingBox">Загрузка данных…</div>
     <div id="errorBox" class="errorBox"></div>
 
@@ -408,6 +432,9 @@
     let allItems = [];
     let filteredItems = [];
     let totalIssues = 0;
+    const STORAGE_EXPORT_VERSION = 1;
+    const FLAGS_PREFIX = 'pvo_flags_';
+    const COMMENTS_PREFIX = 'pvo_comments_';
 
     function escapeHtml(value){
       return String(value ?? '')
@@ -474,6 +501,147 @@
 
     function formatPvoName(text){
       return String(text || '').trim();
+    }
+
+    function setDataStatus(message, type = 'info'){
+      const box = document.getElementById('dataStatus');
+      if(!box) return;
+      box.textContent = message;
+      box.className = `dataStatus show ${type}`;
+    }
+
+    function safeJsonParse(value, fallback){
+      try{
+        return JSON.parse(value);
+      }catch{
+        return fallback;
+      }
+    }
+
+    function collectPortableState(){
+      const flags = {};
+      const comments = {};
+      for(let i = 0; i < localStorage.length; i += 1){
+        const key = localStorage.key(i);
+        if(!key) continue;
+        if(key.startsWith(FLAGS_PREFIX)){
+          const slug = key.slice(FLAGS_PREFIX.length);
+          const parsed = safeJsonParse(localStorage.getItem(key), {});
+          if(parsed && typeof parsed === 'object'){
+            flags[slug] = {
+              report2025: Boolean(parsed.report2025),
+              hasLK: Boolean(parsed.hasLK)
+            };
+          }
+        }
+        if(key.startsWith(COMMENTS_PREFIX)){
+          const slug = key.slice(COMMENTS_PREFIX.length);
+          const parsed = safeJsonParse(localStorage.getItem(key), []);
+          if(Array.isArray(parsed)){
+            comments[slug] = parsed
+              .filter(item => item && typeof item === 'object' && typeof item.text === 'string')
+              .map(item => ({
+                id: String(item.id || `${Date.now()}_${Math.random().toString(36).slice(2,8)}`),
+                text: String(item.text || ''),
+                createdAt: item.createdAt || new Date().toISOString(),
+                updatedAt: item.updatedAt || item.createdAt || new Date().toISOString()
+              }));
+          }
+        }
+      }
+      return {
+        app: 'pvo-site',
+        version: STORAGE_EXPORT_VERSION,
+        exported_at: new Date().toISOString(),
+        origin: window.location.origin,
+        data: { flags, comments }
+      };
+    }
+
+    function downloadTextFile(filename, content, type = 'application/json;charset=utf-8'){
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportPortableState(){
+      const payload = collectPortableState();
+      const stamp = new Date().toISOString().slice(0,19).replace(/[T:]/g, '-');
+      const flagsCount = Object.keys(payload.data.flags).length;
+      const commentsCount = Object.values(payload.data.comments).reduce((sum, items) => sum + items.length, 0);
+      downloadTextFile(`pvo-site-backup-${stamp}.json`, JSON.stringify(payload, null, 2));
+      setDataStatus(`Экспорт готов: ${flagsCount} наборов галочек и ${commentsCount} комментариев сохранены в JSON-файл.`, 'success');
+    }
+
+    function normalizeImportPayload(payload){
+      const root = payload && typeof payload === 'object' ? payload : {};
+      const source = root.data && typeof root.data === 'object' ? root.data : root;
+      const flags = source.flags && typeof source.flags === 'object' ? source.flags : {};
+      const comments = source.comments && typeof source.comments === 'object' ? source.comments : {};
+      return { flags, comments };
+    }
+
+    async function importPortableStateFromFile(file){
+      const rawText = await file.text();
+      const parsed = JSON.parse(rawText);
+      const { flags, comments } = normalizeImportPayload(parsed);
+      let savedFlags = 0;
+      let savedComments = 0;
+
+      Object.entries(flags).forEach(([slug, value]) => {
+        if(!slug) return;
+        const normalized = {
+          report2025: Boolean(value && value.report2025),
+          hasLK: Boolean(value && value.hasLK)
+        };
+        localStorage.setItem(`${FLAGS_PREFIX}${slug}`, JSON.stringify(normalized));
+        savedFlags += 1;
+      });
+
+      Object.entries(comments).forEach(([slug, list]) => {
+        if(!slug || !Array.isArray(list)) return;
+        const normalized = list
+          .filter(item => item && typeof item === 'object' && typeof item.text === 'string')
+          .map(item => ({
+            id: String(item.id || `${Date.now()}_${Math.random().toString(36).slice(2,8)}`),
+            text: String(item.text || ''),
+            createdAt: item.createdAt || new Date().toISOString(),
+            updatedAt: item.updatedAt || item.createdAt || new Date().toISOString()
+          }));
+        localStorage.setItem(`${COMMENTS_PREFIX}${slug}`, JSON.stringify(normalized));
+        savedComments += normalized.length;
+      });
+
+      setDataStatus(`Импорт завершен: загружено ${savedFlags} наборов галочек и ${savedComments} комментариев. Теперь эти данные будут доступны на страницах ПВО и на странице отчета за 2025 год на этом компьютере.`, 'success');
+    }
+
+    function bindPortableStateControls(){
+      const exportBtn = document.getElementById('exportJsonButton');
+      const importBtn = document.getElementById('importJsonButton');
+      const importInput = document.getElementById('importJsonInput');
+      if(exportBtn){
+        exportBtn.addEventListener('click', exportPortableState);
+      }
+      if(importBtn && importInput){
+        importBtn.addEventListener('click', () => importInput.click());
+        importInput.addEventListener('change', async (event) => {
+          const [file] = event.target.files || [];
+          if(!file) return;
+          try{
+            await importPortableStateFromFile(file);
+          }catch(error){
+            setDataStatus('Не удалось импортировать JSON. Проверь, что выбран корректный файл экспорта сайта.', 'error');
+          } finally {
+            importInput.value = '';
+          }
+        });
+      }
     }
 
     function saveIndexState(){
