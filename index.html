@@ -564,10 +564,11 @@
       const link = document.createElement('a');
       link.href = url;
       link.download = filename;
+      link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
       link.remove();
-      URL.revokeObjectURL(url);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
 
     function exportPortableState(){
@@ -881,6 +882,7 @@
 
     async function init(){
       try{
+        bindPortableStateControls();
         allItems = sortItems(await loadData());
         updateStats(allItems);
         renderList(allItems);
