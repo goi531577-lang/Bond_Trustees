@@ -336,9 +336,11 @@
     }
     .errorBox{display:none}
     @media (max-width:980px){
-      .controls{grid-template-columns:1fr}
-      .counter,.chartButton{
-      flex:0 0 auto;justify-content:flex-start}
+      .heroStats{grid-template-columns:1fr}
+      .chartLayout{grid-template-columns:1fr}
+      .chartBox{position:static}
+      .pieWrap{width:min(292px,100%)}
+    }
       .heroStats{grid-template-columns:1fr}
       .chartLayout{grid-template-columns:1fr}
       .chartBox{position:static}
@@ -364,6 +366,35 @@
       .countBadge{min-width:120px}
       .modalActions{flex-direction:column}
       .chartLegend{max-height:220px}
+    }
+
+  
+    .controls{
+      margin-top:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .controlsTop{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+    }
+    .dataTools{
+      width:100%;
+      display:flex;
+      gap:12px;
+      flex-wrap:nowrap;
+      justify-content:flex-start;
+      align-items:center;
+    }
+    .searchFull{
+      width:100%;
+      display:block;
+    }
+    @media (max-width:1180px){
+      .dataTools{flex-wrap:wrap}
     }
 
   </style>
@@ -401,6 +432,7 @@
         </div>
       </div>
       <input id="searchInput" class="search searchFull" type="search" placeholder="Поиск по названию ПВО" autocomplete="off" />
+          <span id="visibleCount" style="display:none;">0</span>
     </section>
 
     <div id="dataStatus" class="dataStatus" role="status" aria-live="polite"></div>
@@ -732,7 +764,7 @@
       filteredItems = items;
       const list = document.getElementById('pvoList');
       const empty = document.getElementById('emptyState');
-      document.getElementById('visibleCount').textContent = items.length;
+      const visibleCountEl = document.getElementById('visibleCount'); if(visibleCountEl) visibleCountEl.textContent = items.length;
       if(!items.length){
         list.innerHTML = '';
         empty.style.display = 'block';
