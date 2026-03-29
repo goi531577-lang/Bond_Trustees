@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ПВО — годовой отчет за 2025 год</title>
+  <meta name="description" content="Список ПВО, представивших годовой отчет за 2025 год, на основании сохранённых отметок на страницах ПВО." />
+  <style>
+    :root{
+      --bg:#071120;
+      --bg2:#0e1b32;
+      --panel:rgba(11,22,40,.78);
+      --panel-strong:rgba(15,30,54,.92);
+      --text:#eff5ff;
+      --muted:#aab7cf;
+      --line:rgba(171,197,255,.16);
+      --accent:#7eb7ff;
+      --accent-2:#8ef1da;
+      --success:#79f1b8;
+      --shadow:0 18px 60px rgba(0,0,0,.34);
+      --radius:24px;
+      --maxw:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(88,146,255,.22), transparent 34%),
+        radial-gradient(circle at 92% 10%, rgba(53,214,183,.14), transparent 24%),
+        linear-gradient(180deg, #09111f 0%, #0a1425 52%, #08101b 100%);
+      min-height:100vh;
+    }
+    .frame{
+      position:fixed; inset:0; pointer-events:none;
+      background:linear-gradient(transparent, transparent) padding-box,
+                 linear-gradient(135deg, rgba(126,183,255,.08), rgba(142,241,218,.05), rgba(126,183,255,.05)) border-box;
+      border:1px solid transparent; opacity:.95;
+    }
+    .shell{max-width:var(--maxw); margin:0 auto; padding:28px 18px 72px; position:relative; z-index:1}
+    .backLink{
+      display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;
+      color:var(--accent-2); text-decoration:none; font-weight:700;
+    }
+    .hero{
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:30px;
+      background:linear-gradient(180deg, rgba(18,33,58,.88), rgba(10,19,35,.9)),
+                 linear-gradient(135deg, rgba(126,183,255,.12), rgba(142,241,218,.08));
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before, .hero::after{
+      content:"";
+      position:absolute; border-radius:999px; filter:blur(10px); pointer-events:none;
+    }
+    .hero::before{
+      width:240px; height:240px; right:-40px; top:-80px;
+      background:radial-gradient(circle, rgba(126,183,255,.20), transparent 65%);
+    }
+    .hero::after{
+      width:200px; height:200px; left:-40px; bottom:-80px;
+      background:radial-gradient(circle, rgba(142,241,218,.16), transparent 65%);
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid rgba(171,197,255,.18);
+      background:rgba(9,20,37,.55);
+      color:var(--accent-2); font-size:13px; letter-spacing:.04em; text-transform:uppercase;
+    }
+    h1{
+      margin:18px 0 12px;
+      font-size:clamp(30px, 5vw, 54px);
+      line-height:1.08;
+      letter-spacing:-.03em;
+      max-width:850px;
+    }
+    .heroLead{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.68;
+      max-width:900px;
+    }
+    .stats{
+      margin-top:24px;
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:14px;
+    }
+    .stat{
+      border:1px solid rgba(171,197,255,.12);
+      border-radius:22px;
+      padding:18px 20px;
+      background:rgba(7,14,25,.42);
+      min-height:110px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .statLabel{color:var(--muted); font-size:13px}
+    .statValue{
+      font-size:clamp(28px, 5vw, 42px);
+      line-height:1;
+      letter-spacing:-.03em;
+      font-weight:800;
+    }
+    .searchWrap{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .search{
+      flex:1 1 320px;
+      border:1px solid rgba(171,197,255,.18);
+      border-radius:18px;
+      padding:15px 16px;
+      background:rgba(6,14,24,.55);
+      color:var(--text);
+      outline:none;
+      font-size:15px;
+    }
+    .search::placeholder{color:#90a3c7}
+    .ghostBtn{
+      appearance:none;
+      border:1px solid rgba(171,197,255,.18);
+      background:rgba(9,20,37,.55);
+      color:var(--text);
+      border-radius:16px;
+      padding:14px 16px;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .section{
+      margin-top:24px;
+      border:1px solid var(--line);
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(10,18,31,.88), rgba(8,15,27,.94));
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+    .sectionHead{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+    .sectionTitle{
+      margin:0;
+      font-size:24px;
+      letter-spacing:-.02em;
+    }
+    .sectionMeta{
+      color:var(--muted);
+      font-size:14px;
+    }
+    .list{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .card{
+      border:1px solid rgba(171,197,255,.12);
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(17,31,54,.86), rgba(10,20,36,.92));
+      padding:18px 20px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 280px 290px;
+      align-items:center;
+      gap:24px;
+      box-shadow:0 14px 36px rgba(0,0,0,.18);
+    }
+    .cardMain{
+      min-width:0;
+      align-self:start;
+    }
+    .cardName{
+      margin:0;
+      font-size:18px;
+      line-height:1.45;
+      font-weight:700;
+    }
+    .cardMeta{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:1px solid rgba(121,241,184,.28);
+      background:rgba(20,76,49,.45);
+      color:#baffd5;
+      border-radius:999px;
+      padding:9px 12px;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.02em;
+      white-space:nowrap;
+      width:100%;
+      max-width:280px;
+      justify-self:center;
+    }
+    .openBtn{
+      text-decoration:none;
+      color:var(--text);
+      border:1px solid rgba(171,197,255,.18);
+      background:linear-gradient(180deg, rgba(27,48,84,.95), rgba(13,26,47,.95));
+      border-radius:16px;
+      padding:13px 16px;
+      font-weight:700;
+      box-shadow:0 10px 28px rgba(0,0,0,.22);
+      width:100%;
+      text-align:center;
+      justify-self:end;
+    }
+    .empty{
+      border:1px dashed rgba(171,197,255,.18);
+      border-radius:22px;
+      padding:28px;
+      text-align:center;
+      color:var(--muted);
+      background:rgba(7,14,25,.35);
+    }
+    .note{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+    @media (max-width:1100px){
+      .card{
+        grid-template-columns:minmax(0,1fr);
+        gap:16px;
+      }
+      .pill{
+        justify-self:start;
+        width:auto;
+        max-width:none;
+      }
+      .openBtn{
+        justify-self:start;
+        width:auto;
+        min-width:240px;
+      }
+    }
+    @media (max-width:900px){
+      .stats{grid-template-columns:1fr}
+      .openBtn{width:100%; min-width:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="frame"></div>
+  <main class="shell">
+    <a href="index.html" class="backLink">← Назад к главной странице</a>
+
+    <section class="hero">
+      <div class="eyebrow">Годовой отчет 2025</div>
+      <h1>ПВО, представившие годовой отчет за 2025 год</h1>
+      <p class="heroLead">
+        Эта страница формируется автоматически на основании сохранённых отметок на отдельных страницах ПВО.
+        В список попадают только те ПВО, у которых установлен и сохранён флаг
+        <strong>«Представлен годовой отчет 2025»</strong>.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="statLabel">Всего ПВО в реестре</div>
+          <div class="statValue" id="totalPvo">—</div>
+        </div>
+        <div class="stat">
+          <div class="statLabel">Представили отчет</div>
+          <div class="statValue" id="reportedPvo">—</div>
+        </div>
+        <div class="stat">
+          <div class="statLabel">Доля от общего списка</div>
+          <div class="statValue" id="reportedShare">—</div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <input id="searchInput" class="search" type="search" placeholder="Поиск по названию ПВО" />
+        <button id="resetBtn" class="ghostBtn" type="button">Сбросить поиск</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sectionHead">
+        <h2 class="sectionTitle">Список ПВО</h2>
+        <div class="sectionMeta" id="resultMeta">Загрузка данных…</div>
+      </div>
+
+      <div id="cardsList" class="list"></div>
+      <div id="emptyState" class="empty" hidden>Пока ни у одного ПВО не сохранена отметка о годовом отчете за 2025 год.</div>
+
+      <div class="note">
+        Данные о представлении отчета читаются из сохранённых отметок в этом же браузере и на этом же устройстве.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const DATA_URL = `pvo_data.json?v=${Date.now()}`;
+    const searchInput = document.getElementById('searchInput');
+    const resetBtn = document.getElementById('resetBtn');
+    const cardsList = document.getElementById('cardsList');
+    const emptyState = document.getElementById('emptyState');
+    const resultMeta = document.getElementById('resultMeta');
+
+    let allItems = [];
+    let filteredItems = [];
+
+    function escapeHtml(value){
+      return String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function flagsKey(slug){
+      return `pvo_flags_${slug}`;
+    }
+
+    function hasReport2025(slug){
+      try{
+        const raw = localStorage.getItem(flagsKey(slug));
+        if(!raw) return false;
+        const parsed = JSON.parse(raw);
+        return Boolean(parsed && parsed.report2025);
+      }catch{
+        return false;
+      }
+    }
+
+    async function loadData(){
+      const response = await fetch(DATA_URL, { cache: 'no-store' });
+      if(!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
+      return response.json();
+    }
+
+    function computeStats(items, allCount){
+      const reportedCount = items.length;
+      const share = allCount ? `${Math.round((reportedCount / allCount) * 100)}%` : '0%';
+      document.getElementById('totalPvo').textContent = allCount;
+      document.getElementById('reportedPvo').textContent = reportedCount;
+      document.getElementById('reportedShare').textContent = share;
+    }
+
+    function renderCards(items){
+      cardsList.innerHTML = '';
+      emptyState.hidden = items.length !== 0;
+      cardsList.hidden = items.length === 0;
+      resultMeta.textContent = items.length ? `Найдено: ${items.length}` : 'Совпадений нет';
+
+      if(!items.length) return;
+
+      cardsList.innerHTML = items.map(item => {
+        const issueCount = Number(item.issue_count || (Array.isArray(item.issues) ? item.issues.length : 0)) || 0;
+        const issuerCount = Array.isArray(item.issues) ? new Set(item.issues.map(issue => issue.issuer).filter(Boolean)).size : 0;
+        return `
+          <article class="card">
+            <div class="cardMain">
+              <h3 class="cardName">${escapeHtml(item.name || item.full_name || 'ПВО')}</h3>
+              <div class="cardMeta">
+                <span>${issueCount} активных выпусков</span>
+                <span>${issuerCount} эмитентов</span>
+              </div>
+            </div>
+            <div class="pill">✓ Отчет 2025 сохранён</div>
+            <a class="openBtn" href="pvo.html?pvo=${encodeURIComponent(item.slug)}">Открыть страницу ПВО</a>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function applyFilter(){
+      const query = searchInput.value.trim().toLowerCase();
+      filteredItems = allItems.filter(item => {
+        const hay = String(item.name || item.full_name || '').toLowerCase();
+        return !query || hay.includes(query);
+      });
+      renderCards(filteredItems);
+    }
+
+    async function init(){
+      try{
+        const data = await loadData();
+        const reported = data
+          .filter(item => item && item.slug && hasReport2025(item.slug))
+          .sort((a, b) => String(a.name || '').localeCompare(String(b.name || ''), 'ru'));
+
+        allItems = reported;
+        computeStats(reported, data.length);
+        renderCards(reported);
+      }catch(error){
+        resultMeta.textContent = 'Ошибка загрузки';
+        emptyState.hidden = false;
+        emptyState.textContent = error?.message || 'Не удалось загрузить данные страницы.';
+      }
+    }
+
+    searchInput.addEventListener('input', applyFilter);
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      applyFilter();
+    });
+
+    init();
+  </script>
+</body>
+</html>
