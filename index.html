@@ -77,9 +77,20 @@
     .heroStatLabel{color:var(--muted); font-size:14px; margin-bottom:10px; line-height:1.45}
     .heroStatValue{font-size:clamp(34px, 5vw, 50px); line-height:1; letter-spacing:-.04em; font-weight:800}
     .controls{
-      margin-top:22px; display:grid; gap:14px;
-      grid-template-columns:minmax(0,1fr) auto auto;
+      margin-top:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .controlsTop{
+      width:100%;
+      display:flex;
       align-items:center;
+      justify-content:flex-start;
+    }
+    .searchFull{
+      width:100%;
+      display:block;
     }
     .search{
       width:100%; border:1px solid rgba(171,197,255,.18);
@@ -93,6 +104,7 @@
       box-shadow:0 0 0 4px rgba(126,183,255,.10);
     }
     .counter,.chartButton,.dataButton{
+      flex:0 0 auto;
       height:54px; border-radius:18px; border:1px solid rgba(171,197,255,.16);
       background:rgba(10,19,35,.8); color:var(--text);
       display:inline-flex; align-items:center; justify-content:center;
@@ -100,13 +112,16 @@
     }
     .counter strong{margin-left:6px; color:var(--accent-2)}
     .chartButton,.dataButton{
+      flex:0 0 auto;
       cursor:pointer; gap:10px; font-weight:700;
       transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
     .chartButton{
+      flex:0 0 auto;
       background:linear-gradient(180deg, rgba(126,183,255,.18), rgba(126,183,255,.08));
     }
     .dataButton{
+      flex:0 0 auto;
       background:linear-gradient(180deg, rgba(142,241,218,.15), rgba(142,241,218,.06));
     }
     .chartButton:hover,.chartButton:focus-visible,.dataButton:hover,.dataButton:focus-visible{
@@ -116,11 +131,12 @@
       outline:none;
     }
     .dataTools{
+      width:100%;
       display:flex;
       gap:12px;
       flex-wrap:nowrap;
       justify-content:flex-start;
-      flex:1 1 auto;
+      align-items:center;
     }
     .dataStatus{
       margin-top:12px; display:none; padding:14px 16px; border-radius:16px;
@@ -321,7 +337,8 @@
     .errorBox{display:none}
     @media (max-width:980px){
       .controls{grid-template-columns:1fr}
-      .counter,.chartButton{justify-content:flex-start}
+      .counter,.chartButton{
+      flex:0 0 auto;justify-content:flex-start}
       .heroStats{grid-template-columns:1fr}
       .chartLayout{grid-template-columns:1fr}
       .chartBox{position:static}
@@ -336,6 +353,19 @@
       .modalCard{padding:18px; border-radius:22px}
       .modalStats{grid-template-columns:1fr}
     }
+  
+    @media (max-width:1180px){
+      .dataTools{
+        flex-wrap:wrap;
+      }
+    }
+    @media (max-width:880px){
+      .listHeader{flex-direction:column; align-items:flex-start}
+      .countBadge{min-width:120px}
+      .modalActions{flex-direction:column}
+      .chartLegend{max-height:220px}
+    }
+
   </style>
 </head>
 <body>
@@ -362,7 +392,6 @@
 
     <section class="controls" aria-label="Инструменты поиска и визуализации">
       <div class="controlsTop">
-        <div class="counter">Показано: <strong id="visibleCount">—</strong></div>
         <div class="dataTools">
           <button id="openChartButton" class="chartButton" type="button">◔ Показать пай-чарт</button>
           <a href="report_2025.html" class="dataButton reportLinkButton">✓ Отчеты 2025</a>
@@ -371,7 +400,7 @@
           <input id="importJsonInput" class="hiddenFileInput" type="file" accept="application/json,.json" />
         </div>
       </div>
-      <input id="searchInput" class="search" type="search" placeholder="Поиск по названию ПВО" autocomplete="off" />
+      <input id="searchInput" class="search searchFull" type="search" placeholder="Поиск по названию ПВО" autocomplete="off" />
     </section>
 
     <div id="dataStatus" class="dataStatus" role="status" aria-live="polite"></div>
