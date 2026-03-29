@@ -174,15 +174,14 @@
       border-radius:22px;
       background:linear-gradient(180deg, rgba(17,31,54,.86), rgba(10,20,36,.92));
       padding:18px 20px;
-      display:grid;
-      grid-template-columns:minmax(0,1fr) 280px 290px;
-      align-items:start;
+      display:flex;
+      align-items:flex-start;
       gap:24px;
       box-shadow:0 14px 36px rgba(0,0,0,.18);
     }
     .cardMain{
       min-width:0;
-      align-self:start;
+      flex:1 1 auto;
     }
     .cardName{
       margin:0;
@@ -212,11 +211,9 @@
       font-weight:800;
       letter-spacing:.02em;
       white-space:nowrap;
-      width:100%;
-      max-width:280px;
-      justify-self:center;
-      align-self:start;
-      margin-top:2px;
+      width:280px;
+      min-height:50px;
+      box-sizing:border-box;
     }
     .openBtn{
       text-decoration:none;
@@ -227,10 +224,13 @@
       padding:13px 16px;
       font-weight:700;
       box-shadow:0 10px 28px rgba(0,0,0,.22);
-      width:100%;
+      width:290px;
+      min-height:50px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       text-align:center;
-      justify-self:end;
-      align-self:start;
+      box-sizing:border-box;
     }
     .empty{
       border:1px dashed rgba(171,197,255,.18);
@@ -246,20 +246,18 @@
       font-size:14px;
       line-height:1.7;
     }
-    @media (max-width:1100px){
+    @media (max-width:1180px){
       .card{
+        flex-direction:column;
+      }
+      .cardAside{
+        width:100%;
         grid-template-columns:minmax(0,1fr);
-        gap:16px;
+        gap:14px;
       }
-      .pill{
-        justify-self:start;
-        width:auto;
-        max-width:none;
-      }
+      .pill,
       .openBtn{
-        justify-self:start;
-        width:auto;
-        min-width:240px;
+        width:100%;
       }
     }
     @media (max-width:900px){
@@ -387,8 +385,10 @@
                 <span>${issuerCount} эмитентов</span>
               </div>
             </div>
-            <div class="pill">✓ Отчет 2025 сохранён</div>
-            <a class="openBtn" href="pvo.html?pvo=${encodeURIComponent(item.slug)}">Открыть страницу ПВО</a>
+            <div class="cardAside">
+              <div class="pill">✓ Отчет 2025 сохранён</div>
+              <a class="openBtn" href="pvo.html?pvo=${encodeURIComponent(item.slug)}">Открыть страницу ПВО</a>
+            </div>
           </article>
         `;
       }).join('');
