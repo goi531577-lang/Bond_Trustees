@@ -269,11 +269,18 @@
       border-color:rgba(126,183,255,.30); font-weight:700;
     }
     .chartLayout{
-      display:grid; grid-template-columns:340px minmax(0,1fr); gap:22px; align-items:start;
+      display:grid;
+      grid-template-columns:360px minmax(0,1fr);
+      gap:22px;
+      align-items:start;
     }
     .chartBox{
-      position:sticky; top:0; display:grid; place-items:center;
-      padding:18px; border:1px solid rgba(171,197,255,.12);
+      position:sticky;
+      top:0;
+      display:grid;
+      place-items:center;
+      padding:18px;
+      border:1px solid rgba(171,197,255,.12);
       border-radius:28px;
       background:
         radial-gradient(circle at 50% 18%, rgba(126,183,255,.16), transparent 38%),
@@ -282,6 +289,7 @@
       box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 24px 48px rgba(0,0,0,.22);
       overflow:hidden;
       isolation:isolate;
+      min-height:356px;
     }
     .chartBox::before{
       content:""; position:absolute; inset:auto auto -88px -88px; width:220px; height:220px;
@@ -307,9 +315,12 @@
       fill:none; stroke:rgba(255,255,255,.055); stroke-width:26;
     }
     .pieSegment{
-      fill:none; stroke-width:26; stroke-linecap:butt;
-      transition:opacity .24s ease, transform .24s ease, stroke-width .24s ease, filter .24s ease;
-      transform-origin:50% 50%; filter:drop-shadow(0 3px 10px rgba(0,0,0,.14));
+      fill:none;
+      stroke-width:26;
+      stroke-linecap:butt;
+      transition:opacity .24s ease, filter .24s ease;
+      transform-origin:50% 50%;
+      filter:drop-shadow(0 3px 10px rgba(0,0,0,.14));
     }
     .pieCenter{
       position:absolute; width:62%; text-align:center; z-index:1;
@@ -357,15 +368,8 @@
       .heroStats{grid-template-columns:1fr}
       .chartLayout{grid-template-columns:1fr}
       .chartBox{position:static}
-      .pieWrap{width:min(292px,100%)}
-    }
-      .chartBox{position:static}
-      .pieWrap{width:min(292px,100%)}
-    }
-      .heroStats{grid-template-columns:1fr}
-      .chartLayout{grid-template-columns:1fr}
-      .chartBox{position:static}
-      .pieWrap{width:min(292px,100%)}
+      .pieWrap{width:min(292px,100%); height:min(292px,100%)}
+      .chartLegend{max-height:none}
     }
     @media (max-width:760px){
       .shell{padding:18px 14px 54px}
@@ -386,7 +390,10 @@
       .listHeader{flex-direction:column; align-items:flex-start}
       .countBadge{min-width:120px}
       .modalActions{flex-direction:column}
-      .chartLegend{max-height:220px}
+      .chartLegend{
+      max-height:360px;
+      overflow:auto;
+    }
     }
 
   
@@ -893,7 +900,7 @@
       svg.innerHTML = '<circle class="pieRingBg" cx="110" cy="110" r="82"></circle>';
 
       let startAngle = 0;
-      const gapAngle = chartItems.length > 1 ? 0.9 : 0;
+      const gapAngle = chartItems.length > 1 ? 1.4 : 0;
       chartItems.forEach((item, index) => {
         const rawSweep = totalIssues ? (item.issue_count / totalIssues) * 360 : 0;
         const availableGap = rawSweep > gapAngle * 1.8 ? gapAngle : 0;
@@ -945,8 +952,7 @@
           el.style.boxShadow = i === index ? 'inset 0 1px 0 rgba(255,255,255,.05), 0 10px 22px rgba(0,0,0,.16)' : 'inset 0 1px 0 rgba(255,255,255,.03)';
         });
         segments.forEach((seg, i) => {
-          seg.style.opacity = i === index ? '1' : '.42';
-          seg.style.strokeWidth = i === index ? '32' : '28';
+          seg.style.opacity = i === index ? '1' : '.38';
           seg.style.filter = i === index ? 'drop-shadow(0 4px 14px rgba(255,255,255,.14))' : 'drop-shadow(0 3px 10px rgba(0,0,0,.16))';
         });
       }
@@ -961,7 +967,6 @@
         });
         segments.forEach(seg => {
           seg.style.opacity = '.96';
-          seg.style.strokeWidth = '28';
           seg.style.filter = 'drop-shadow(0 3px 10px rgba(0,0,0,.16))';
         });
       }
