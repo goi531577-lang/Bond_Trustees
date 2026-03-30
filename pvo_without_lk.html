@@ -415,7 +415,7 @@
       try{
         const data = await loadData();
         const reported = data
-          .filter(item => item && item.slug && hasReport2025(item.slug))
+          .filter(item => item && item.slug && hasNoLK(item.slug))
           .sort((a, b) => String(a.name || '').localeCompare(String(b.name || ''), 'ru'));
 
         allItems = reported;
