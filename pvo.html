@@ -272,8 +272,11 @@
       <div class="heroActions">
         <a id="siteButton" class="siteButton is-disabled" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Перейти на сайт ПВО</a>
         <div id="siteStatus" class="siteStatus missing">Сайт отсутствует</div>
+        <a id="newsButton" class="siteButton is-disabled" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true">Лента новостей</a>
+        <div id="newsStatus" class="siteStatus missing">Лента не добавлена</div>
       </div>
       <div id="siteUrlText" class="siteUrlText"></div>
+      <div id="newsUrlText" class="siteUrlText"></div>
 
       <div class="topGrid">
         <div class="stat">
@@ -386,6 +389,10 @@
 
     function getWebsite(item){
       return item.website_url || item.website || item.site_url || item.url || '';
+    }
+
+    function getNewsFeed(item){
+      return item.news_feed_url || item.news_url || item.newsfeed_url || item.disclosure_url || '';
     }
 
     function formatPvoName(text){
@@ -594,26 +601,47 @@
       resetCommentEditor();
     }
 
-    function renderWebsite(item){
+    function renderLinks(item){
       const website = getWebsite(item).trim();
-      const button = document.getElementById('siteButton');
-      const status = document.getElementById('siteStatus');
-      const text = document.getElementById('siteUrlText');
+      const siteButton = document.getElementById('siteButton');
+      const siteStatus = document.getElementById('siteStatus');
+      const siteText = document.getElementById('siteUrlText');
 
       if(website){
-        button.href = website;
-        button.classList.remove('is-disabled');
-        button.setAttribute('aria-disabled', 'false');
-        status.className = 'siteStatus ok';
-        status.textContent = 'Сайт добавлен';
-        text.innerHTML = `Ссылка: <a href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(website)}</a>`;
+        siteButton.href = website;
+        siteButton.classList.remove('is-disabled');
+        siteButton.setAttribute('aria-disabled', 'false');
+        siteStatus.className = 'siteStatus ok';
+        siteStatus.textContent = 'Сайт добавлен';
+        siteText.innerHTML = `Ссылка: <a href="${escapeHtml(website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(website)}</a>`;
       } else {
-        button.href = '#';
-        button.classList.add('is-disabled');
-        button.setAttribute('aria-disabled', 'true');
-        status.className = 'siteStatus missing';
-        status.textContent = 'Сайт отсутствует';
-        text.textContent = '';
+        siteButton.href = '#';
+        siteButton.classList.add('is-disabled');
+        siteButton.setAttribute('aria-disabled', 'true');
+        siteStatus.className = 'siteStatus missing';
+        siteStatus.textContent = 'Сайт отсутствует';
+        siteText.textContent = '';
+      }
+
+      const news = getNewsFeed(item).trim();
+      const newsButton = document.getElementById('newsButton');
+      const newsStatus = document.getElementById('newsStatus');
+      const newsText = document.getElementById('newsUrlText');
+
+      if(news){
+        newsButton.href = news;
+        newsButton.classList.remove('is-disabled');
+        newsButton.setAttribute('aria-disabled', 'false');
+        newsStatus.className = 'siteStatus ok';
+        newsStatus.textContent = 'Лента добавлена';
+        newsText.innerHTML = `Лента: <a href="${escapeHtml(news)}" target="_blank" rel="noopener noreferrer">${escapeHtml(news)}</a>`;
+      } else {
+        newsButton.href = '#';
+        newsButton.classList.add('is-disabled');
+        newsButton.setAttribute('aria-disabled', 'true');
+        newsStatus.className = 'siteStatus missing';
+        newsStatus.textContent = 'Лента не добавлена';
+        newsText.textContent = '';
       }
     }
 
