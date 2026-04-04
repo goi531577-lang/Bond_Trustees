@@ -341,6 +341,12 @@
         .replaceAll("'", '&#39;');
     }
 
+    async function loadData(){
+      const response = await fetch(DATA_URL, { cache: 'no-store' });
+      if(!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
+      return response.json();
+    }
+
     function hasNoWebsite(item){
       return !Boolean(item && item.website_url);
     }
