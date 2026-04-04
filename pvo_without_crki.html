@@ -343,19 +343,8 @@
         .replaceAll("'", '&#39;');
     }
 
-    function flagsKey(slug){
-      return `pvo_flags_${slug}`;
-    }
-
-    function hasNoLK(slug){
-      try{
-        const raw = localStorage.getItem(flagsKey(slug));
-        if(!raw) return true;
-        const parsed = JSON.parse(raw);
-        return !Boolean(parsed && parsed.hasLK);
-      }catch{
-        return false;
-      }
+    function hasNoNews(item){
+      return !Boolean(item && (item.news_feed_url || item.news_url));
     }
 
     async function loadData(){
