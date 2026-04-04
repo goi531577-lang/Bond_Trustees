@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ПВО — без ЦРКИ</title>
-  <meta name="description" content="ПВО — без ЦРКИ" />
+  <meta name="description" content="Список ПВО, у которых в данных сайта не заполнена Лента новостей." />
   <style>
     :root{
       --bg:#071120;
@@ -16,9 +16,7 @@
       --line:rgba(171,197,255,.16);
       --accent:#7eb7ff;
       --accent-2:#8ef1da;
-      --success:#79f1b8;
       --shadow:0 18px 60px rgba(0,0,0,.34);
-      --radius:24px;
       --maxw:1120px;
     }
     *{box-sizing:border-box}
@@ -40,10 +38,7 @@
       border:1px solid transparent; opacity:.95;
     }
     .shell{max-width:var(--maxw); margin:0 auto; padding:28px 18px 72px; position:relative; z-index:1}
-    .backLink{
-      display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;
-      color:var(--accent-2); text-decoration:none; font-weight:700;
-    }
+    .backLink{display:inline-flex; align-items:center; gap:10px; margin-bottom:16px; color:var(--accent-2); text-decoration:none; font-weight:700}
     .hero{
       border:1px solid var(--line);
       border-radius:30px;
@@ -55,221 +50,39 @@
       overflow:hidden;
       position:relative;
     }
-    .hero::before, .hero::after{
-      content:"";
-      position:absolute; border-radius:999px; filter:blur(10px); pointer-events:none;
-    }
-    .hero::before{
-      width:240px; height:240px; right:-40px; top:-80px;
-      background:radial-gradient(circle, rgba(126,183,255,.20), transparent 65%);
-    }
-    .hero::after{
-      width:200px; height:200px; left:-40px; bottom:-80px;
-      background:radial-gradient(circle, rgba(142,241,218,.16), transparent 65%);
-    }
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px; border-radius:999px;
-      border:1px solid rgba(171,197,255,.18);
-      background:rgba(9,20,37,.55);
-      color:var(--accent-2); font-size:13px; letter-spacing:.04em; text-transform:uppercase;
-    }
-    h1{
-      margin:18px 0 12px;
-      font-size:clamp(30px, 5vw, 54px);
-      line-height:1.08;
-      letter-spacing:-.03em;
-      max-width:850px;
-    }
-    .heroLead{
-      margin:0;
-      color:var(--muted);
-      font-size:16px;
-      line-height:1.68;
-      max-width:900px;
-    }
-    .stats{
-      margin-top:24px;
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:14px;
-    }
-    .stat{
-      border:1px solid rgba(171,197,255,.12);
-      border-radius:22px;
-      padding:18px 20px;
-      background:rgba(7,14,25,.42);
-      min-height:110px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-    .statLabel{color:var(--muted); font-size:13px}
-    .statValue{
-      font-size:clamp(28px, 5vw, 42px);
-      line-height:1;
-      letter-spacing:-.03em;
-      font-weight:800;
-    }
-    .searchWrap{
-      margin-top:22px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .search{
-      flex:1 1 320px;
-      border:1px solid rgba(171,197,255,.18);
-      border-radius:18px;
-      padding:15px 16px;
-      background:rgba(6,14,24,.55);
-      color:var(--text);
-      outline:none;
-      font-size:15px;
-    }
-    .search::placeholder{color:#90a3c7}
-    .ghostBtn{
-      appearance:none;
-      border:1px solid rgba(171,197,255,.18);
-      background:rgba(9,20,37,.55);
-      color:var(--text);
-      border-radius:16px;
-      padding:14px 16px;
-      cursor:pointer;
-      font-weight:700;
-    }
-    .section{
-      margin-top:24px;
-      border:1px solid var(--line);
-      border-radius:28px;
-      background:linear-gradient(180deg, rgba(10,18,31,.88), rgba(8,15,27,.94));
-      box-shadow:var(--shadow);
-      padding:24px;
-    }
-    .sectionHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:18px;
-      flex-wrap:wrap;
-    }
-    .sectionTitle{
-      margin:0;
-      font-size:24px;
-      letter-spacing:-.02em;
-    }
-    .sectionMeta{
-      color:var(--muted);
-      font-size:14px;
-    }
-    .list{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-    }
-    .card{
-      border:1px solid rgba(171,197,255,.12);
-      border-radius:22px;
-      background:linear-gradient(180deg, rgba(17,31,54,.86), rgba(10,20,36,.92));
-      padding:18px 20px;
-      display:flex;
-      align-items:flex-start;
-      gap:24px;
-      box-shadow:0 14px 36px rgba(0,0,0,.18);
-    }
-    .cardMain{
-      min-width:0;
-      flex:1 1 auto;
-    }
-    .cardName{
-      margin:0;
-      font-size:18px;
-      line-height:1.45;
-      font-weight:700;
-    }
-    .cardMeta{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:14px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .cardAside{
-      flex:0 0 auto;
-      width:290px;
-      display:flex;
-      flex-direction:column;
-      gap:22px;
-      align-items:stretch;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      border:1px solid rgba(121,241,184,.28);
-      background:rgba(20,76,49,.45);
-      color:#baffd5;
-      border-radius:999px;
-      padding:9px 12px;
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.02em;
-      white-space:nowrap;
-      width:280px;
-      min-height:50px;
-      box-sizing:border-box;
-    }
-    .openBtn{
-      text-decoration:none;
-      color:var(--text);
-      border:1px solid rgba(171,197,255,.18);
-      background:linear-gradient(180deg, rgba(27,48,84,.95), rgba(13,26,47,.95));
-      border-radius:16px;
-      padding:13px 16px;
-      font-weight:700;
-      box-shadow:0 10px 28px rgba(0,0,0,.22);
-      width:290px;
-      min-height:50px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      box-sizing:border-box;
-    }
-    .empty{
-      border:1px dashed rgba(171,197,255,.18);
-      border-radius:22px;
-      padding:28px;
-      text-align:center;
-      color:var(--muted);
-      background:rgba(7,14,25,.35);
-    }
-    .note{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
-    }
+    .eyebrow{display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:999px; border:1px solid rgba(171,197,255,.16); background:rgba(9,18,34,.45); color:var(--accent-2); font-weight:700; letter-spacing:.04em; text-transform:uppercase; font-size:12px}
+    h1{font-size:clamp(42px, 7vw, 72px); line-height:.98; letter-spacing:-.05em; margin:18px 0 18px}
+    .heroLead{max-width:900px; color:var(--muted); font-size:18px; line-height:1.65; margin:0 0 24px}
+    .stats{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+    .stat{border:1px solid rgba(171,197,255,.12); border-radius:24px; padding:22px 20px 18px; background:rgba(7,14,25,.42); box-shadow:inset 0 1px 0 rgba(255,255,255,.03); min-height:128px}
+    .statLabel{color:var(--muted); font-size:14px; margin-bottom:10px; line-height:1.45}
+    .statValue{font-size:clamp(34px, 5vw, 50px); line-height:1; letter-spacing:-.04em; font-weight:800}
+    .searchWrap{margin-top:18px; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px}
+    .search{width:100%; padding:16px 18px; border-radius:18px; border:1px solid var(--line); background:rgba(8,16,31,.82); color:var(--text); font-size:16px; outline:none}
+    .ghostBtn{border:1px solid rgba(171,197,255,.18); background:linear-gradient(180deg, rgba(27,48,84,.95), rgba(13,26,47,.95)); color:var(--text); border-radius:18px; padding:0 18px; font-weight:700; min-width:180px}
+    .section{margin-top:30px; border:1px solid var(--line); border-radius:30px; background:rgba(8,16,31,.55); box-shadow:var(--shadow); padding:28px}
+    .sectionHead{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px}
+    .sectionTitle{margin:0; font-size:28px; letter-spacing:-.03em}
+    .sectionMeta{color:var(--muted); font-weight:700}
+    .list{display:flex; flex-direction:column; gap:18px}
+    .card{border:1px solid rgba(171,197,255,.12); border-radius:22px; background:linear-gradient(180deg, rgba(17,31,54,.86), rgba(10,20,36,.92)); padding:18px 20px; display:flex; align-items:flex-start; gap:24px; box-shadow:0 14px 36px rgba(0,0,0,.18)}
+    .cardMain{min-width:0; flex:1 1 auto}
+    .cardName{margin:0; font-size:26px; line-height:1.35; letter-spacing:-.03em}
+    .cardMeta{margin-top:8px; color:var(--muted); font-size:14px; display:flex; gap:12px; flex-wrap:wrap}
+    .cardAside{flex:0 0 auto; width:290px; display:flex; flex-direction:column; gap:22px; align-items:stretch}
+    .pill{display:inline-flex; align-items:center; justify-content:center; gap:8px; border:1px solid rgba(255, 196, 120, .24); background:rgba(93, 63, 18, .32); color:#ffd89a; border-radius:999px; padding:9px 12px; font-size:13px; font-weight:800; letter-spacing:.02em; white-space:nowrap; width:100%; min-height:50px; box-sizing:border-box}
+    .openBtn{text-decoration:none; color:var(--text); border:1px solid rgba(171,197,255,.18); background:linear-gradient(180deg, rgba(27,48,84,.95), rgba(13,26,47,.95)); border-radius:16px; padding:13px 16px; font-weight:700; box-shadow:0 10px 28px rgba(0,0,0,.22); width:290px; min-height:50px; display:flex; align-items:center; justify-content:center; text-align:center; box-sizing:border-box}
+    .empty{padding:28px; border:1px dashed rgba(171,197,255,.18); border-radius:22px; color:var(--muted); background:rgba(7,14,25,.35); text-align:center}
+    .note{margin-top:18px; color:var(--muted); font-size:14px; line-height:1.7}
     @media (max-width:1180px){
-      .card{
-        flex-direction:column;
-      }
-      .cardAside{
-        width:100%;
-        gap:22px;
-      }
-      .pill,
-      .openBtn{
-        width:100%;
-      }
+      .card{flex-direction:column}
+      .cardAside{width:100%; gap:22px}
+      .pill,.openBtn{width:100%}
     }
     @media (max-width:900px){
       .stats{grid-template-columns:1fr}
-      .openBtn{width:100%; min-width:0}
+      .searchWrap{grid-template-columns:1fr}
+      .ghostBtn{min-height:54px}
     }
   </style>
 </head>
@@ -281,9 +94,7 @@
     <section class="hero">
       <div class="eyebrow">Ленты новостей ПВО</div>
       <h1>ПВО без ЦРКИ</h1>
-      <p class="heroLead">
-        Эта страница формируется автоматически на основании данных сайта. В список попадают те ПВО, у которых не заполнена <strong>Лента новостей</strong>.
-      </p>
+      <p class="heroLead">Эта страница формируется автоматически на основании данных сайта. В список попадают те ПВО, у которых не заполнена <strong>Лента новостей</strong>.</p>
 
       <div class="stats">
         <div class="stat">
@@ -292,11 +103,11 @@
         </div>
         <div class="stat">
           <div class="statLabel">Без ЦРКИ</div>
-          <div class="statValue" id="reportedPvo">—</div>
+          <div class="statValue" id="filteredCount">—</div>
         </div>
         <div class="stat">
           <div class="statLabel">Доля без ЦРКИ</div>
-          <div class="statValue" id="reportedShare">—</div>
+          <div class="statValue" id="filteredShare">—</div>
         </div>
       </div>
 
@@ -315,19 +126,18 @@
       <div id="cardsList" class="list"></div>
       <div id="emptyState" class="empty" hidden>Пока ни одно ПВО не попало в список без ЦРКИ.</div>
 
-      <div class="note">
-        Данные о ленте новостей читаются из pvo_data.json на этом сайте.
-      </div>
+      <div class="note">Данные о ленте новостей читаются из pvo_data.json на этом сайте.</div>
     </section>
   </main>
 
   <script>
-    const DATA_URL = `pvo_data.json?v=${Date.now()}`;
-    const searchInput = document.getElementById('searchInput');
-    const resetBtn = document.getElementById('resetBtn');
+    const DATA_URL = 'pvo_data.json?v=20260404b';
+
     const cardsList = document.getElementById('cardsList');
     const emptyState = document.getElementById('emptyState');
     const resultMeta = document.getElementById('resultMeta');
+    const searchInput = document.getElementById('searchInput');
+    const resetBtn = document.getElementById('resetBtn');
 
     let allItems = [];
     let filteredItems = [];
@@ -347,29 +157,32 @@
       return response.json();
     }
 
-    function hasNoNews(item){
+    function belongsToList(item){
       return !Boolean(item && (item.news_feed_url || item.news_url));
     }
 
     function computeStats(items, allCount){
-      const reportedCount = items.length;
-      const share = allCount ? `${Math.round((reportedCount / allCount) * 100)}%` : '0%';
+      const count = items.length;
+      const share = allCount ? `${Math.round((count / allCount) * 100)}%` : '0%';
       document.getElementById('totalPvo').textContent = allCount;
-      document.getElementById('reportedPvo').textContent = reportedCount;
-      document.getElementById('reportedShare').textContent = share;
+      document.getElementById('filteredCount').textContent = count;
+      document.getElementById('filteredShare').textContent = share;
     }
 
     function renderCards(items){
       cardsList.innerHTML = '';
       emptyState.hidden = items.length !== 0;
-      cardsList.hidden = items.length === 0;
-      resultMeta.textContent = items.length ? `Найдено: ${items.length}` : 'Совпадений нет';
 
-      if(!items.length) return;
+      if(!items.length){
+        resultMeta.textContent = 'Найдено: 0';
+        return;
+      }
 
-      cardsList.innerHTML = items.map(item => {
-        const issueCount = Number(item.issue_count || (Array.isArray(item.issues) ? item.issues.length : 0)) || 0;
-        const issuerCount = Array.isArray(item.issues) ? new Set(item.issues.map(issue => issue.issuer).filter(Boolean)).size : 0;
+      cardsList.innerHTML = items.map((item) => {
+        const issueCount = Number(item.issue_count || 0);
+        const issuerCount = Array.isArray(item.issues)
+          ? new Set(item.issues.map(entry => entry && entry.issuer).filter(Boolean)).size
+          : 0;
         return `
           <article class="card">
             <div class="cardMain">
@@ -386,6 +199,8 @@
           </article>
         `;
       }).join('');
+
+      resultMeta.textContent = `Найдено: ${items.length}`;
     }
 
     function applyFilter(){
@@ -400,13 +215,13 @@
     async function init(){
       try{
         const data = await loadData();
-        const reported = data
-          .filter(item => item && item.slug && hasNoNews(item))
+        const selected = data
+          .filter(item => item && item.slug && belongsToList(item))
           .sort((a, b) => String(a.name || '').localeCompare(String(b.name || ''), 'ru'));
 
-        allItems = reported;
-        computeStats(reported, data.length);
-        renderCards(reported);
+        allItems = selected;
+        computeStats(selected, data.length);
+        renderCards(selected);
       }catch(error){
         resultMeta.textContent = 'Ошибка загрузки';
         emptyState.hidden = false;
