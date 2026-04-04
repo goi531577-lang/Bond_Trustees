@@ -110,6 +110,22 @@
       width:100%;
       display:block;
     }
+    .primaryTools,
+    .secondaryTools{
+      width:100%;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-start;
+      align-items:center;
+    }
+    .secondaryTools{
+      padding-left:2px;
+    }
+    .utilityButton{
+      min-width:210px;
+      background:rgba(12,24,43,.82);
+    }
     .search{
       width:100%; border:1px solid rgba(171,197,255,.18);
       background:rgba(6,13,24,.68); color:var(--text);
@@ -151,10 +167,9 @@
     .dataTools{
       width:100%;
       display:flex;
+      flex-direction:column;
       gap:12px;
-      flex-wrap:nowrap;
-      justify-content:flex-start;
-      align-items:center;
+      align-items:flex-start;
     }
     .dataStatus{
       margin-top:12px; display:none; padding:14px 16px; border-radius:16px;
@@ -421,8 +436,25 @@
       width:100%;
       display:block;
     }
+    .primaryTools,
+    .secondaryTools{
+      width:100%;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-start;
+      align-items:center;
+    }
+    .secondaryTools{
+      padding-left:2px;
+    }
+    .utilityButton{
+      min-width:210px;
+      background:rgba(12,24,43,.82);
+    }
     @media (max-width:1180px){
-      .dataTools{flex-wrap:wrap}
+      .primaryTools,
+      .secondaryTools{flex-wrap:wrap}
     }
 
   </style>
@@ -452,15 +484,19 @@
     <section class="controls" aria-label="Инструменты поиска и визуализации">
       <div class="controlsTop">
         <div class="dataTools">
-          <button id="openChartButton" class="chartButton" type="button">◔ Показать пай-чарт</button>
-          <a href="report_2025.html" class="dataButton reportLinkButton">✓ Отчеты 2025</a>
-          <a href="pvo_no_report_2025.html" class="dataButton reportLinkButton">✕ Нет отчета 2025</a>
-          <a href="pvo_without_lk.html" class="dataButton reportLinkButton">✕ ПВО без ЛК</a>
-          <a href="pvo_without_site.html" class="dataButton reportLinkButton">✕ ПВО без сайта</a>
-          <a href="pvo_without_crki.html" class="dataButton reportLinkButton">✕ ПВО без ЦРКИ</a>
-          <button id="exportJsonButton" class="dataButton" type="button">⇩ Экспорт JSON</button>
-          <button id="importJsonButton" class="dataButton" type="button">⇧ Импорт JSON</button>
-          <input id="importJsonInput" class="hiddenFileInput" type="file" accept="application/json,.json" />
+          <div class="primaryTools">
+            <button id="openChartButton" class="chartButton" type="button">◔ Показать пай-чарт</button>
+            <a href="report_2025.html" class="dataButton reportLinkButton">✓ Отчеты 2025</a>
+            <a href="pvo_no_report_2025.html" class="dataButton reportLinkButton">✕ Нет отчета 2025</a>
+            <a href="pvo_without_lk.html" class="dataButton reportLinkButton">✕ ПВО без ЛК</a>
+            <a href="pvo_without_site.html" class="dataButton reportLinkButton">✕ ПВО без сайта</a>
+            <a href="pvo_without_crki.html" class="dataButton reportLinkButton">✕ ПВО без ЦРКИ</a>
+          </div>
+          <div class="secondaryTools">
+            <button id="exportJsonButton" class="dataButton utilityButton" type="button">⇩ Экспорт JSON</button>
+            <button id="importJsonButton" class="dataButton utilityButton" type="button">⇧ Импорт JSON</button>
+            <input id="importJsonInput" class="hiddenFileInput" type="file" accept="application/json,.json" />
+          </div>
         </div>
       </div>
       <input id="searchInput" class="search searchFull" type="search" placeholder="Поиск по названию ПВО" autocomplete="off" />
