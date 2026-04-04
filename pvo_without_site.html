@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ПВО — без сайта</title>
-  <meta name="description" content="Список ПВО, у которых в данных сайта не заполнен сайт в сети Интернет." />
+  <meta name="description" content="ПВО — без сайта" />
   <style>
     :root{
       --bg:#071120;
@@ -210,20 +210,18 @@
       align-items:center;
       justify-content:center;
       gap:8px;
-      border:1px solid rgba(255, 196, 120, .24);
-      background:rgba(93, 63, 18, .32);
-      color:#ffd89a;
+      border:1px solid rgba(121,241,184,.28);
+      background:rgba(20,76,49,.45);
+      color:#baffd5;
       border-radius:999px;
       padding:9px 12px;
       font-size:13px;
       font-weight:800;
       letter-spacing:.02em;
       white-space:nowrap;
-      width:100%;
-      max-width:280px;
-      justify-self:center;
-      align-self:start;
-      margin-top:2px;
+      width:280px;
+      min-height:50px;
+      box-sizing:border-box;
     }
     .openBtn{
       text-decoration:none;
@@ -345,12 +343,6 @@
 
     function hasNoWebsite(item){
       return !Boolean(item && item.website_url);
-    }
-
-    async function loadData(){
-      const response = await fetch(DATA_URL, { cache: 'no-store' });
-      if(!response.ok) throw new Error('Не удалось загрузить pvo_data.json');
-      return response.json();
     }
 
     function computeStats(items, allCount){
