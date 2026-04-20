@@ -1,110 +1,5 @@
 [
   {
-    "name": "Акционерное общество \"Инвестиционная компания \"Лидер\"",
-    "full_name": "Акционерное общество \"Инвестиционная компания \"Лидер\"",
-    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-lider",
-    "issue_count": 5,
-    "issues": [
-      {
-        "issue_id": "4-01-00826-R",
-        "issuer": "ООО \"СФО ВСМ Инвест - Первый\"",
-        "reg_number": "4-01-00826-R",
-        "issuer_code": "",
-        "instrument_type": "Облигация корпоративная",
-        "maturity_date": "16.11.2049",
-        "issue_alias_pvo": "АО \"ИК \"Лидер\""
-      },
-      {
-        "issue_id": "4-01-00910-R",
-        "issuer": "ООО \"СФО РХА Инвест-Первый\"",
-        "reg_number": "4-01-00910-R",
-        "issuer_code": "",
-        "instrument_type": "Облигация корпоративная",
-        "maturity_date": "05.11.2028",
-        "issue_alias_pvo": "АО \"ИК \"Лидер\""
-      },
-      {
-        "issue_id": "4-02-00910-R",
-        "issuer": "ООО \"СФО РХА Инвест-Первый\"",
-        "reg_number": "4-02-00910-R",
-        "issuer_code": "",
-        "instrument_type": "Облигация корпоративная",
-        "maturity_date": "09.12.2028",
-        "issue_alias_pvo": "АО \"ИК \"Лидер\""
-      },
-      {
-        "issue_id": "4-03-00910-R",
-        "issuer": "ООО \"СФО РХА Инвест-Первый\"",
-        "reg_number": "4-03-00910-R",
-        "issuer_code": "",
-        "instrument_type": "Облигация корпоративная",
-        "maturity_date": "10.12.2028",
-        "issue_alias_pvo": "АО \"ИК \"Лидер\""
-      },
-      {
-        "issue_id": "4-01-00920-R",
-        "issuer": "ООО \"СФО Столичные дороги Магистральная Инвест\"",
-        "reg_number": "4-01-00920-R",
-        "issuer_code": "",
-        "instrument_type": "Облигация корпоративная",
-        "maturity_date": "23.06.2050",
-        "issue_alias_pvo": "АО \"ИК \"Лидер\""
-      }
-    ],
-    "website_url": "https://www.ic-leader.ru/",
-    "ogrn": "1107746785410",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39238"
-  },
-  {
-    "name": "Акционерное общество \"Инвестиционная компания \"Орион Капитал\"",
-    "full_name": "Акционерное общество \"Инвестиционная компания \"Орион Капитал\"",
-    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
-    "ogrn": "1027739765932",
-    "news_feed_url": ""
-  },
-  {
-    "name": "Акционерное общество \"Консалтинговая группа \"МФЦ\"",
-    "full_name": "Акционерное общество \"Консалтинговая группа \"МФЦ\"",
-    "slug": "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "http://moscons.ru/pvo/",
-    "ogrn": "1107746925516",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37075"
-  },
-  {
-    "name": "Акционерное общество \"Москва Сити Секьюритиз\"",
-    "full_name": "Акционерное общество \"Москва Сити Секьюритиз\"",
-    "slug": "aktsionernoe-obschestvo-moskva-siti-sekyuritiz",
-    "issue_count": 2,
-    "issues": [
-      {
-        "issue_id": "4B02-03-36479-R-001P",
-        "issuer": "ООО \"Концерн \"РОССИУМ\"",
-        "reg_number": "4B02-03-36479-R-001P",
-        "issuer_code": "36479-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "11.12.2029",
-        "issue_alias_pvo": "АО \"Москва Сити Секьюритиз\""
-      },
-      {
-        "issue_id": "4B02-01-07335-A-001P",
-        "issuer": "ПАО \"Аптечная сеть 36,6\"",
-        "reg_number": "4B02-01-07335-A-001P",
-        "issuer_code": "07335-A",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "30.11.2029",
-        "issue_alias_pvo": "АО \"Москва Сити Секьюритиз\""
-      }
-    ],
-    "website_url": "https://mcitys.ru/representative-bond-owners",
-    "ogrn": "1227700750320",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=38092"
-  },
-  {
     "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ПЕРВОУРАЛЬСКБАНК\"",
     "full_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ПЕРВОУРАЛЬСКБАНК\"",
     "slug": "aktsionernoe-obschestvo-pervouralskbank",
@@ -305,6 +200,231 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=3103"
   },
   {
+    "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЮНИТЕК СЕРВИС\"",
+    "full_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЮНИТЕК СЕРВИС\"",
+    "slug": "aktsionernoe-obschestvo-yunitek-servis",
+    "issue_count": 11,
+    "issues": [
+      {
+        "issue_id": "4B02-02-09137-A",
+        "issuer": "АО \"СПМК\"",
+        "reg_number": "4B02-02-09137-A",
+        "issuer_code": "09137-A",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "08.06.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-01-00094-L",
+        "issuer": "ООО \"Агротек\"",
+        "reg_number": "4B02-01-00094-L",
+        "issuer_code": "00094-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "09.04.2026",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-02-00094-L",
+        "issuer": "ООО \"Агротек\"",
+        "reg_number": "4B02-02-00094-L",
+        "issuer_code": "00094-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "22.07.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-03-00094-L",
+        "issuer": "ООО \"Агротек\"",
+        "reg_number": "4B02-03-00094-L",
+        "issuer_code": "00094-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "24.06.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-04-00094-L",
+        "issuer": "ООО \"Агротек\"",
+        "reg_number": "4B02-04-00094-L",
+        "issuer_code": "00094-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "22.03.2029",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-05-00094-L",
+        "issuer": "ООО \"Агротек\"",
+        "reg_number": "4B02-05-00094-L",
+        "issuer_code": "00094-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "22.03.2029",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-02-00100-L",
+        "issuer": "ООО \"ИСТРИНСКАЯ СЫРОВАРНЯ\"",
+        "reg_number": "4B02-02-00100-L",
+        "issuer_code": "00100-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "13.08.2026",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-02-00097-L",
+        "issuer": "ООО \"Мосрегионлифт\"",
+        "reg_number": "4B02-02-00097-L",
+        "issuer_code": "00097-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "25.05.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-01-00112-L",
+        "issuer": "ООО \"РуссОйл\"",
+        "reg_number": "4B02-01-00112-L",
+        "issuer_code": "00112-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "20.10.2026",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-01-00434-R",
+        "issuer": "ООО \"Трейдберри\"",
+        "reg_number": "4B02-01-00434-R",
+        "issuer_code": "00434-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "27.08.2026",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      },
+      {
+        "issue_id": "4B02-01-00312-R",
+        "issuer": "ООО \"Частная пивоварня \"Афанасий\"",
+        "reg_number": "4B02-01-00312-R",
+        "issuer_code": "00312-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "15.10.2026",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
+      }
+    ],
+    "website_url": "https://unitec-s.ru/raskritie_infotm_pvo/",
+    "ogrn": "1257700498681",
+    "news_feed_url": "https://disclosure.1prime.ru/Portal/Default.aspx?emid=9729410964"
+  },
+  {
+    "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО ВТБ РЕГИСТРАТОР",
+    "full_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО ВТБ РЕГИСТРАТОР",
+    "slug": "aktsionernoe-obschestvo-vtb-registrator",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "https://www.vtbreg.ru/pvo/",
+    "ogrn": "1045605469744",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39695"
+  },
+  {
+    "name": "Акционерное общество \"Инвестиционная компания \"Лидер\"",
+    "full_name": "Акционерное общество \"Инвестиционная компания \"Лидер\"",
+    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-lider",
+    "issue_count": 5,
+    "issues": [
+      {
+        "issue_id": "4-01-00826-R",
+        "issuer": "ООО \"СФО ВСМ Инвест - Первый\"",
+        "reg_number": "4-01-00826-R",
+        "issuer_code": "",
+        "instrument_type": "Облигация корпоративная",
+        "maturity_date": "16.11.2049",
+        "issue_alias_pvo": "АО \"ИК \"Лидер\""
+      },
+      {
+        "issue_id": "4-01-00910-R",
+        "issuer": "ООО \"СФО РХА Инвест-Первый\"",
+        "reg_number": "4-01-00910-R",
+        "issuer_code": "",
+        "instrument_type": "Облигация корпоративная",
+        "maturity_date": "05.11.2028",
+        "issue_alias_pvo": "АО \"ИК \"Лидер\""
+      },
+      {
+        "issue_id": "4-02-00910-R",
+        "issuer": "ООО \"СФО РХА Инвест-Первый\"",
+        "reg_number": "4-02-00910-R",
+        "issuer_code": "",
+        "instrument_type": "Облигация корпоративная",
+        "maturity_date": "09.12.2028",
+        "issue_alias_pvo": "АО \"ИК \"Лидер\""
+      },
+      {
+        "issue_id": "4-03-00910-R",
+        "issuer": "ООО \"СФО РХА Инвест-Первый\"",
+        "reg_number": "4-03-00910-R",
+        "issuer_code": "",
+        "instrument_type": "Облигация корпоративная",
+        "maturity_date": "10.12.2028",
+        "issue_alias_pvo": "АО \"ИК \"Лидер\""
+      },
+      {
+        "issue_id": "4-01-00920-R",
+        "issuer": "ООО \"СФО Столичные дороги Магистральная Инвест\"",
+        "reg_number": "4-01-00920-R",
+        "issuer_code": "",
+        "instrument_type": "Облигация корпоративная",
+        "maturity_date": "23.06.2050",
+        "issue_alias_pvo": "АО \"ИК \"Лидер\""
+      }
+    ],
+    "website_url": "https://www.ic-leader.ru/",
+    "ogrn": "1107746785410",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39238"
+  },
+  {
+    "name": "Акционерное общество \"Инвестиционная компания \"Орион Капитал\"",
+    "full_name": "Акционерное общество \"Инвестиционная компания \"Орион Капитал\"",
+    "slug": "aktsionernoe-obschestvo-investitsionnaya-kompaniya-orion-kapital",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "https://orionic.ru/open-info/predstavitel-vladeltsev-obligatsiy/",
+    "ogrn": "1027739765932",
+    "news_feed_url": ""
+  },
+  {
+    "name": "Акционерное общество \"Консалтинговая группа \"МФЦ\"",
+    "full_name": "Акционерное общество \"Консалтинговая группа \"МФЦ\"",
+    "slug": "aktsionernoe-obschestvo-konsaltingovaya-gruppa-mfts",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "http://moscons.ru/pvo/",
+    "ogrn": "1107746925516",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37075"
+  },
+  {
+    "name": "Акционерное общество \"Москва Сити Секьюритиз\"",
+    "full_name": "Акционерное общество \"Москва Сити Секьюритиз\"",
+    "slug": "aktsionernoe-obschestvo-moskva-siti-sekyuritiz",
+    "issue_count": 2,
+    "issues": [
+      {
+        "issue_id": "4B02-03-36479-R-001P",
+        "issuer": "ООО \"Концерн \"РОССИУМ\"",
+        "reg_number": "4B02-03-36479-R-001P",
+        "issuer_code": "36479-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "11.12.2029",
+        "issue_alias_pvo": "АО \"Москва Сити Секьюритиз\""
+      },
+      {
+        "issue_id": "4B02-01-07335-A-001P",
+        "issuer": "ПАО \"Аптечная сеть 36,6\"",
+        "reg_number": "4B02-01-07335-A-001P",
+        "issuer_code": "07335-A",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "30.11.2029",
+        "issue_alias_pvo": "АО \"Москва Сити Секьюритиз\""
+      }
+    ],
+    "website_url": "https://mcitys.ru/representative-bond-owners",
+    "ogrn": "1227700750320",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=38092"
+  },
+  {
     "name": "Акционерное общество \"Управляющая компания \"ТРАНСФИНГРУП\"",
     "full_name": "Акционерное общество \"Управляющая компания \"ТРАНСФИНГРУП\"",
     "slug": "aktsionernoe-obschestvo-upravlyayuschaya-kompaniya-transfingrup",
@@ -426,126 +546,6 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=35194"
   },
   {
-    "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЮНИТЕК СЕРВИС\"",
-    "full_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЮНИТЕК СЕРВИС\"",
-    "slug": "aktsionernoe-obschestvo-yunitek-servis",
-    "issue_count": 11,
-    "issues": [
-      {
-        "issue_id": "4B02-02-09137-A",
-        "issuer": "АО \"СПМК\"",
-        "reg_number": "4B02-02-09137-A",
-        "issuer_code": "09137-A",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "08.06.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-01-00094-L",
-        "issuer": "ООО \"Агротек\"",
-        "reg_number": "4B02-01-00094-L",
-        "issuer_code": "00094-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "09.04.2026",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-02-00094-L",
-        "issuer": "ООО \"Агротек\"",
-        "reg_number": "4B02-02-00094-L",
-        "issuer_code": "00094-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "22.07.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-03-00094-L",
-        "issuer": "ООО \"Агротек\"",
-        "reg_number": "4B02-03-00094-L",
-        "issuer_code": "00094-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "24.06.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-04-00094-L",
-        "issuer": "ООО \"Агротек\"",
-        "reg_number": "4B02-04-00094-L",
-        "issuer_code": "00094-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "22.03.2029",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-05-00094-L",
-        "issuer": "ООО \"Агротек\"",
-        "reg_number": "4B02-05-00094-L",
-        "issuer_code": "00094-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "22.03.2029",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-02-00100-L",
-        "issuer": "ООО \"ИСТРИНСКАЯ СЫРОВАРНЯ\"",
-        "reg_number": "4B02-02-00100-L",
-        "issuer_code": "00100-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "13.08.2026",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-02-00097-L",
-        "issuer": "ООО \"Мосрегионлифт\"",
-        "reg_number": "4B02-02-00097-L",
-        "issuer_code": "00097-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "25.05.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-01-00112-L",
-        "issuer": "ООО \"РуссОйл\"",
-        "reg_number": "4B02-01-00112-L",
-        "issuer_code": "00112-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "20.10.2026",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-01-00434-R",
-        "issuer": "ООО \"Трейдберри\"",
-        "reg_number": "4B02-01-00434-R",
-        "issuer_code": "00434-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "27.08.2026",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      },
-      {
-        "issue_id": "4B02-01-00312-R",
-        "issuer": "ООО \"Частная пивоварня \"Афанасий\"",
-        "reg_number": "4B02-01-00312-R",
-        "issuer_code": "00312-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "15.10.2026",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юнитек Сервис\""
-      }
-    ],
-    "website_url": "https://unitec-s.ru/raskritie_infotm_pvo/",
-    "ogrn": "1257700498681",
-    "news_feed_url": "https://disclosure.1prime.ru/Portal/Default.aspx?emid=9729410964"
-  },
-  {
-    "name": "АКЦИОНЕРНОЕ ОБЩЕСТВО ВТБ РЕГИСТРАТОР",
-    "full_name": "АКЦИОНЕРНОЕ ОБЩЕСТВО ВТБ РЕГИСТРАТОР",
-    "slug": "aktsionernoe-obschestvo-vtb-registrator",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "https://www.vtbreg.ru/pvo/",
-    "ogrn": "1045605469744",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39695"
-  },
-  {
     "name": "Акционерный коммерческий банк \"Абсолют Банк\" (публичное акционерное общество)",
     "full_name": "Акционерный коммерческий банк \"Абсолют Банк\" (публичное акционерное общество)",
     "slug": "aktsionernyy-kommercheskiy-bank-absolyut-bank-publichnoe-aktsionernoe-obschestvo",
@@ -576,14 +576,123 @@
     "news_feed_url": ""
   },
   {
-    "name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
-    "full_name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avi-kepital",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "https://avi.capital/",
-    "ogrn": "1237700901019",
-    "news_feed_url": ""
+    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЮРИСТ-Н\"",
+    "full_name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЮРИСТ-Н\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurist-n",
+    "issue_count": 12,
+    "issues": [
+      {
+        "issue_id": "4B02-01-00137-L",
+        "issuer": "\"СИНАРА-Капитал\" (ООО)",
+        "reg_number": "4B02-01-00137-L",
+        "issuer_code": "00137-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "11.04.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4-04-00705-B",
+        "issuer": "АО Банк Синара",
+        "reg_number": "4-04-00705-B",
+        "issuer_code": "",
+        "instrument_type": "Облигация корпоративная",
+        "maturity_date": "10.06.2032",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-01-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-01-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "12.10.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-04-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-04-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "25.08.2026",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-05-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-05-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "09.12.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-06-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-06-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "22.09.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-07-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-07-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "07.08.2026",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-08-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-08-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "04.03.2027",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-09-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-09-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "08.07.2028",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-10-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-10-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "12.10.2028",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-11-00554-R-001P",
+        "issuer": "ООО \"ВИС ФИНАНС\"",
+        "reg_number": "4B02-11-00554-R-001P",
+        "issuer_code": "00554-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "15.02.2029",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      },
+      {
+        "issue_id": "4B02-04-00416-R-001P",
+        "issuer": "ООО \"ТАЛАН-ФИНАНС\"",
+        "reg_number": "4B02-04-00416-R-001P",
+        "issuer_code": "00416-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "06.07.2028",
+        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
+      }
+    ],
+    "website_url": "https://yurisyn.ru/",
+    "ogrn": "1175029015930",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39590"
   },
   {
     "name": "Общество с ограниченной ответственностью \"АВР Консалт\"",
@@ -594,35 +703,6 @@
     "website_url": "https://xn----7sbbg5bhmhpon.xn--p1ai/",
     "ogrn": "5157746211398",
     "news_feed_url": ""
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Академ-Финанс\"",
-    "full_name": "Общество с ограниченной ответственностью \"Академ-Финанс\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-akadem-finans",
-    "issue_count": 2,
-    "issues": [
-      {
-        "issue_id": "4B02-01-00350-R-001P",
-        "issuer": "ООО \"АРАГОН\"",
-        "reg_number": "4B02-01-00350-R-001P",
-        "issuer_code": "00350-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "16.03.2029",
-        "issue_alias_pvo": "ООО \"Академ-Финанс\""
-      },
-      {
-        "issue_id": "4B02-02-00350-R-001P",
-        "issuer": "ООО \"АРАГОН\"",
-        "reg_number": "4B02-02-00350-R-001P",
-        "issuer_code": "00350-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "10.07.2029",
-        "issue_alias_pvo": "ООО \"Академ-Финанс\""
-      }
-    ],
-    "website_url": "http://academfin.ru/302/",
-    "ogrn": "1107746305743",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=29884"
   },
   {
     "name": "Общество с ограниченной ответственностью \"АЛОР +\"",
@@ -663,6 +743,35 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=38340"
   },
   {
+    "name": "Общество с ограниченной ответственностью \"Академ-Финанс\"",
+    "full_name": "Общество с ограниченной ответственностью \"Академ-Финанс\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-akadem-finans",
+    "issue_count": 2,
+    "issues": [
+      {
+        "issue_id": "4B02-01-00350-R-001P",
+        "issuer": "ООО \"АРАГОН\"",
+        "reg_number": "4B02-01-00350-R-001P",
+        "issuer_code": "00350-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "16.03.2029",
+        "issue_alias_pvo": "ООО \"Академ-Финанс\""
+      },
+      {
+        "issue_id": "4B02-02-00350-R-001P",
+        "issuer": "ООО \"АРАГОН\"",
+        "reg_number": "4B02-02-00350-R-001P",
+        "issuer_code": "00350-R",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "10.07.2029",
+        "issue_alias_pvo": "ООО \"Академ-Финанс\""
+      }
+    ],
+    "website_url": "http://academfin.ru/302/",
+    "ogrn": "1107746305743",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=29884"
+  },
+  {
     "name": "Общество с ограниченной ответственностью \"Альянс-Фининвест\"",
     "full_name": "Общество с ограниченной ответственностью \"Альянс-Фининвест\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-alyans-fininvest",
@@ -700,35 +809,6 @@
     "website_url": "https://www.vegainvest.pro/services/bond-owner-representative-services/",
     "ogrn": "1157746948743",
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=38811"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью «Верба Лигал»",
-    "full_name": "Общество с ограниченной ответственностью «Верба Лигал»",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-verba-ligal",
-    "issue_count": 2,
-    "issues": [
-      {
-        "issue_id": "4B02-02-00087-L-001P",
-        "issuer": "ООО \"Озон\"",
-        "reg_number": "4B02-02-00087-L-001P",
-        "issuer_code": "00087-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "17.08.2026",
-        "issue_alias_pvo": "ООО \"Верба Лигал\""
-      },
-      {
-        "issue_id": "4B02-04-00039-L-001P",
-        "issuer": "ООО \"Славянск ЭКО\"",
-        "reg_number": "4B02-04-00039-L-001P",
-        "issuer_code": "00039-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "01.09.2028",
-        "issue_alias_pvo": "ООО \"Верба Лигал\""
-      }
-    ],
-    "website_url": "https://verba-legal-cm.ru/",
-    "ogrn": "1197746297528",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39537"
   },
   {
     "name": "Общество с ограниченной ответственностью \"Волста\"",
@@ -2445,76 +2525,6 @@
     "news_feed_url": ""
   },
   {
-    "name": "Общество с ограниченной ответственностью \"Инвестиционная компания \"Фонтвьель\"",
-    "full_name": "Общество с ограниченной ответственностью \"Инвестиционная компания \"Фонтвьель\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnaya-kompaniya-fontvel",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "https://fontvielle.ru/pvo/",
-    "ogrn": "1147746270033",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39734"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Инвестиционные традиции\"",
-    "full_name": "Общество с ограниченной ответственностью \"Инвестиционные традиции\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnye-traditsii",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "http://invest-traditions.ru/",
-    "ogrn": "1127747136340",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39103"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\"",
-    "full_name": "Общество с ограниченной ответственностью \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnyy-monetnyy-auktsion-gelios-finans",
-    "issue_count": 1,
-    "issues": [
-      {
-        "issue_id": "4B02-01-04329-D",
-        "issuer": "ПАО \"Левенгук\"",
-        "reg_number": "4B02-01-04329-D",
-        "issuer_code": "04329-D",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "22.11.2027",
-        "issue_alias_pvo": "ООО \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\""
-      }
-    ],
-    "website_url": "https://heliosfinance.nethouse.ru/",
-    "ogrn": "1127847397248",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39725"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Инвестор\"",
-    "full_name": "Общество с ограниченной ответственностью \"Инвестор\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investor",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": null,
-    "ogrn": "1127747151498",
-    "news_feed_url": ""
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"КВС\"",
-    "full_name": "Общество с ограниченной ответственностью \"КВС\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kvs",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "http://www.bondslegal.com/index.html#news",
-    "ogrn": "1174401005130",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=38913"
-  },
-  {
-    "name": "Общество с ограниченной ответственностью \"Контроль Качества\"",
-    "full_name": "Общество с ограниченной ответственностью \"Контроль Качества\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kontrol-kachestva",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "https://www.pvoqualitycontrol.ru/",
-    "ogrn": "1137847250970",
-    "news_feed_url": ""
-  },
-  {
     "name": "Общество с ограниченной ответственностью \"Защита прав владельцев облигаций\"",
     "full_name": "Общество с ограниченной ответственностью \"Защита прав владельцев облигаций\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-liv",
@@ -2731,6 +2741,113 @@
     "website_url": "https://zpvo.ru/",
     "ogrn": "1147746197653",
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39678"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"Инвестиционная компания \"Фонтвьель\"",
+    "full_name": "Общество с ограниченной ответственностью \"Инвестиционная компания \"Фонтвьель\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnaya-kompaniya-fontvel",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "https://fontvielle.ru/pvo/",
+    "ogrn": "1147746270033",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39734"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"Инвестиционные традиции\"",
+    "full_name": "Общество с ограниченной ответственностью \"Инвестиционные традиции\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnye-traditsii",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "http://invest-traditions.ru/",
+    "ogrn": "1127747136340",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39103"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\"",
+    "full_name": "Общество с ограниченной ответственностью \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investitsionnyy-monetnyy-auktsion-gelios-finans",
+    "issue_count": 1,
+    "issues": [
+      {
+        "issue_id": "4B02-01-04329-D",
+        "issuer": "ПАО \"Левенгук\"",
+        "reg_number": "4B02-01-04329-D",
+        "issuer_code": "04329-D",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "22.11.2027",
+        "issue_alias_pvo": "ООО \"Инвестиционный Монетный Аукцион \"Гелиос Финанс\""
+      }
+    ],
+    "website_url": "https://heliosfinance.nethouse.ru/",
+    "ogrn": "1127847397248",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39725"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"Инвестор\"",
+    "full_name": "Общество с ограниченной ответственностью \"Инвестор\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-investor",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": null,
+    "ogrn": "1127747151498",
+    "news_feed_url": ""
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"КВС\"",
+    "full_name": "Общество с ограниченной ответственностью \"КВС\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kvs",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "http://www.bondslegal.com/index.html#news",
+    "ogrn": "1174401005130",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=38913"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"Комплексные системы\"",
+    "full_name": "Общество с ограниченной ответственностью \"Комплексные системы\"",
+    "slug": "obshchestvo-s-ogranichennoi-otvetstvennostyu-kompleksnye-sistemy",
+    "issue_count": 0,
+    "issues": [],
+    "ogrn": "1237700063215"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"Контроль Качества\"",
+    "full_name": "Общество с ограниченной ответственностью \"Контроль Качества\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-kontrol-kachestva",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "https://www.pvoqualitycontrol.ru/",
+    "ogrn": "1137847250970",
+    "news_feed_url": ""
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"ЛП Трасти Сервисез\"",
+    "full_name": "Общество с ограниченной ответственностью \"ЛП Трасти Сервисез\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-lp-trasti-servisez",
+    "issue_count": 2,
+    "issues": [
+      {
+        "issue_id": "4B02-01-33273-H-001P",
+        "issuer": "ЗАО \"КРАУС-М\"",
+        "reg_number": "4B02-01-33273-H-001P",
+        "issuer_code": "33273-H",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "10.12.2026",
+        "issue_alias_pvo": "ООО \"ЛП ТРАСТИ СЕРВИСЕЗ\""
+      },
+      {
+        "issue_id": "4B02-01-00039-L-001P",
+        "issuer": "ООО \"Славянск ЭКО\"",
+        "reg_number": "4B02-01-00039-L-001P",
+        "issuer_code": "00039-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "13.10.2026",
+        "issue_alias_pvo": "ООО \"ЛП ТРАСТИ СЕРВИСЕЗ\""
+      }
+    ],
+    "website_url": "http://www.lptrustee.ru/",
+    "ogrn": "1027739143838",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=36768"
   },
   {
     "name": "Общество с ограниченной ответственностью \"Лигал Кэпитал Инвестор Сервисез\"",
@@ -7424,35 +7541,6 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=35599"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"ЛП Трасти Сервисез\"",
-    "full_name": "Общество с ограниченной ответственностью \"ЛП Трасти Сервисез\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-lp-trasti-servisez",
-    "issue_count": 2,
-    "issues": [
-      {
-        "issue_id": "4B02-01-33273-H-001P",
-        "issuer": "ЗАО \"КРАУС-М\"",
-        "reg_number": "4B02-01-33273-H-001P",
-        "issuer_code": "33273-H",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "10.12.2026",
-        "issue_alias_pvo": "ООО \"ЛП ТРАСТИ СЕРВИСЕЗ\""
-      },
-      {
-        "issue_id": "4B02-01-00039-L-001P",
-        "issuer": "ООО \"Славянск ЭКО\"",
-        "reg_number": "4B02-01-00039-L-001P",
-        "issuer_code": "00039-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "13.10.2026",
-        "issue_alias_pvo": "ООО \"ЛП ТРАСТИ СЕРВИСЕЗ\""
-      }
-    ],
-    "website_url": "http://www.lptrustee.ru/",
-    "ogrn": "1027739143838",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=36768"
-  },
-  {
     "name": "Общество с ограниченной ответственностью \"Межрегионэнергоконтроль\"",
     "full_name": "Общество с ограниченной ответственностью \"Межрегионэнергоконтроль\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-mezhregionenergokontrol",
@@ -7723,14 +7811,13 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39342"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"Синум Групп\"",
-    "full_name": "Общество с ограниченной ответственностью \"Синум Групп\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-sinum-grupp",
+    "name": "Общество с ограниченной ответственностью \"РостИнвест\"",
+    "full_name": "Общество с ограниченной ответственностью \"РостИнвест\"",
+    "slug": "obshchestvo-s-ogranichennoi-otvetstvennostyu-rostinvest",
     "issue_count": 0,
     "issues": [],
-    "website_url": "https://pvobonds.ru/",
-    "ogrn": "1117746126574",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37809"
+    "ogrn": "1227700223211",
+    "website_url": "https://rostinvest.tech/"
   },
   {
     "name": "Общество с ограниченной ответственностью \"СКИФ\"",
@@ -8078,14 +8165,14 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=36481"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
-    "full_name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-merkuri-kepital-trast",
+    "name": "Общество с ограниченной ответственностью \"Синум Групп\"",
+    "full_name": "Общество с ограниченной ответственностью \"Синум Групп\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-sinum-grupp",
     "issue_count": 0,
     "issues": [],
-    "website_url": "https://www.mctrust.ru/pvo/",
-    "ogrn": "1057748134025",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=30029"
+    "website_url": "https://pvobonds.ru/",
+    "ogrn": "1117746126574",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37809"
   },
   {
     "name": "Общество с ограниченной ответственностью \"УПРАВЛЯЮЩАЯ КОМПАНИЯ ИНФРАСТРУКТУРА И ПРОИЗВОДСТВО\"",
@@ -8096,6 +8183,16 @@
     "website_url": "https://uk.infrapro.ru/",
     "ogrn": "1167746886812",
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39720"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
+    "full_name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-merkuri-kepital-trast",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "https://www.mctrust.ru/pvo/",
+    "ogrn": "1057748134025",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=30029"
   },
   {
     "name": "Общество с ограниченной ответственностью \"ФБК Консалтинг\"",
@@ -8573,6 +8670,16 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37907"
   },
   {
+    "name": "Общество с ограниченной ответственностью \"ЮрКонсалтинг Про\"",
+    "full_name": "Общество с ограниченной ответственностью \"ЮрКонсалтинг Про\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurkonsalting-pro",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "http://iurkonsultingpro.ru/",
+    "ogrn": "1105908001198",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39571"
+  },
+  {
     "name": "Общество с ограниченной ответственностью \"Юридическая фирма \"КВЕСТ\"",
     "full_name": "Общество с ограниченной ответственностью \"Юридическая фирма \"КВЕСТ\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yuridicheskaya-firma-kvest",
@@ -8647,125 +8754,6 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37400"
   },
   {
-    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЮРИСТ-Н\"",
-    "full_name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ЮРИСТ-Н\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurist-n",
-    "issue_count": 12,
-    "issues": [
-      {
-        "issue_id": "4B02-01-00137-L",
-        "issuer": "\"СИНАРА-Капитал\" (ООО)",
-        "reg_number": "4B02-01-00137-L",
-        "issuer_code": "00137-L",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "11.04.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4-04-00705-B",
-        "issuer": "АО Банк Синара",
-        "reg_number": "4-04-00705-B",
-        "issuer_code": "",
-        "instrument_type": "Облигация корпоративная",
-        "maturity_date": "10.06.2032",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-01-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-01-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "12.10.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-04-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-04-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "25.08.2026",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-05-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-05-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "09.12.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-06-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-06-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "22.09.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-07-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-07-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "07.08.2026",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-08-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-08-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "04.03.2027",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-09-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-09-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "08.07.2028",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-10-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-10-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "12.10.2028",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-11-00554-R-001P",
-        "issuer": "ООО \"ВИС ФИНАНС\"",
-        "reg_number": "4B02-11-00554-R-001P",
-        "issuer_code": "00554-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "15.02.2029",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      },
-      {
-        "issue_id": "4B02-04-00416-R-001P",
-        "issuer": "ООО \"ТАЛАН-ФИНАНС\"",
-        "reg_number": "4B02-04-00416-R-001P",
-        "issuer_code": "00416-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "06.07.2028",
-        "issue_alias_pvo": "Общество с ограниченной ответственностью \"Юрист-Н\""
-      }
-    ],
-    "website_url": "https://yurisyn.ru/",
-    "ogrn": "1175029015930",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39590"
-  },
-  {
     "name": "Общество с ограниченной ответственностью \"Юристат\"",
     "full_name": "Общество с ограниченной ответственностью \"Юристат\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yuristat",
@@ -8776,14 +8764,43 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37117"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"ЮрКонсалтинг Про\"",
-    "full_name": "Общество с ограниченной ответственностью \"ЮрКонсалтинг Про\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-yurkonsalting-pro",
+    "name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
+    "full_name": "Общество с ограниченной ответственностью «АВИ Кэпитал»",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-avi-kepital",
     "issue_count": 0,
     "issues": [],
-    "website_url": "http://iurkonsultingpro.ru/",
-    "ogrn": "1105908001198",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39571"
+    "website_url": "https://avi.capital/",
+    "ogrn": "1237700901019",
+    "news_feed_url": ""
+  },
+  {
+    "name": "Общество с ограниченной ответственностью «Верба Лигал»",
+    "full_name": "Общество с ограниченной ответственностью «Верба Лигал»",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-verba-ligal",
+    "issue_count": 2,
+    "issues": [
+      {
+        "issue_id": "4B02-02-00087-L-001P",
+        "issuer": "ООО \"Озон\"",
+        "reg_number": "4B02-02-00087-L-001P",
+        "issuer_code": "00087-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "17.08.2026",
+        "issue_alias_pvo": "ООО \"Верба Лигал\""
+      },
+      {
+        "issue_id": "4B02-04-00039-L-001P",
+        "issuer": "ООО \"Славянск ЭКО\"",
+        "reg_number": "4B02-04-00039-L-001P",
+        "issuer_code": "00039-L",
+        "instrument_type": "Облигация биржевая",
+        "maturity_date": "01.09.2028",
+        "issue_alias_pvo": "ООО \"Верба Лигал\""
+      }
+    ],
+    "website_url": "https://verba-legal-cm.ru/",
+    "ogrn": "1197746297528",
+    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39537"
   },
   {
     "name": "Общество с ограниченной ответственностью Научно-производственное предприятие \"ИМПЛЕКС\"",
