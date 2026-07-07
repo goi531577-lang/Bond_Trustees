@@ -10297,16 +10297,6 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37092"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"Национальный Центр Сертификации\"",
-    "full_name": "Общество с ограниченной ответственностью \"Национальный Центр Сертификации\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-natsionalnyy-tsentr-sertifikatsii",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": null,
-    "ogrn": "1167746627498",
-    "news_feed_url": ""
-  },
-  {
     "name": "Общество с ограниченной ответственностью \"Орг-контроль\"",
     "full_name": "Общество с ограниченной ответственностью \"Орг-контроль\"",
     "slug": "obshchestvo-s-ogranichennoi-otvetstvennostyu-org-kontrol",
@@ -11108,27 +11098,6 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=36481"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"Синум Групп\"",
-    "full_name": "Общество с ограниченной ответственностью \"Синум Групп\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-sinum-grupp",
-    "issue_count": 1,
-    "issues": [
-      {
-        "issue_id": "4B02-01-36515-R-001P",
-        "issuer": "ООО \"ПСН ПМ\"",
-        "reg_number": "4B02-01-36515-R-001P",
-        "issuer_code": "36515-R",
-        "instrument_type": "Облигация биржевая",
-        "maturity_date": "31.08.2027",
-        "trade_status": "Не торгуется",
-        "issue_alias_pvo": "ООО \"Синум Групп\""
-      }
-    ],
-    "website_url": "https://pvobonds.ru/",
-    "ogrn": "1117746126574",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37809"
-  },
-  {
     "name": "Общество с ограниченной ответственностью \"УПРАВЛЯЮЩАЯ КОМПАНИЯ ИНФРАСТРУКТУРА И ПРОИЗВОДСТВО\"",
     "full_name": "Общество с ограниченной ответственностью \"УПРАВЛЯЮЩАЯ КОМПАНИЯ ИНФРАСТРУКТУРА И ПРОИЗВОДСТВО\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-infrastruktura-i-proizvodstvo",
@@ -11238,6 +11207,13 @@
     "website_url": "https://www.fbk.ru/services/uslugi-organizatsiyam-na-finansovom-rynke/predstavitel-vladeltsev-obligatsiy/",
     "ogrn": "1027700058517",
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=37179"
+  },
+  {
+    "name": "Общество с ограниченной ответственностью \"ФКЦ Спутник\"",
+    "full_name": "Общество с ограниченной ответственностью \"ФКЦ Спутник\"",
+    "slug": "obshchestvo-s-ogranichennoi-otvetstvennostyu-fkts-sputnik",
+    "issue_count": 0,
+    "issues": []
   },
   {
     "name": "Общество с ограниченной ответственностью \"Финансовая корпорация \"Атмосфера\"",
