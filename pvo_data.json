@@ -28074,16 +28074,6 @@
     "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=39720"
   },
   {
-    "name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
-    "full_name": "Общество с ограниченной ответственностью \"Управляющая компания \"Меркури Кэпитал Траст\"",
-    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-upravlyayuschaya-kompaniya-merkuri-kepital-trast",
-    "issue_count": 0,
-    "issues": [],
-    "website_url": "https://www.mctrust.ru/pvo/",
-    "ogrn": "1057748134025",
-    "news_feed_url": "https://www.e-disclosure.ru/portal/company.aspx?id=30029"
-  },
-  {
     "name": "Общество с ограниченной ответственностью \"ФБК Консалтинг\"",
     "full_name": "Общество с ограниченной ответственностью \"ФБК Консалтинг\"",
     "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-fbk-konsalting",
@@ -30779,5 +30769,35 @@
     "issue_count": 0,
     "issues": [],
     "ogrn": "1107799015884"
+  },
+  {
+    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РУССКОЕ ИНВЕСТИЦИОННОЕ ОБЩЕСТВО\"",
+    "full_name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РУССКОЕ ИНВЕСТИЦИОННОЕ ОБЩЕСТВО\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-russkoe-investitsionnoe-obschestvo",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "",
+    "ogrn": "1127747056040",
+    "news_feed_url": ""
+  },
+  {
+    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"НАНОТЕК\"",
+    "full_name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"НАНОТЕК\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-nanotek",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "",
+    "ogrn": "1077759450031",
+    "news_feed_url": ""
+  },
+  {
+    "name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ИНФОТЕК\"",
+    "full_name": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ИНФОТЕК\"",
+    "slug": "obschestvo-s-ogranichennoy-otvetstvennostyu-infotek",
+    "issue_count": 0,
+    "issues": [],
+    "website_url": "",
+    "ogrn": "1127746437830",
+    "news_feed_url": ""
   }
 ]
